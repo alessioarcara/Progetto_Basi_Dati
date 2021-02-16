@@ -1,5 +1,4 @@
 /* CREAZIONE TABELLE */
-/* ciaone */
 
 CREATE TABLE BIBLIOTECA (
 	Nome VARCHAR(30) PRIMARY KEY,
@@ -99,18 +98,22 @@ CREATE TABLE AMMINISTRATORE (
     														 ON UPDATE CASCADE
 );
 
+CREATE TYPE MEZZO AS ENUM ('Piedi','Bici','Auto');
+
 CREATE TABLE VOLONTARIO (
     EmailVolontario VARCHAR(50) PRIMARY KEY,
-    MezzoDiTrasporto ENUM('Piedi','Bici','Auto'),
+    MezzoDiTrasporto MEZZO,
     FOREIGN KEY (EmailVolontario) REFERENCES UTENTE(EmailUtente) ON DELETE CASCADE
     															 ON UPDATE CASCADE
 );
+
+CREATE TYPE STATO AS ENUM ('ATTIVO', 'SOSPESO');
 
 CREATE TABLE UTILIZZATORE (
     EmailUtilizzatore VARCHAR(50) PRIMARY KEY,
     Professione VARCHAR(40) NOT NULL,
     DataCreazioneAccount DATE NOT NULL,
-    StatoAccount ENUM ('ATTIVO', 'SOSPESO'),
+    StatoAccount STATO,
     FOREIGN KEY (EmailUtilizzatore) REFERENCES UTENTE(EmailUtente) ON DELETE CASCADE
     															   ON UPDATE CASCADE
 );
@@ -174,10 +177,8 @@ CREATE TABLE REGISTRAZIONE (
 	
 	FOREIGN KEY (EmailUtilizzatore) REFERENCES UTILIZZATORE (EmailUtilizzatore) ON DELETE CASCADE
 																				ON UPDATE CASCADE,
-	FOREIGN KEY (NumeroPostoLettura) REFERENCES POSTOLETTURA (Numero) ON DELETE CASCADE
-																	  ON UPDATE CASCADE,
-	FOREIGN KEY (NomeBiblioteca) REFERENCES BIBLIOTECA (Nome) ON DELETE CASCADE
-															  ON UPDATE CASCADE
+	FOREIGN KEY (NumeroPostoLettura, NomeBiblioteca) REFERENCES POSTOLETTURA (Numero, NomeBiblioteca) ON DELETE CASCADE
+																	  ON UPDATE CASCADE
 );
 
 CREATE TABLE PRENOTAZIONE (
@@ -192,11 +193,13 @@ CREATE TABLE PRENOTAZIONE (
     																				ON UPDATE CASCADE
 );
 
+CREATE TYPE TIPOLOGIA AS ENUM ('Restituzione','Affidamento');
+
 CREATE TABLE CONSEGNA (
     CodiceConsegna CHAR(10) PRIMARY KEY,
     Note VARCHAR(200) NOT NULL,
     Data DATE NOT NULL,
-    Tipo ENUM('Restituzione','Affidamento'),
+    Tipo TIPOLOGIA,
     CodicePrenotazione CHAR(10) NOT NULL,
     EmailVolontario VARCHAR(50) NOT NULL,
     FOREIGN KEY (CodicePrenotazione) REFERENCES PRENOTAZIONE(CodicePrenotazione) ON DELETE CASCADE

@@ -6,7 +6,8 @@
   $host = "rogue.db.elephantsql.com";
   $user = "odjbcpxl";
   $pass = "nO2Qcbu_JL3IthuXaQlJh2TYUSAIJ1ef";
-  $db = "dryutdsk";
+  $db = "ProgettoBasiDiDati";
+  $port = 5432;
 
   // Open a PostgreSQL connection
   $con = pg_connect("host=$host dbname=$db user=$user password=$pass")

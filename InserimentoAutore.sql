@@ -1,0 +1,10 @@
+INSERT INTO AUTORE VALUES (
+  'AUTORE0001',
+  'Mario',
+  'Rossi'
+);
+INSERT INTO AUTORE VALUES (
+  'AUTORE0002',
+  'Luigi',
+  'Neri'
+);

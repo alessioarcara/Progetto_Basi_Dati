@@ -1,4 +1,5 @@
 /* CREAZIONE TABELLE */
+/*                   */
 
 CREATE TABLE BIBLIOTECA (
 	Nome VARCHAR(100) PRIMARY KEY,

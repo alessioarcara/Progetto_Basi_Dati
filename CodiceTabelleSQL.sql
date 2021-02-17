@@ -179,7 +179,7 @@ CREATE TABLE REGISTRAZIONE (
 	FOREIGN KEY (EmailUtilizzatore) REFERENCES UTILIZZATORE (EmailUtilizzatore) ON DELETE CASCADE
 																				ON UPDATE CASCADE,
 	FOREIGN KEY (NumeroPostoLettura, NomeBiblioteca) REFERENCES POSTOLETTURA (Numero, NomeBiblioteca) ON DELETE CASCADE
-																	  ON UPDATE CASCADE
+																	                                  ON UPDATE CASCADE
 );
 
 CREATE TABLE PRENOTAZIONE (

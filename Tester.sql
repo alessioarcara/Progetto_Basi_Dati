@@ -1,4 +1,4 @@
--- SELECT *
+-- SELECT Nome
 -- FROM GetBiblioteche();
 
 -- SELECT * 
@@ -7,4 +7,4 @@
 -- SELECT *
 -- FROM LibriBiblioteca('Biblioteca Universitaria di Bologna');
 
-SELECT Authentication('utente@g.com', 'argo');
+SELECT Authentication('utente1@g.com', 'argo');

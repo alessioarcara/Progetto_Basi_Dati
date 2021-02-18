@@ -1,0 +1,110 @@
+body {
+	text-align: center;
+	padding: 0;
+	margin: 0;
+	}
+
+
+#telaio {
+	width:100%;
+	margin: 0px;
+	border:1px solid gray;
+	line-height:150%;
+	color: black;
+	background-color: #ffffcc;
+	text-align: left; 
+	}
+
+#testata {
+	font-size: 130%;
+}
+
+#fondo {
+	font-size: 85%;
+	text-align: center;
+}
+
+#testata, #fondo {
+	padding:0.5em;
+	color:white;
+	background-color:#ffc107;
+	clear:left;
+}
+
+#centrale {
+    background-color:#00ffff;
+	border-left:1px solid gray;
+	padding:10px;
+}
+
+#logo {
+    text-align: left;
+    padding:10px;
+}
+
+#menu {
+    text-align: right;
+    padding:10px;
+}
+
+#ricerca {
+    text-align: center;
+    padding:10px;
+}
+
+.btn:not(:disabled):not(.disabled) {
+    cursor: pointer;
+}
+
+.btn {
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+button, select {
+    text-transform: none;
+}
+
+button, input {
+    overflow: visible;
+}
+
+.btn-Biblioteca {
+    color: #007bff;
+    background-color: transparent;
+    background-image: none;
+    border-color: #007bff;
+}
+
+.btn-Cartaceo {
+    color: #dc3545;
+    background-color: transparent;
+    background-image: none;
+    border-color: #dc3545;
+}
+
+.btn-Ebook {
+    color: #28a745;
+    background-color: transparent;
+    background-image: none;
+    border-color: #28a745;
+}
+
+.btn-Search {
+    color: #212529;
+    background-color: #ffc107;
+    border-color: #ffc107;
+}

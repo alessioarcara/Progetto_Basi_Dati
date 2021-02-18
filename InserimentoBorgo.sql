@@ -110,6 +110,21 @@ INSERT INTO LIBRO VALUES (
   'Giallo',
   'Biblioteca Universitaria di Bologna'
 );
+INSERT INTO EBOOK VALUES (
+  'A000000001',
+  1.5,
+  '~/blabla.pdf'
+);
+INSERT INTO EBOOK VALUES (
+  'A000000002',
+  0.5,
+  '~/blabla.pdf'
+);
+INSERT INTO EBOOK VALUES (
+  'A000000003',
+  1.1,
+  '~/blabla.pdf'
+);
 INSERT INTO POSTOLETTURA VALUES (
   1,
   'Biblioteca del Dipartimento di Scienze economiche',

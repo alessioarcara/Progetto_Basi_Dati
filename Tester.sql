@@ -29,7 +29,21 @@
 --   '9:00:00'
 -- );
 
-SELECT PrenotaLibro(
-  'AA00000000',
-  'mario.rossi@unibo.it'
-);
+-- SELECT PrenotaLibro(
+--   'AA00000000',
+--   'mario.rossi@unibo.it'
+-- );
+
+-- SELECT * FROM GetPrenotazioniUtente(
+--   'mario.rossi@unibo.it'
+-- )
+
+-- CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+-- SELECT uuid_generate_v1();
+
+-- ALTER TABLE EBOOK ALTER NumAccessiScheda SET DEFAULT 0;
+
+-- SELECT * FROM GetEBook('A000000001');
+
+SELECT * FROM GetConsegneByUtente('mario.rossi@unibo.it');
+

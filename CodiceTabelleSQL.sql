@@ -185,8 +185,8 @@ CREATE TABLE REGISTRAZIONE (
 
 CREATE TABLE PRENOTAZIONE (
     CodicePrenotazione CHAR(10) PRIMARY KEY,
-    DataAvvio DATE NOT NULL,
-    DataFine DATE NOT NULL,
+    DataAvvio DATE,
+    DataFine DATE,
     EmailUtilizzatore VARCHAR(50) NOT NULL,
     CodiceLibroCartaceo CHAR(10) NOT NULL,
     FOREIGN KEY (EmailUtilizzatore) REFERENCES UTILIZZATORE(EmailUtilizzatore) ON DELETE CASCADE

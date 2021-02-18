@@ -21,9 +21,10 @@
 -- )
 
 SELECT PrenotaPostoLettura (
-  'utente10@g.com',
-  1,
+  'mario.verdi@unibo.it',
+  '2021-02-18',
+  3,
   'Biblioteca Universitaria di Bologna',
-  '8:00',
-  '9:00'
+  '8:00:00',
+  '9:00:00'
 );

@@ -1,6 +1,7 @@
 # Progetto_Basi_Dati
 
 ![Image](/ProgettazioneWeb.jpeg)
-https://fonts.google.com/
-https://icons.coreui.io/icons/
+Fonts di Google: https://fonts.google.com/
+Icone: https://fontawesome.com/v4.7.0/icons/
 https://getbootstrap.com/
+

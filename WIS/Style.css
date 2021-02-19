@@ -1,4 +1,24 @@
+*,
+
+*::after,
+
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+:root{
+    --colour-blue: #16697a;
+}
+
+ html {
+    /* font-size: 62.5%; */
+     font-size: 125%;
+ }
+
 body {
+    box-sizing: border-box;
 	text-align: center;
 	padding: 0;
 	margin: 0;
@@ -23,7 +43,7 @@ body {
 	line-height:150%;
 	color: black;
 	background-color: #ffffcc;
-	text-align: left; 
+	text-align: left;
 } */
 
 
@@ -42,23 +62,30 @@ body {
 #logo {
     color: black;
     text-align: left;
-    padding:10px;
+    padding:1rem;
 }
 
 #titolo {
     font-family: 'Indie Flower', cursive;
-    text-align: center;
+    text-align: left;
 }
 
 #menu {
     text-align: right;
-    padding:10px;
+    padding:1rem;
 }
 
 #ricerca {
-    background-color:#00ffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--colour-blue);
 	text-align: center;
-    padding:10px;
+    padding:6rem;
+}
+
+#fname {
+    margin-right:1px;
 }
 
 .btn:not(:disabled):not(.disabled) {

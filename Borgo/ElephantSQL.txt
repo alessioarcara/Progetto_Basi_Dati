@@ -1,5 +1,0 @@
-Server	                    rogue.db.elephantsql.com (rogue-01)
-Region                      google-compute-engine::europe-west2
-User & Default database	    odjbcpxl 
-Password	                  nO2Qcbu_JL3IthuXaQlJh2TYUSAIJ1ef
-URL	                        postgres://odjbcpxl:nO2Qcb...@rogue.db.elephantsql.com:5432/odjbcpxl  

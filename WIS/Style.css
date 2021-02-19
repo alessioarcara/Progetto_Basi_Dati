@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Arvo:wght@700&display=swap');
+
 body {
 	text-align: center;
 	padding: 0;
@@ -46,7 +48,7 @@ body {
 }
 
 #titolo {
-    font-family: 'Indie Flower', cursive;
+    font-family: 'Arvo', serif;
     text-align: center;
 }
 

@@ -4,9 +4,8 @@
     <link rel="stylesheet" href="Style.css">
     <link rel="stylesheet" href="Style2.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <!-- icons CoreUI -->
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- Bootstrap 4.3.1 -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     
     <meta charset="UTF-8">
@@ -15,40 +14,78 @@
     <title>Document</title>
 </head>
 <body>
-    <!-- <div id="telaio"> -->
 
-        <div class="flex-container">
-            <div id="logo">Logo</div>
-            <div id="titolo">
-                Sistema<br>
-                bibliotecario<br>
-                EBIBLIO</div>
-            <div class="dropdown">
-                <span>Accesso</span>
-                <div class="dropdown-content">
-                    <label class="margin-bottom-5">Utente: </label><br>
-                    <input class="margin-bottom-5" type="text" placeholder="utente"><br>
-                    <label class="margin-bottom-5">Password: </label><br>
-                    <input class="margin-bottom-5" type="password" placeholder="password"><br><br>
-                    <input class="margin-bottom-5" type="submit" value="E Ora?"><br>
-                    <br>
-                    <a href="#">Non sei ancora registrato?</a>
+    <div class="flex-container colorHead">
+        <div id="logo">Logo</div>
+        <div id="titolo">
+            Sistema<br>
+            bibliotecario<br>
+            EBIBLIO</div>
+        <div class="dropdown">
+            <span>Accedi</i></span>
+            <div class="dropdown-content">
+                <label class="margin-bottom-5">Utente: </label><br>
+                <input class="margin-bottom-5" type="text" placeholder="utente"><br>
+                <label class="margin-bottom-5">Password: </label><br>
+                <input class="margin-bottom-5" type="password" placeholder="password"><br><br>
+                <input class="margin-bottom-5" type="submit" value="E Ora?"><br>
+                <br>
+                <a href="#">Non sei ancora registrato?</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="ricerca">
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Tutte le informazioni">
+            <div class="input-group-prepend">
+                <div class="input-group-text">
+                    Tutte le biblioteche &nbsp; <input type="checkbox" id="checkOne">
                 </div>
+            </div>
+            <button type="button" class="btn btn-secondary dimLeft"><i class="fa fa-search"></i></button>
+        </div>
+        <div class="flex-container">
+            <button type="button" class="btn btn-warning dimLeft"><i class="fa fa-user-o"> Posto lettura</i></button>
+            <button type="button" class="btn btn-primary dimLeft"><i class="fa fa-archive"> Biblioteca</i></button>
+            <button type="button" class="btn btn-danger dimLeft"><i class="fa fa-book"> Libro cartaceo</i></button>
+            <button type="button" class="btn btn-success dimLeft"><i class="fa fa-file-pdf-o"> Ebook</i></button>
+        </div>
+    </div>
+
+    <div class="topOne">
+        <div class="dropdown">
+            <button class="dropbtn">Classifiche TOP</button>
+            <div class="dropdown-content">
+                <a href=#>Top libri</a>
+                <a href=#>Top utilizzatori</a>
+                <a href=#>Top amministratori</a>
             </div>
         </div>
 
-        <div id="ricerca">
-            <input type="text" id="fname" placeholder="Tutte le informazioni">
-            <button type="button" class="btn btn-warning"><i class="fa fa-search"></i></button>
+        <div class="card border-dark mb-3" style="max-width: 50rem;">
+            <div class="card-body text-dark">
+                <p class="card-text">Top di ...</p>
+            </div>
         </div>
-        
-        <div id="fondo">
-            <button type="button" class="btn btn-primary">Biblioteca</button>
-            <button type="button" class="btn btn-danger">Libro cartaceo</button>
-            <button type="button" class="btn btn-success">Ebook</button>
+    </div>
+
+    <div class="topTwo">
+        <div class="dropdown">
+            <button class="dropbtn">Classifiche TOP</button>
+            <div class="dropdown-content">
+                <a href=#>Top libri</a>
+                <a href=#>Top utilizzatori</a>
+                <a href=#>Top amministratori</a>
+            </div>
         </div>
-    
-    <!-- </div> -->
+
+        <div class="card border-dark mb-3" style="max-width: 50rem;">
+            <div class="card-body text-dark">
+                <p class="card-text">Top di ...</p>
+            </div>
+        </div>
+    </div>
 
 </body>
 </html>

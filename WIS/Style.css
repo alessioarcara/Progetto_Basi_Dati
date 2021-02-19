@@ -1,6 +1,28 @@
+<<<<<<< HEAD
 @import url('https://fonts.googleapis.com/css2?family=Arvo:wght@700&display=swap');
+=======
+*,
+
+*::after,
+
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+:root{
+    --colour-blue: #16697a;
+}
+
+ html {
+    /* font-size: 62.5%; */
+     font-size: 125%;
+ }
+>>>>>>> 7d5bb658b2a2e2a62546767be40d73b5be256f40
 
 body {
+    box-sizing: border-box;
 	text-align: center;
 	padding: 0;
 	margin: 0;
@@ -25,7 +47,7 @@ body {
 	line-height:150%;
 	color: black;
 	background-color: #ffffcc;
-	text-align: left; 
+	text-align: left;
 } */
 
 
@@ -44,23 +66,35 @@ body {
 #logo {
     color: black;
     text-align: left;
-    padding:10px;
+    padding:1rem;
 }
 
 #titolo {
+<<<<<<< HEAD
     font-family: 'Arvo', serif;
     text-align: center;
+=======
+    font-family: 'Indie Flower', cursive;
+    text-align: left;
+>>>>>>> 7d5bb658b2a2e2a62546767be40d73b5be256f40
 }
 
 #menu {
     text-align: right;
-    padding:10px;
+    padding:1rem;
 }
 
 #ricerca {
-    background-color:#00ffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--colour-blue);
 	text-align: center;
-    padding:10px;
+    padding:6rem;
+}
+
+#fname {
+    margin-right:1px;
 }
 
 .btn:not(:disabled):not(.disabled) {

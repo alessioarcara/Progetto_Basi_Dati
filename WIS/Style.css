@@ -1,6 +1,6 @@
-<<<<<<< HEAD
+
 @import url('https://fonts.googleapis.com/css2?family=Arvo:wght@700&display=swap');
-=======
+
 *,
 
 *::after,
@@ -19,7 +19,6 @@
     /* font-size: 62.5%; */
      font-size: 125%;
  }
->>>>>>> 7d5bb658b2a2e2a62546767be40d73b5be256f40
 
 body {
     box-sizing: border-box;
@@ -70,13 +69,8 @@ body {
 }
 
 #titolo {
-<<<<<<< HEAD
     font-family: 'Arvo', serif;
     text-align: center;
-=======
-    font-family: 'Indie Flower', cursive;
-    text-align: left;
->>>>>>> 7d5bb658b2a2e2a62546767be40d73b5be256f40
 }
 
 #menu {

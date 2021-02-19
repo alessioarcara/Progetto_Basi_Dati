@@ -8,15 +8,17 @@ body {
 #telaio {
 	width:100%;
 	margin: 0px;
-	border:1px solid gray;
+	border:1px solid black;
 	line-height:150%;
 	color: black;
 	background-color: #ffffcc;
 	text-align: left; 
-	}
+}
 
 #testata {
 	font-size: 130%;
+    display: flex;
+    align-items: center;
 }
 
 #fondo {
@@ -27,7 +29,7 @@ body {
 #testata, #fondo {
 	padding:0.5em;
 	color:white;
-	background-color:#ffc107;
+	background-color:white;
 	clear:left;
 }
 
@@ -38,8 +40,14 @@ body {
 }
 
 #logo {
+    color: black;
     text-align: left;
     padding:10px;
+}
+
+#titolo {
+    font-family: 'Indie Flower', cursive;
+    text-align: center;
 }
 
 #menu {
@@ -72,10 +80,6 @@ body {
     line-height: 1.5;
     border-radius: .25rem;
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-}
-
-button, select {
-    text-transform: none;
 }
 
 button, input {

@@ -11,13 +11,12 @@
 }
 
 :root{
-    --colour-blue: #16697a;
+    --colour-blue: #21a7c2;
     --color-orange: #db6400;
     --colour-white: #f4f9f9;
 }
 
 html {
-    /* font-size: 62.5%; */
     font-size: 125%;
     margin-left: 10rem;
     margin-right: 10rem;
@@ -33,21 +32,32 @@ body {
 
 .flex-container {
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: row;
     justify-content: space-around;
     list-style: none;
-    /*margin-top: 0.5%;*/
+}
+
+.colorContainerHeader {
+    background-color: var(--colour-white);
+}
+
+.colorContainerSearch {
+    background-color: var(--colour-white);
+}
+
+.topContainer {
+    margin-top: 0.5%;
 }
 
 .statusBar {
-    background-color: var(--colour-white);
+    display: flex;
+    flex-flow: row wrap;
     justify-content: flex-end;
-    align-self: flex-start;
-    margin-top: 0.5%
+    background-color: var(--colour-white);
+    margin-top: 0.3%
 }
 
 .logo {
-    background-color: var(--colour-white);
     justify-content: flex-start;
 }
 
@@ -57,12 +67,16 @@ body {
 
 .dimLeft {
     margin-left: 1rem;
-} 
+}
+
+.dimLeft2 {
+    margin-left: 0.2rem;
+}
 
 #logo {
     color: black;
     text-align: left;
-    padding:1rem;
+    padding: 0.5rem;
 }
 
 #titolo {
@@ -70,53 +84,53 @@ body {
     text-align: left;
 }
 
-#menu {
-    text-align: right;
-    padding:1rem;
-}
-
 .ricerca {
     display: flex;
     flex-flow: column;
     justify-content: center;
     align-items: center;
-    background-color: var(--colour-blue);
+    background-color: var(--colour-white);
 	text-align: center;
-    padding: 4rem;
+    padding: 1.5rem;
 }
 
 .topOne {
     display: flex;
     flex-flow: column;
-    justify-content: center;
-    background-color: var(--colour-white);
-    padding: 3rem;
-    margin-top: 1px;
+    justify-content: flex-start;
+    background-color: var(--colour-blue);
+    padding: 2rem;
 }
 
 .topTwo {
     display: flex;
     flex-flow: column;
-    justify-content: center;
+    justify-content: flex-start;
     background-color: var(--color-orange);
-    padding: 3rem;
-    margin-top: 1px;
+    padding: 2rem;
+}
+
+.btn {
+    font-weight: bold !important;
+    border: 2px solid !important;
 }
 
 /* Style per menù a tendina */
-.mappabtn, .dropbtn {
+.dropbtn {
     background-color: white;
     color: black;
     padding: 18px;
     font-size: 18px;
     border: none;
     size: 1rem;
+    align-content: flex-start;
 }
 
 .dropdown {
-    position: relative;
+    position: absolute;
     display: inline-block;
     margin-bottom: 0.5rem;
+    text-align: left;
 }
 
 .dropdown-content {

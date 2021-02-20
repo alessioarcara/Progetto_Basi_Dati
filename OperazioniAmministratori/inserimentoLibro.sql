@@ -19,7 +19,7 @@ RETURNS BOOLEAN
     END; $$
 LANGUAGE 'plpgsql';
 
-SELECT inserimentoLibroAmministratore ('mario.gialli@unibo.it', '123AA123BB', 'Titolo-1', 'Giunti', '1997', 'Azione', 'Biblioteca Universitaria di Bologna');
+SELECT inserimentoLibroAmministratore ('mario.verdi@unibo.it', 'A123B', 'Titolo-1', 'Giunti', '1997', 'Azione', 'Biblioteca di Medicina');
 
 SELECT * FROM BIBLIOTECA;
 SELECT * FROM AMMINISTRATORE;

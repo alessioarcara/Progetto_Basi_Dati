@@ -13,3 +13,9 @@ INSERT INTO AMMINISTRATORE VALUES (
     'Direttore',
     'Biblioteca Universitaria di Bologna'
 );
+
+INSERT INTO AMMINISTRATORE VALUES (
+    'mario.verdi@unibo.it',
+    'Direttore',
+    'Biblioteca di Medicina'
+);

@@ -20,11 +20,13 @@ CREATE FUNCTION getPrenotazioni (EmailA TEXT, NomeBiblio TEXT)
             FROM PRENOTAZIONE
             WHERE (CodiceLibroCartaceo IN (SELECT CodiceLibro
                                            FROM LIBRO
-                                           WHERE (NomeBiblioteca = NomeBiblio)))
+                                           WHERE (NomeBiblioteca = NomeBiblio)));
         END IF;
-        RETURN NULL;
     END; $$
 LANGUAGE 'plpgsql';
 
+SELECT getPrenotazioni ('mario.gialli@unibo.it', 'Biblioteca Universitaria di Bologna');
+
 SELECT * FROM LIBROCARTACEO;
 SELECT * FROM PRENOTAZIONE;
+SELECT * FROM AMMINISTRATORE;

@@ -135,7 +135,7 @@ CREATE TABLE MESSAGGIO (
 
 CREATE TABLE SEGNALAZIONE (
     IdMessaggio CHAR(10) PRIMARY KEY,
-    Testo VARCHAR(80) NOT NULL,
+    Testo VARCHAR(80),
     Date DATE NOT NULL,
     EmailAmministratore VARCHAR(50) NOT NULL,
     EmailUtilizzatore VARCHAR(50) NOT NULL,

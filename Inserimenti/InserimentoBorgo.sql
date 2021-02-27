@@ -2,43 +2,63 @@
 
 INSERT INTO BIBLIOTECA VALUES (
 	'Biblioteca Universitaria di Bologna',
-	'Via Zamboni, 33-35 Bologna 40126 BO',
+	'Via Zamboni',
+  '33-35',
+  40126,
+  'Bologna',
 	'bub.info@unibo.it',
 	'http://www.bub.unibo.it',
 	10,
-	20
+	20,
+  'Porco *io'
 );
 INSERT INTO BIBLIOTECA VALUES (
 	'Biblioteca Giuridica "Antonio Cicu"',
-	'Via Zamboni, 27/29 Bologna 40126 BO',
+	'Via Zamboni', 
+  '27/29',
+  40126,
+  'Bologna',
 	'abis.bibliotecacicu@unibo.it',
 	'http://giuridica.sba.unibo.it/',
 	10,
-	20
+	20,
+  'Porco *io'
 );
 INSERT INTO BIBLIOTECA VALUES (
 	'Biblioteca del Dipartimento di Scienze economiche',
-	'Via delle Belle Arti 33',
+	'Via delle Belle Arti',
+  '33',
+  40126,
+  'Bologna',
 	'info.bigiavi@unibo.it',
 	'http://bigiavi.sba.unibo.it/',
 	10,
-	20
+	20,
+  'Porco *io'
 );
 INSERT INTO BIBLIOTECA VALUES (
 	'Biblioteca di discipline umanistiche',
-	'Via Zamboni, 36 Bologna 40126 BO',
+	'Via Zamboni',
+  '36',
+  40126,
+  'Bologna',
 	'bdu.lettere@unibo.it',
 	'http://bdu.sba.unibo.it/',
 	10,
-	20
+	20,
+  'Porco *io'
 );
 INSERT INTO BIBLIOTECA VALUES (
 	'Biblioteca di Medicina',
-	'Via Filippo Re, 8 Bologna 40126 BO',
+	'Via Filippo Re',
+  '8',
+  40126,
+  'Bologna', 
 	'bibbiomed.info@unibo.it',
 	'http://biomedica.sba.unibo.it/',
 	10,
-	20
+	20,
+  'Porco *io'
 );
 
 INSERT INTO UTENTE VALUES (

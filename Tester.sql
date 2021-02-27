@@ -46,4 +46,3 @@
 -- SELECT * FROM GetEBook('A000000001');
 
 SELECT * FROM GetConsegneByUtente('mario.rossi@unibo.it');
-

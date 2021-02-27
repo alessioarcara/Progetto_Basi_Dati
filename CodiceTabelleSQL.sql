@@ -77,7 +77,7 @@ CREATE TABLE EBOOK (
 	CodiceEbook CHAR(10) PRIMARY KEY,
 	Dimensione FLOAT NOT NULL,
 	PDF VARCHAR(100) NOT NULL,
-	NumAccessiScheda INT NOT NULL,
+	NumAccessiScheda INT DEFAULT 0,
 	
 	FOREIGN KEY (CodiceEbook) REFERENCES LIBRO (CodiceLibro) ON DELETE CASCADE
 														     ON UPDATE CASCADE

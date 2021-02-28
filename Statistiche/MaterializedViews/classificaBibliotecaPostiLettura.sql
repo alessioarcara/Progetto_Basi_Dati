@@ -11,6 +11,6 @@ WITH BibliotecaPostiLetturaDisponibili AS (
 --         WHERE data = current_date
     GROUP BY nome
 )
-SELECT ( (NumPostiLetturaOccupati * 1.) / (NumPostiLetturaDispobili * 1.) ) * 100 AS PERCENTUALE_OCCUPAZIONE, BibliotecaPostiLetturaOccupati.nome
+SELECT round( ( (NumPostiLetturaOccupati * 1.) / (NumPostiLetturaDispobili * 1.) * 100 ), 2 ) AS PERCENTUALE_OCCUPAZIONE, BibliotecaPostiLetturaOccupati.nome
 FROM BibliotecaPostiLetturaDisponibili JOIN BibliotecaPostiLetturaOccupati ON BibliotecaPostiLetturaOccupati.nome = BibliotecaPostiLetturaDisponibili.nomebiblioteca
 ORDER BY percentuale_occupazione;

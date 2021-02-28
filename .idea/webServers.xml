@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="8ec652a3-e23e-44fa-bb19-db38579e8aed" name="argonauta" url="http://argonauta.synology.me:4430">
+        <fileTransfer rootFolder="/web/website" accessType="SFTP" host="argonauta.synology.me" port="899" sshConfigId="302b8faf-0a4e-49d2-abac-bf2addea0bd8" sshConfig="sviluppatore@argonauta.synology.me:899 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

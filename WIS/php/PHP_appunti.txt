@@ -1,0 +1,29 @@
+SERVER
+Per stampare le informazioni (url, method, time, ...) relative al server usare
+echo '<pre>';
+var_dump($_SERVER);
+echo '</pre>';
+exit;
+
+Per ottenere il valore di un singolo attributo del server
+es: $_SERVER['REQUEST_METHOD']
+
+
+
+
+<FilesMatch "\.(html|htm|js|css)$">
+  FileETag None
+  <IfModule mod_headers.c>
+    Header unset ETag
+    Header set Cache-Control "max-age=0, no-cache, no-store, must-revalidate"
+    Header set Pragma "no-cache"
+    Header set Expires "Wed, 12 Jan 1980 05:00:00 GMT"
+  </IfModule>
+</FilesMatch>
+
+
+Options +SymLinksIfOwnerMatch 
+RewriteEngine On 
+RewriteCond %{REQUEST_FILENAME} !-f 
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^$ /public/index.php [L]

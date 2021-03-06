@@ -14,16 +14,13 @@ try{
   // create a PostgreSQL database connection
   $conn = new PDO($dsn);
 
-  //create application //__DIR__;
-    echo "FILE<br>";
-    echo __FILE__;
-    echo "<br>DIR<br>";
-    echo __DIR__;
+  //create application
   $app = new Application(dirname(__DIR__), $conn);
 
   //build routes
   $app->router->get('/', [viewController::class, 'home']);
   $app->router->get('/home', [viewController::class, 'home']);
+  $app->router->get('/ricerca', [viewController::class, 'biblioteca']);
 //  $app->router->get('/user', 'user');
 //  $app->router->post('/login', [authController::class, 'login']);
 //  $app->router->get('/signup', 'signup');

@@ -14,7 +14,7 @@ class Application {
   
   public function __construct($root, $pdo) 
   {
-    self::$ROOT_DIR = $root.'/htdocs';
+    self::$ROOT_DIR = $root.'/php';
     self::$app = $this;
     $this->request = new Request();
     $this->response = new Response();

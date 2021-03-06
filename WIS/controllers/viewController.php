@@ -54,7 +54,7 @@ class viewController {
       $params = [
         'libraries' => $libraries
       ];
-      
+
       return Application::$app->router->renderView('home', $params);
     }
 
@@ -71,11 +71,11 @@ class viewController {
       $nomeBiblioteca = $params['n'];
       $nomeBiblioteca = str_replace('%20', ' ', $nomeBiblioteca);
       $nomeBiblioteca = str_replace('%22', '"', $nomeBiblioteca);
-      
+
       //se è presente 'section' nella query significa che vogliamo vedere
       //o i posti lettura o i libri della biblioteca specifica
       if ($params['section']) {
-        
+
         if ($params['section'] === 'libri') {
           $sql = "SELECT * FROM LibriBiblioteca( ' ".$nomeBiblioteca. " ')";
 
@@ -101,10 +101,10 @@ class viewController {
         }
 
       }
-      
+
       //se non è presente la 'section' nella query allora
       //si restituiscono tutti i valori della specifica biblioteca
-      
+
       $sql = "SELECT * FROM BIBLIOTECA WHERE Nome = '".$nomeBiblioteca."'";
 
       $result = Application::$pdo->query($sql);
@@ -123,7 +123,7 @@ class viewController {
       $params = [
         'library' => $library
       ];
-      
+
       return Application::$app->router->renderView('results', $params);
     }
 

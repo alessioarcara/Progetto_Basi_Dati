@@ -59,7 +59,7 @@
         </div>
     </div>
 
-{{content}}
+    {{content}}
 
 </body>
 </html>

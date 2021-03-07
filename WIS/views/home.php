@@ -10,19 +10,15 @@
 
         <div class="card border-dark mb-3" style="max-width: 50rem;">
             <div class="card-body text-dark">
-                <!-- <p class="card-text"> -->
-
                 <?php
 
-                  foreach( $classifica as $libreria ) {
-                    $nome = $libreria['Nome'];
-                    $percentuale = $libreria['PercentualeOccupazione'];
-                    echo "<p class='card-text'> $nome - $percentuale </p>";
-                  }
+                    foreach( $classifica as $libreria ) {
+                        $nome = $libreria['Nome'];
+                        $percentuale = $libreria['PercentualeOccupazione'];
+                        echo "<p class='card-text'> $nome - $percentuale </p>";
+                    }
 
                 ?>
-
-                <!-- </p> -->
             </div>
         </div>
     </div>
@@ -39,7 +35,15 @@
 
         <div class="card border-dark mb-3" style="max-width: 50rem;">
             <div class="card-body text-dark">
-                <p class="card-text">Top di ...</p>
+                <?php
+
+                    foreach( $classificaEbook as $ebook ) {
+                        $cod = $ebook['CodiceEbook'];
+                        $number = $ebook['NumAccessi'];
+                        echo "<p class='card-text'> $cod - $number </p>";
+                    }
+
+                ?>
             </div>
         </div>
     </div>

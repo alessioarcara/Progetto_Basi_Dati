@@ -5,8 +5,7 @@ require_once('./core/Application.php');
 //Hereditates all methods which are in common between every controllers
 class viewController {
 
-  public function home() {
-
+  public function topBibliotecaPosti () {
     $sql = 'SELECT * FROM classificaBibliotecaPostiLettura LIMIT 5';
 
     $results = Application::$pdo->query($sql);
@@ -18,8 +17,39 @@ class viewController {
       ];
     };
 
+    $sql = 'SELECT * FROM classificaEbookAcceduti LIMIT 5';
+
+    $results = Application::$pdo -> query($sql);
+    $classificaEbook = [];
+    while ($row = $results -> fetch(\PDO::FETCH_ASSOC)) {
+      $classificaEbook[] = [
+        'CodiceEbook' => $row['codicee'],
+        'NumAccessi' => $row['accessi']
+      ];
+    };
+
     $params = [
-      'classifica' => $classifica
+      'classifica' => $classifica,
+      'classificaEbook' => $classificaEbook
+    ];
+    
+    return Application::$app->router->renderView('home', $params);
+  }
+
+  public function topEbookAcceduti () {
+    $sql = 'SELECT * FROM classificaEbookAcceduti LIMIT 5';
+
+    $results = Application::$pdo -> query($sql);
+    $classificaEbook = [];
+    while ($row = $results -> fetch(\PDO::FETCH_ASSOC)) {
+      $classificaEbook[] = [
+        'CodiceEbook' => $row['codicee'],
+        'NumAccessi' => $row['accessi']
+      ];
+    };
+
+    $params = [
+      'classificaEbook' => $classificaEbook
     ]; 
     
     return Application::$app->router->renderView('home', $params);

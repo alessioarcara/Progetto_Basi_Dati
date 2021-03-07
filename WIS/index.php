@@ -15,20 +15,17 @@ try{
   $conn = new PDO($dsn);
 
   //create application //__DIR__;
-    echo "FILE<br>";
-    echo __FILE__;
-    echo "<br>DIR<br>";
-    echo __DIR__;
   $app = new Application(dirname(__DIR__), $conn);
 
   //build routes
-  $app->router->get('/', [viewController::class, 'home']);
-  $app->router->get('/home', [viewController::class, 'home']);
-//  $app->router->get('/user', 'user');
-//  $app->router->post('/login', [authController::class, 'login']);
-//  $app->router->get('/signup', 'signup');
-//  $app->router->post('/signup', [authController::class, 'signup']);
-//  $app->router->get('/biblioteca', [viewController::class, 'biblioteca']);
+  $app->router->get('/', [viewController::class, 'topBibliotecaPosti']);
+  $app->router->get('/home', [viewController::class, 'topBibliotecaPosti']);
+  
+  //  $app->router->get('/user', 'user');
+  //  $app->router->post('/login', [authController::class, 'login']);
+  //  $app->router->get('/signup', 'signup');
+  //  $app->router->post('/signup', [authController::class, 'signup']);
+  //  $app->router->get('/biblioteca', [viewController::class, 'biblioteca']);
 
   $app->run();
 

@@ -5,7 +5,8 @@ require_once('./core/Application.php');
 //Hereditates all methods which are in common between every controllers
 class viewController {
 
-  public function topBibliotecaPosti () {
+  public function home () {
+    // top classifica delle biblioteche con posti lettura meno utilizzati
     $sql = 'SELECT * FROM classificaBibliotecaPostiLettura LIMIT 5';
 
     $results = Application::$pdo->query($sql);
@@ -17,6 +18,7 @@ class viewController {
       ];
     };
 
+    // classifica degli ebook più acceduti
     $sql = 'SELECT * FROM classificaEbookAcceduti LIMIT 5';
 
     $results = Application::$pdo -> query($sql);
@@ -25,32 +27,28 @@ class viewController {
       $classificaEbook[] = [
         'CodiceEbook' => $row['codicee'],
         'NumAccessi' => $row['accessi']
+      ];
+    };
+
+    // classifica libri cartacei più prenotati
+    $sql = 'SELECT *
+            FROM LIBRO JOIN classificaLibriCartacei ON (codicelibro = codicelibrocartaceo) LIMIT 5';
+
+    $results = Application::$pdo -> query($sql);
+    $classificaCartacei = [];
+    while ($row = $results -> fetch(\PDO::FETCH_ASSOC)) {
+      $classificaCartacei[] = [
+        'TitoloCartaceo' => $row['titolo'],
+        'Edizione' => $row['nomeedizione'],
+        'NumeroPrenotazioni' => $row['numprenotazioni']
       ];
     };
 
     $params = [
       'classifica' => $classifica,
-      'classificaEbook' => $classificaEbook
+      'classificaEbook' => $classificaEbook,
+      'classificaCartacei' => $classificaCartacei
     ];
-    
-    return Application::$app->router->renderView('home', $params);
-  }
-
-  public function topEbookAcceduti () {
-    $sql = 'SELECT * FROM classificaEbookAcceduti LIMIT 5';
-
-    $results = Application::$pdo -> query($sql);
-    $classificaEbook = [];
-    while ($row = $results -> fetch(\PDO::FETCH_ASSOC)) {
-      $classificaEbook[] = [
-        'CodiceEbook' => $row['codicee'],
-        'NumAccessi' => $row['accessi']
-      ];
-    };
-
-    $params = [
-      'classificaEbook' => $classificaEbook
-    ]; 
     
     return Application::$app->router->renderView('home', $params);
   }

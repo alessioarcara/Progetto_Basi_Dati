@@ -1,0 +1,69 @@
+:root{
+    --colour-blue: #21a7c2;
+    --color-orange: #db6400;
+    --colour-white: #f4f9f9;
+    
+    --color-grey: #6c757d;
+
+    --color-blueTable: #7fc6d4;
+}
+
+.leftFlex {
+    justify-content: flex-start;
+}
+
+.padding05 {
+    padding: 0.5rem;
+}
+
+/* classi per bottoni */
+
+.noBlueLine {
+    outline: none;
+}
+
+.btnGenerico {
+    height: 50px;
+    width: 150px;
+
+    border-radius: 7px;
+    border-color: var(--color-grey);
+    border: 2px solid;
+    background-color: white;
+    
+    font-size: 20px;
+    color: var(--color-grey);
+    font-weight: bold;
+    font-family: 'Arial';
+}
+
+.btnGenerico:hover {
+    height: 50px;
+    width: 150px;
+    
+    border-radius: 7px;
+    background-color: var(--color-grey);
+    border-color: var(--color-grey);
+    
+    font-size: 20px;
+    color: white;
+    font-weight: bold;
+    font-family: 'Arial';
+}
+
+/* classi per tabella */
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+ 
+td, th, tr {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 3px;
+}
+
+tr:nth-child(even) {
+    background-color: var(--color-blueTable);
+}

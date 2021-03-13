@@ -18,8 +18,8 @@ try{
   $app = new Application(dirname(__DIR__), $conn);
 
   //build routes
-  $app->router->get('/', [viewController::class, 'topBibliotecaPosti']);
-  $app->router->get('/home', [viewController::class, 'topBibliotecaPosti']);
+  $app->router->get('/', [viewController::class, 'home']);
+  $app->router->get('/home', [viewController::class, 'home']);
   
   //  $app->router->get('/user', 'user');
   //  $app->router->post('/login', [authController::class, 'login']);

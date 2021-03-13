@@ -1,0 +1,71 @@
+/* Style per la barra di ricerca */
+
+:root{
+    --colour-blue: #21a7c2;
+    --color-orange: #db6400;
+    --colour-white: #f4f9f9;
+}
+
+.ricerca {
+    display: flex;
+    /*flex-flow: column;*/
+    flex-grow: 1;
+    justify-content: center;
+    align-items: flex-start;
+    position: relative;
+    flex-basis: auto;
+    /*top: 46%;*/
+    /*width: 80%;*/
+    text-align: center;
+    margin-top: 30px;
+    margin: auto;
+}
+
+.ricerca form {
+    flex-basis: 65%;
+}
+
+.ricerca input[type=text] {
+    flex: 1;
+    padding: 15px;
+    font-size: 17px;
+    border: none;
+    float: left;
+    width: 80%;
+    background: white;
+}
+
+.ricerca input[type=text]:hover {
+    background: #f1f1f1;
+}
+
+.ricerca button {
+    float: left;
+    width: 20%;
+    padding: 15px;
+    background: #ddd;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+}
+
+.flex-container button:hover {
+    background: #bbb;
+}
+
+.search-buttons{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.chk-btn {
+    width: 10rem;
+    padding: 0.5rem;
+    margin: 0.5rem;
+}
+
+.chk-btn.selected{
+    color:white;
+}

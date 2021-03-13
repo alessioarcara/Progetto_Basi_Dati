@@ -30,12 +30,12 @@ body {
 	margin: 0;
 }
 
-.flex-container {
-    display: flex;
-    flex-flow: row;
-    justify-content: space-around;
-    list-style: none;
-}
+/*.flex-container {*/
+/*    display: flex;*/
+/*    flex-flow: row;*/
+/*    justify-content: space-around;*/
+/*    list-style: none;*/
+/*}*/
 
 .colorContainerHeader {
     background-color: var(--colour-white);
@@ -84,15 +84,15 @@ body {
     text-align: left;
 }
 
-.ricerca {
-    display: flex;
-    flex-flow: column;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--colour-white);
-	text-align: center;
-    padding: 1.5rem;
-}
+/*.ricerca {*/
+/*    display: flex;*/
+/*    flex-flow: column;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*    background-color: var(--colour-white);*/
+/*	text-align: center;*/
+/*    padding: 1.5rem;*/
+/*}*/
 
 .topOne {
     display: flex;
@@ -108,11 +108,6 @@ body {
     justify-content: flex-start;
     background-color: var(--color-orange);
     padding: 2rem;
-}
-
-.btn {
-    font-weight: bold !important;
-    border: 2px solid !important;
 }
 
 /* Style per menù a tendina */

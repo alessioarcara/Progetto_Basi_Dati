@@ -1,11 +1,11 @@
 <div class="topOne">
     <div class="flex-container leftFlex padding05">
-        <input type="button" id="showTableA" value="Top Cartacei" class="btnGenerico noBlueLine">
-        <input type="button" id="showTableB" value="Top Librerie" class="btnGenerico noBlueLine dimLeft">
+        <input type="button" id="showTableA" value="Top Cartacei" class="btnGenerico width150 noBlueLine">
+        <input type="button" id="showTableB" value="Top Librerie" class="btnGenerico width150 noBlueLine dimLeft">
     </div>
     <div class="card border-dark mb-3" style="max-width: 50rem;" id="tableA">
         <div class="card-body text-dark">
-            <table>
+            <table id="tableA">
                 <tr>
                     <th>Libro cartaceo</th>
                     <th>Edizione</th>
@@ -16,7 +16,7 @@
                             $nomeCartaceo = $cartaceo['TitoloCartaceo'];
                             $edizione = $cartaceo['Edizione'];
                             $accessi = $cartaceo['NumeroPrenotazioni'];
-                            echo "  <tr> 
+                            echo "  <tr>
                                         <td> $nomeCartaceo </td>
                                         <td> $edizione </td>
                                         <td> $accessi </td>
@@ -29,7 +29,7 @@
 
     <div class="card border-dark mb-3" style="max-width: 50rem;" id="tableB">
         <div class="card-body text-dark">
-            <table>
+            <table id="tableB">
                 <tr>
                     <th>Nome libreria</th>
                     <th>Percentuale</th>
@@ -47,48 +47,61 @@
             </table>
         </div>
     </div>
-    
-    <script> 
-        var tableA = document.getElementById("tableA");
-        var tableB = document.getElementById("tableB");
-
-        tableB.style.display = "none";
-
-        var btnTabA = document.getElementById("showTableA");
-        var btnTabB = document.getElementById("showTableB");
-
-        btnTabA.onclick = function () {
-            tableA.style.display = "table";
-            tableB.style.display = "none";
-        }
-        btnTabB.onclick = function () {
-            tableA.style.display = "none";
-            tableB.style.display = "table";
-        }
-    </script>
 </div>
 
 <div class="topTwo">
-    <div class="dropdown">
-        <button class="dropbtn">Classifiche TOP</button>
-        <div class="dropdown-content">
-            <a href=#>Top libri</a>
-            <a href=#>Top utilizzatori</a>
-            <a href=#>Top amministratori</a>
+    <div class="flex-container leftFlex padding05">
+        <input type="button" id="showTableC" value="Top Accessi Ebook" class="btnGenerico width200 noBlueLine">
+        <input type="button" id="showTableD" value="Top Volontari" class="btnGenerico width150 noBlueLine dimLeft">
+    </div>
+    <div class="card border-dark mb-3" style="max-width: 50rem;" id="tableC">
+        <div class="card-body text-dark">
+            <table id="tableC">
+                <tr class="trTopTwo">
+                    <th>Codice</th>
+                    <th>Nome</th>
+                    <th>Accessi</th>
+                </tr>
+                <?php
+                    foreach ($classificaEbook as $ebook) {
+                        $cod = $ebook['CodiceEbook'];
+                        $titolo = $ebook['TitoloEbook'];
+                        $accessi = $ebook['NumAccessi'];
+                        echo "  <tr> 
+                                    <td> $cod </td>
+                                    <td> $titolo </td>
+                                    <td> $accessi </td>
+                                </tr>";
+                    }
+                ?>
+            </table>
         </div>
     </div>
 
-    <div class="card border-dark mb-3" style="max-width: 50rem;">
+    <div class="card border-dark mb-3" style="max-width: 50rem;" id="tableD">
         <div class="card-body text-dark">
-            <?php
-
-                foreach ($classificaEbook as $ebook) {
-                    $cod = $ebook['CodiceEbook'];
-                    $number = $ebook['NumAccessi'];
-                    echo "<p class='card-text'> $cod - $number </p>";
-                }
-
-            ?>
+            <table id="tableD">
+                <tr class="trTopTwo">
+                    <th>Email</th>
+                    <th>Nome</th>
+                    <th>Cognome</th>
+                    <th>Numero consegne</th>
+                </tr>
+                <?php
+                    foreach ($classificaVolontari as $volontario) {
+                        $email = $volontario['EmailVolontario'];
+                        $nome = $volontario['NomeVolontario'];
+                        $cognome = $volontario['CognomeVolontario'];
+                        $consegne = $volontario['Consegne'];
+                        echo "  <tr> 
+                                    <td> $email </td>
+                                    <td> $nome </td>
+                                    <td> $cognome </td>
+                                    <td> $consegne </td>
+                                </tr>";
+                    }
+                ?>
+            </table>
         </div>
     </div>
 </div>

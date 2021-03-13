@@ -5,7 +5,8 @@
     
     --color-grey: #6c757d;
 
-    --color-blueTable: #7fc6d4;
+    --color-row-topOne: #74c3d3;
+    --color-row-topTwo: #dfa473;
 }
 
 .leftFlex {
@@ -24,7 +25,6 @@
 
 .btnGenerico {
     height: 50px;
-    width: 150px;
 
     border-radius: 7px;
     border-color: var(--color-grey);
@@ -37,10 +37,9 @@
     font-family: 'Arial';
 }
 
-.btnGenerico:hover {
+.btnGenerico:hover, .btnGenerico.selected {
     height: 50px;
-    width: 150px;
-    
+
     border-radius: 7px;
     background-color: var(--color-grey);
     border-color: var(--color-grey);
@@ -51,8 +50,22 @@
     font-family: 'Arial';
 }
 
-/* classi per tabella */
-table {
+.width150, .width150:hover {
+    width: 150px;
+}
+
+.width200, .width200:hover {
+    width: 200px;
+}
+
+/* classi per tabella (uguale per tutte le tabelle del sito)*/
+#tableA, #tableB {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#tableC, #tableD {
     font-family: arial, sans-serif;
     border-collapse: collapse;
     width: 100%;
@@ -64,6 +77,10 @@ td, th, tr {
     padding: 3px;
 }
 
-tr:nth-child(even) {
-    background-color: var(--color-blueTable);
+#tableA tr:nth-child(even), #tableB tr:nth-child(even){
+    background-color: var(--color-row-topOne);
+}
+
+#tableC tr:nth-child(even), #tableD tr:nth-child(even){
+    background-color: var(--color-row-topTwo);
 }

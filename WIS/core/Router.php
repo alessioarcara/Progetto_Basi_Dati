@@ -55,7 +55,25 @@ class Router {
 //
 //    return NULL;
 //  }
-  public function renderView($view, $params = []) {
+
+    private function getListaBiblioteche() {
+
+        $sql = "SELECT nome FROM biblioteca";
+
+        $result = Application::$pdo->query($sql);
+        $biblioteche = [];
+        while ($row = $result->fetch(\PDO::FETCH_ASSOC)) {
+            $biblioteche[] = [
+                'Nome' => $row['nome']
+            ];
+        };
+
+        return $biblioteche;
+    }
+
+    public function renderView($view, $params = []) {
+      $biblioteche = $this->getListaBiblioteche();
+      $params['biblioteche'] = $biblioteche;
     //load viewcontent and render it
 //    $user = $this->getUser();
 //    if ($user) {

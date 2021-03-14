@@ -20,12 +20,12 @@ try{
   //build routes
   $app->router->get('/', [viewController::class, 'home']);
   $app->router->get('/home', [viewController::class, 'home']);
-  $app->router->get('/ricerca', [viewController::class, 'biblioteca']);
+  $app->router->get('/ricerca', [searchController::class, 'biblioteca']);
 //  $app->router->get('/user', 'user');
 //  $app->router->post('/login', [authController::class, 'login']);
 //  $app->router->get('/signup', 'signup');
 //  $app->router->post('/signup', [authController::class, 'signup']);
-//  $app->router->get('/biblioteca', [viewController::class, 'biblioteca']);
+  $app->router->get('/biblioteca', [viewController::class, 'biblioteca']);
 
   $app->run();
 

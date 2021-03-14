@@ -33,7 +33,7 @@
         <a href="index.html"><img  id="logo" src="Logo.png" alt="Logo"></a>
     </div>
 
-    <div class="ricerca">
+    <div class="searchBar">
 
         <div class="flex-container">
             <input type="text" class="form-control" placeholder="Tutte le informazioni">

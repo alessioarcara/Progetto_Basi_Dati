@@ -37,7 +37,7 @@
     font-family: 'Arial';
 }
 
-.btnGenerico:hover, .btnGenerico.selected {
+.btnGenerico:hover, .btnHeader {
     height: 50px;
 
     border-radius: 7px;

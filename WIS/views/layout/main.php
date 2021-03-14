@@ -15,13 +15,13 @@
 </head>
 <body>
     <div class="statusBar">
-        <button class="btn btn-dark" type="button">Mappa Biblioteche</button>
+        <input type="button" class="btnHeader width150 noBlueLine" value="Mappe Ebiblio">
         <div class="dropdown">
-            <button class="btn btn-dark dimLeft">Accedi</button>
+            <input type="button" class="btnHeader width150 dimLeft" value="Accedi">
             <div class="dropdown-content">
-                <label class="margin-bottom-5">Utente: </label><br>
-                <input class="margin-bottom-5" type="text" placeholder="utente"><br>
-                <label class="margin-bottom-5">Password: </label><br>
+                <label class="margin-bottom-5">Utente:</label><br>
+                <input class="margin-bottom-5" type="text" placeholder="Utente"><br>
+                <label class="margin-bottom-5">Password:</label><br>
                 <input class="margin-bottom-5" type="password" placeholder="password"><br><br>
                 <input class="margin-bottom-5" type="submit" value="E Ora?"><br>
                 <br>
@@ -62,7 +62,6 @@
     {{content}}
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="views/checkButtonHome.js"></script>
     <script type="text/javascript" src="views/js/topHomepage.js"></script>
 
 </body>

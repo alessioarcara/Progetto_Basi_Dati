@@ -1,10 +1,12 @@
+<link rel="stylesheet" href="StyleHome.css">
+
 <div class="topOne">
     <div class="flex-container leftFlex padding05">
         <input type="button" id="showTableA" value="Top Cartacei" class="btnGenerico width150 noBlueLine">
         <input type="button" id="showTableB" value="Top Librerie" class="btnGenerico width150 noBlueLine dimLeft">
     </div>
-    <div class="card border-dark mb-3" style="max-width: 50rem;" id="tableA">
-        <div class="card-body text-dark">
+    <!-- <div class="card border-dark mb-3" style="max-width: 50rem;" id="tableA">
+        <div class="card-body text-dark"> -->
             <table id="tableA">
                 <tr>
                     <th>Libro cartaceo</th>
@@ -24,11 +26,11 @@
                         }
                     ?>
             </table>
-        </div>
-    </div>
+        <!-- </div>
+    </div> -->
 
-    <div class="card border-dark mb-3" style="max-width: 50rem;" id="tableB">
-        <div class="card-body text-dark">
+    <!-- <div class="card border-dark mb-3" style="max-width: 50rem;" id="tableB">
+        <div class="card-body text-dark"> -->
             <table id="tableB">
                 <tr>
                     <th>Nome libreria</th>
@@ -46,16 +48,16 @@
                     ?>
             </table>
         </div>
-    </div>
-</div>
+    <!-- </div>
+</div> -->
 
 <div class="topTwo">
     <div class="flex-container leftFlex padding05">
         <input type="button" id="showTableC" value="Top Accessi Ebook" class="btnGenerico width200 noBlueLine">
         <input type="button" id="showTableD" value="Top Volontari" class="btnGenerico width150 noBlueLine dimLeft">
     </div>
-    <div class="card border-dark mb-3" style="max-width: 50rem;" id="tableC">
-        <div class="card-body text-dark">
+    <!-- <div class="card border-dark mb-3" style="max-width: 50rem;" id="tableC">
+        <div class="card-body text-dark"> -->
             <table id="tableC">
                 <tr class="trTopTwo">
                     <th>Codice</th>
@@ -75,11 +77,11 @@
                     }
                 ?>
             </table>
-        </div>
-    </div>
+        <!-- </div>
+    </div> -->
 
-    <div class="card border-dark mb-3" style="max-width: 50rem;" id="tableD">
-        <div class="card-body text-dark">
+    <!-- <div class="card border-dark mb-3" style="max-width: 50rem;" id="tableD">
+        <div class="card-body text-dark"> -->
             <table id="tableD">
                 <tr class="trTopTwo">
                     <th>Email</th>
@@ -102,6 +104,6 @@
                     }
                 ?>
             </table>
-        </div>
-    </div>
+        <!-- </div>
+    </div> -->
 </div>

@@ -7,6 +7,7 @@
 
     --color-row-topOne: #74c3d3;
     --color-row-topTwo: #dfa473;
+    --color-row-tableUser: #93d4ff;
 }
 
 .leftFlex {
@@ -59,9 +60,10 @@
 }
 
 /* classi per tabella (uguale per tutte le tabelle del sito)*/
-#tableA, #tableB {
+#tableA, #tableB, #tableUtilizzatore {
     font-family: arial, sans-serif;
     border-collapse: collapse;
+    border: none;
     width: 100%;
 }
 
@@ -77,10 +79,10 @@ td, th, tr {
     padding: 3px;
 }
 
-#tableA tr:nth-child(even), #tableB tr:nth-child(even){
+#tableA tr:nth-child(even), #tableB tr:nth-child(even) {
     background-color: var(--color-row-topOne);
 }
 
-#tableC tr:nth-child(even), #tableD tr:nth-child(even){
+#tableC tr:nth-child(even), #tableD tr:nth-child(even) {
     background-color: var(--color-row-topTwo);
 }

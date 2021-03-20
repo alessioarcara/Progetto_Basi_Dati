@@ -38,8 +38,8 @@ class userViewController {
     return false;
   }
   public function user() {
-    // $email = 'mario.rossi@unibo.it'; //utilizzatore
-    $email = 'marco.viola@unibo.it'; //volontario
+    $email = 'mario.rossi@unibo.it'; //utilizzatore
+    // $email = 'marco.viola@unibo.it'; //volontario
 
     $user = $this->getUser($email);
     if (!$user) {return header("Location: /home");}

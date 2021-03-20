@@ -8,11 +8,10 @@ const inviaMessaggio = document.querySelector('#invia-messaggio-form');
 const inviaSegnalazione = document.querySelector('#invia-segnalazione-form');
 const rimuoviSegnalazioni = document.querySelector('#rimuovi-segnalazioni-form');
 
-
 if (menu)
   menu.addEventListener('click', e => {
-
     const id = e.target.id || e.target.parentNode.id;
+
     document.querySelector('#title-and-role').style.display = 'none';
     Array.from( document.querySelector('.main-box').children ).forEach( child => {
       child.style.display = 'none';
@@ -41,7 +40,7 @@ if (inserisciConsegna)
     })
     .catch(err => console.log(err));
 
-  })
+  });
 
 if (aggiornaConsegna) 
   aggiornaConsegna.addEventListener('submit', e => {
@@ -63,7 +62,7 @@ if (aggiornaConsegna)
       else alert('Invalid input')
     })
     .catch(err => console.log(err));
-  })
+  });
 
 if (inserisciLibro)
   inserisciLibro.addEventListener('submit', e => {
@@ -85,7 +84,7 @@ if (inserisciLibro)
       else alert('Invalid input')
     })
     .catch(err => console.log(err));
-  })
+  });
 
 if (aggiornaLibro)
   aggiornaLibro.addEventListener('submit', e => {
@@ -107,7 +106,7 @@ if (aggiornaLibro)
       else alert('Invalid input')
     })
     .catch(err => console.log(err));
-  })
+  });
 
 if (eliminaLibro)
   eliminaLibro.addEventListener('submit', e => {
@@ -125,7 +124,7 @@ if (eliminaLibro)
       else alert('Invalid input')
     })
     .catch(err => console.log(err));
-  })
+  });
 
 if (inviaMessaggio)
   inviaMessaggio.addEventListener('submit', e => {
@@ -145,7 +144,7 @@ if (inviaMessaggio)
       else alert('Invalid input')
     })
     .catch(err => console.log(err));
-  })
+  });
 
 if (inviaSegnalazione)
   inviaSegnalazione.addEventListener('submit', e => {
@@ -164,7 +163,7 @@ if (inviaSegnalazione)
       else alert('Invalid input')
     })
     .catch(err => console.log(err));
-  })
+  });
 
 if (rimuoviSegnalazioni)
   rimuoviSegnalazioni.addEventListener('submit', e => {
@@ -182,5 +181,5 @@ if (rimuoviSegnalazioni)
       else alert('Invalid input')
     })
     .catch(err => console.log(err));
-  })
+  });
 

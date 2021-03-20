@@ -1,17 +1,17 @@
-<link rel="stylesheet" href="/Users/michaelcarchesio/Documents/Progetto_Basi_Dati/WIS/StyleAndre.css">
+<link rel="stylesheet" href="StyleUser.css">
 
-<div class="flex main-container">
+<!-- <link rel="stylesheet" href="views/css/userView.css">
+<link rel="stylesheet" href="StyleProva.css"> -->
+<!-- <link rel="stylesheet" href="Style.css"> -->
+
+<div class="flex main-container colorContainerHeader">
 
   <div class="flex-column user-menu">
     <?php
     if ($user['ruolo'] === 'utilizzatore') {
       echo 
-      '<div class="user-menu__item" id="visualizza-prenotazioni-utente">
-        <p>Visualizza prenotazioni</p>
-      </div>
-      <div class="user-menu__item" id="visualizza-consegne">
-        <p>Visualizza eventi di consegna</p>
-      </div>';
+      '<input type="button" class="user-menu__item btnGenerico width200 noBlueLine" id="visualizza-prenotazioni-utente" value="Vedi prenotazioni">
+      <input type="button" class="user-menu__item btnGenerico width200 noBlueLine marginTop05" id="visualizza-consegne" value="Vedi consegne">';
     } 
     else if ($user['ruolo'] === 'volontario') {
       echo 
@@ -65,7 +65,7 @@
       echo 
         "<div id='$id-box' class='display-none flex-centered'>
           <h1 class='main-box__title'> $title </h1>
-          <table><tr>";
+          <table id='tableAll'><tr>";
       foreach(array_keys($datas[0]) as $key) {
         echo "<th> $key </th>";
       };
@@ -255,10 +255,3 @@
 </div>
 
 <script src="/js/user.js"></script>
-
-
-
-<?php 
-
-
-?>

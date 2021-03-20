@@ -3,7 +3,7 @@ segmentare
 età e professione utenti utilizzatori
 numero e genere richieste prestiti libri cartacei
 */
-DROP FUNCTION k_nnClassifier()
+DROP FUNCTION k_nnClassifier();
 
 CREATE OR REPLACE FUNCTION k_nnClassifier ()
     RETURNS JSON
@@ -27,23 +27,14 @@ AS $$
                       """)
 
     for r in rv:
-        dict_utilizzatore[r["emailutilizzatore"]] = [r["professione"], r["datadinascita"], r["genere"], r["countprenotazioni"]]
+        dict_utilizzatore.update({ r['emailutilizzatore'] : ( r['professione'], r['datadinascita'], r['genere'], r['countprenotazioni'] ) })
 
-    df = pd.DataFrame(dict_utilizzatore
-                     )
+    df = pd.DataFrame(dict_utilizzatore)
 
     return df.to_json()
 $$ LANGUAGE plpython3u;
 
-select k_nnClassifier()
+select k_nnClassifier();
 
 --            columns=['professione', 'datadinascita', 'countprenotazioni, genere'
 --            index=dict_utilizzatore.keys()
-
-
---     JOIN (SELECT count(*) AS countprenotazioni, prenotazione.emailutilizzatore
---           FROM prenotazione
---           GROUP BY prenotazione.emailutilizzatore) AS A
---                                                ON utilizzatore.emailutilizzatore = A.emailutilizzatore
-
-SELECT * FROM prenotazione

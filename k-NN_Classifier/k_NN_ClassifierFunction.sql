@@ -3,9 +3,9 @@ segmentare
 età e professione utenti utilizzatori
 numero e genere richieste prestiti libri cartacei
 */
-DROP FUNCTION pymax()
+DROP FUNCTION k_nnClassifier()
 
-CREATE OR REPLACE FUNCTION pymax ()
+CREATE OR REPLACE FUNCTION k_nnClassifier ()
     RETURNS JSON
 AS $$
     import pandas as pd
@@ -14,30 +14,36 @@ AS $$
 
     dict_utilizzatore = {}
 
-    etichetta_utilizzatore = plpy.execute("""SELECT utilizzatore.emailutilizzatore, professione, datadinascita, CountPrenotazioni
-                                         FROM utilizzatore
-                                         JOIN utente ON emailutente = utilizzatore.emailutilizzatore
-                                         JOIN (SELECT count(*) AS CountPrenotazioni, prenotazione.emailutilizzatore
-                                               FROM prenotazione
-                                               GROUP BY prenotazione.emailutilizzatore) AS A
-                                               ON utilizzatore.emailutilizzatore = A.emailutilizzatore
-                                         """)
+    rv = plpy.execute("""WITH richiestelibri AS (
+                             SELECT emailutilizzatore, genere, count(*) AS countprenotazioni
+                             FROM prenotazione
+                             JOIN libro ON codicelibrocartaceo = codicelibro
+                             GROUP BY emailutilizzatore, genere
+                         )
+                         SELECT utilizzatore.emailutilizzatore, professione, datadinascita, genere, countprenotazioni
+                         FROM utilizzatore
+                         JOIN utente ON emailutente = utilizzatore.emailutilizzatore
+                         JOIN richiestelibri ON utilizzatore.emailutilizzatore = richiestelibri.emailutilizzatore
+                      """)
 
-    for r in etichetta_utilizzatore:
-        dict_utilizzatore[r["emailutilizzatore"]] = [r["professione"], r["datadinascita"], r["countprenotazioni"]]
+    for r in rv:
+        dict_utilizzatore[r["emailutilizzatore"]] = [r["professione"], r["datadinascita"], r["genere"], r["countprenotazioni"]]
 
-    df = pd.DataFrame(dict_utilizzatore,
-                      columns=['professione', 'datadinascita', 'CountPrenotazioni'],
-                      index=dict_utilizzatore.keys())
-
-
-
+    df = pd.DataFrame(dict_utilizzatore
+                     )
 
     return df.to_json()
 $$ LANGUAGE plpython3u;
 
-select pymax()
+select k_nnClassifier()
 
-SELECT count(*) AS CountPrenotazioni, emailutilizzatore
-FROM prenotazione
-GROUP BY emailutilizzatore
+--            columns=['professione', 'datadinascita', 'countprenotazioni, genere'
+--            index=dict_utilizzatore.keys()
+
+
+--     JOIN (SELECT count(*) AS countprenotazioni, prenotazione.emailutilizzatore
+--           FROM prenotazione
+--           GROUP BY prenotazione.emailutilizzatore) AS A
+--                                                ON utilizzatore.emailutilizzatore = A.emailutilizzatore
+
+SELECT * FROM prenotazione

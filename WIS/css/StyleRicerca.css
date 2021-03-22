@@ -18,18 +18,24 @@
 }
 
 @media screen and (min-width: 57.2rem) {
-    .searchBar form {
+    .searchBarForm {
         width: 38.5rem;
     }
 }
 @media screen and (max-width: 57.2rem) {
-    .searchBar form {
-        width: 19rem;
+    .searchBarForm {
+        width: 38.5rem;
     }
 
     html {
         margin-left: 0rem;
         margin-right: 0rem;
+    }
+}
+
+@media screen and (max-width: 41.2rem){
+    .searchBarForm {
+        width: 19rem;
     }
 }
 

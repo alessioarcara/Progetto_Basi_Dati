@@ -2,7 +2,14 @@
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <link rel="stylesheet" href="css/Style.css">
-    <link rel="stylesheet" href="css/Style2.css">
+    <link rel="stylesheet" href="css/StyleRicerca.css">
+    <link rel="stylesheet" href="css/StyleMap.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+          integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+          crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+            integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+            crossorigin=""></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -14,7 +21,6 @@
     <title>Document</title>
 
     <div class="statusBar">
-        <button class="btn btn-dark" type="button">Mappa Biblioteche</button>
         <div class="dropdown">
             <button class="btn btn-dark dimLeft">Accedi</button>
             <div class="dropdown-content">
@@ -32,9 +38,9 @@
         <a href="/home"><img  id="logo" src="Logo.png" alt="Logo"></a>
     </div>
     <div class="flex-container colorContainerHeader searchBar">
-        <form class="searchBarForm" action="/ricerca" method="post">
+        <div class="searchBarForm" method="get">
             <div class="search-dropdown">
-                <button type="button" class="search-dropdown-button">Scegli una biblioteca... <i class="fa fa-caret-down"></i></button>
+                <button type="button" class="search-dropdown-button">Tutte le biblioteche <i class="fa fa-caret-down"></i></button>
                 <div class="search-dropdown-content">
                     <a href='#' class="search-dropdown-content-element">Tutte le biblioteche</a>
                     <?php
@@ -46,8 +52,8 @@
                     </div>
             </div>
             <input class="searchLineEdit noBlueLine" type="text" placeholder="Tutte le informazioni...">
-            <button class="search-button" type="submit"><i class="fa fa-search"></i></button>
-        </form>
+            <button class="search-button" type="button"><i class="fa fa-search"></i></button>
+        </div>
     </div>
     <div class="flex-container colorContainerSearch chk-buttons">
         <div class="chk-buttons-row_1">

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="@argonauta.synology.me" uuid="ae6650fa-b296-4fd0-833d-0fc8deef6a5f">
+    <data-source source="LOCAL" name="unibo@argonauta.synology.me" uuid="6b919a8d-9032-4f90-8cdd-22b9e311acce">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://argonauta.synology.me:5444/</jdbc-url>
+      <jdbc-url>jdbc:postgresql://argonauta.synology.me:5444/unibo</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>

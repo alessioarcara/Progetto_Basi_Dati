@@ -11,9 +11,11 @@ AS $$
     import pandas as pd
     import numpy as np
     from sklearn.model_selection import train_test_split
-    from sklearn.neighbors import KNeighborsClassifier
+    from sklearn.cluster import KMeans
 
     dict_utilizzatore = {}
+
+    # data extraction from db
 
     rv = plpy.execute("""WITH richiestelibri AS (
                          SELECT emailutilizzatore, count(distinct (genere)) AS generi, count(*) AS prenotazioni
@@ -27,6 +29,8 @@ AS $$
                                  JOIN richiestelibri ON utilizzatore.emailutilizzatore = richiestelibri.emailutilizzatore
                       """)
 
+    # cursor to dictionary to dataFrame
+
     for r in rv:
         dict_utilizzatore.update({ r['emailutilizzatore'] : ( r['professione'],
                                                               r['datadinascita'],
@@ -37,14 +41,21 @@ AS $$
                                                                             'datadinascita',
                                                                             'generi',
                                                                             'prenotazioni'])
+    # preprocessing data
 
-    #normalizzazione dataframe
+    # normalize data
     normalize = lambda v: v / np.linalg.norm(v)
+
     df['professione'] = normalize(df['professione'].astype('category').cat.codes)
-    df['generi'] = normalize(df['generi'])
+    df['generi'], df['prenotazioni'] = normalize(df['generi']), normalize(df['prenotazioni'])
     df['eta'] = normalize(pd.to_datetime('today').year -  pd.to_datetime(df.datadinascita).dt.year)
     df = df.drop('datadinascita', 1)
-    df['prenotazioni'] = normalize(df['prenotazioni'])
+
+    kmeans = KMeans(n_clusters=3, init='k-means++', max_iter=300, n_init=10,
+                    random_state=42)
+
+    kmeans.fit(df)
+    df = df.set_index([df.index, pd.Series(kmeans.labels_).values])
 
     return df
 $$ LANGUAGE plpython3u;

@@ -6,7 +6,7 @@ numero e genere richieste prestiti libri cartacei
 DROP FUNCTION k_nnClassifier();
 
 CREATE OR REPLACE FUNCTION k_nnClassifier ()
-    RETURNS TEXT
+    RETURNS TABLE (professione VARCHAR(40))
 AS $$
     import pandas as pd
     import numpy as np
@@ -51,13 +51,17 @@ AS $$
     df['eta'] = normalize(pd.to_datetime('today').year -  pd.to_datetime(df.datadinascita).dt.year)
     df = df.drop('datadinascita', 1)
 
-    kmeans = KMeans(n_clusters=3, init='k-means++', max_iter=300, n_init=10,
+    kmeans = KMeans(n_clusters=4, init='k-means++', max_iter=300, n_init=10,
                     random_state=42)
 
     kmeans.fit(df)
-    df = df.set_index([df.index, pd.Series(kmeans.labels_).values])
+    df["cluster"] = kmeans.labels_
 
-    return df
+    return ([df['professione']])
 $$ LANGUAGE plpython3u;
 
 select k_nnClassifier();
+
+select * from utilizzatore
+
+-- df = df.set_index([df.index, pd.Series(kmeans.labels_).values])

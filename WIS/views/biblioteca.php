@@ -16,25 +16,27 @@
         $lat = $library['lat'];
         $long = $library['long'];
 
-        echo "<h3 class='titolo-lista-risultati'>$name</h3>
-              <details>
-              <summary>Informazioni</summary>
-                    <div class='dettagli-lista-risultati'>
-                        <div class='dettagli-lista-risultati note'>                    
-                            <p><strong>Email</strong>: $email</p>
-                            <p><strong>Sito Web</strong>: <a href='$sitoweb'>$sitoweb</a></p>
-                            <p><strong>Recapito Telefonico</strong>:</p>
-                            <br>
-                            <p><strong>Note storiche</strong>:</p>
-                            <p>$notestoriche</p>
+        echo "<div class='card-risultato'>
+                  <h3 class='titolo-lista-risultati'>$name</h3>
+                  <details>
+                  <summary class='noBlueLine'>Informazioni</summary>
+                        <div class='dettagli-lista-risultati'>
+                            <div class='dettagli-lista-risultati note'>                    
+                                <p><strong>Email</strong>: $email</p>
+                                <p><strong>Sito Web</strong>: <a href='$sitoweb'>$sitoweb</a></p>
+                                <p><strong>Recapito Telefonico</strong>:</p>
+                                <br>
+                                <p><strong>Note storiche</strong>:</p>
+                                <p>$notestoriche</p>
+                            </div>
+                            <div class='dettagli-lista-risultati indirizzo'>
+                                <p><strong>Indirizzo</strong></p>
+                                <p>$via, $civico, $citta, $cap</p>
+                                <div id='mapid$counter' class='map'>$lat@$long</div>         
+                            </div>
                         </div>
-                        <div class='dettagli-lista-risultati indirizzo'>
-                            <p><strong>Indirizzo</strong></p>
-                            <p>$via, $civico, $citta, $cap</p>
-                            <div id='mapid$counter' class='map'>$lat@$long</div>         
-                        </div>
-                    </div>
-              </details>";
+                  </details>
+              </div>";
 
         $counter++;
     }

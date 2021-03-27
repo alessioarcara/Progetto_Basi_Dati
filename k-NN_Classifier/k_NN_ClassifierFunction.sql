@@ -6,7 +6,7 @@ numero e genere richieste prestiti libri cartacei
 DROP FUNCTION k_nnClassifier();
 
 CREATE OR REPLACE FUNCTION k_nnClassifier ()
-    RETURNS TABLE (professione VARCHAR(40))
+    RETURNS JSON
 AS $$
     import pandas as pd
     import numpy as np
@@ -41,27 +41,41 @@ AS $$
                                                                             'datadinascita',
                                                                             'generi',
                                                                             'prenotazioni'])
-    # preprocessing data
 
     # normalize data
     normalize = lambda v: v / np.linalg.norm(v)
 
+    # preprocessing data
     df['professione'] = normalize(df['professione'].astype('category').cat.codes)
     df['generi'], df['prenotazioni'] = normalize(df['generi']), normalize(df['prenotazioni'])
     df['eta'] = normalize(pd.to_datetime('today').year -  pd.to_datetime(df.datadinascita).dt.year)
     df = df.drop('datadinascita', 1)
 
+    # clustering
+    # 4 as my model suggested
     kmeans = KMeans(n_clusters=4, init='k-means++', max_iter=300, n_init=10,
                     random_state=42)
-
     kmeans.fit(df)
-    df["cluster"] = kmeans.labels_
 
-    return ([df['professione']])
+    # return table
+    df["cluster"] = kmeans.labels_
+    return df.T.to_json()
 $$ LANGUAGE plpython3u;
 
 select k_nnClassifier();
 
-select * from utilizzatore
+DROP MATERIALIZED VIEW IF EXISTS ClustersUtilizzatori;
 
--- df = df.set_index([df.index, pd.Series(kmeans.labels_).values])
+CREATE MATERIALIZED VIEW ClustersUtilizzatori AS
+select
+       key as email,
+       (data.value ->> 'professione')::float AS professione,
+       (data.value ->> 'generi')::float AS generi,
+       (data.value ->> 'prenotazioni')::float AS prenotazioni,
+       (data.value ->> 'eta')::float AS eta,
+       (data.value ->> 'cluster')::numeric AS cluster
+FROM json_each(k_nnClassifier()) AS data;
+
+SELECT *
+FROM ClustersUtilizzatori
+ORDER BY cluster;

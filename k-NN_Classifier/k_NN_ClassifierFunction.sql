@@ -46,19 +46,21 @@ AS $$
     normalize = lambda v: v / np.linalg.norm(v)
 
     # preprocessing data
-    df['professione'] = normalize(df['professione'].astype('category').cat.codes)
-    df['generi'], df['prenotazioni'] = normalize(df['generi']), normalize(df['prenotazioni'])
-    df['eta'] = normalize(pd.to_datetime('today').year -  pd.to_datetime(df.datadinascita).dt.year)
+    df['professione_feat'] = normalize(df['professione'].astype('category').cat.codes)
+    df['generi_feat'], df['prenotazioni_feat'] = normalize(df['generi']), normalize(df['prenotazioni'])
+    df['eta'] = (pd.to_datetime('today').year -  pd.to_datetime(df.datadinascita).dt.year)
+    df['eta_feat'] = normalize(df['eta'].copy())
     df = df.drop('datadinascita', 1)
 
     # clustering
     # 4 as my model suggested
     kmeans = KMeans(n_clusters=4, init='k-means++', max_iter=300, n_init=10,
                     random_state=42)
-    kmeans.fit(df)
+    kmeans.fit(df[['professione_feat', 'eta_feat', 'generi_feat', 'prenotazioni_feat']])
 
     # return table
     df["cluster"] = kmeans.labels_
+    df = df.drop(['professione_feat', 'eta_feat', 'generi_feat', 'prenotazioni_feat'], 1)
     return df.T.to_json()
 $$ LANGUAGE plpython3u;
 
@@ -69,13 +71,9 @@ DROP MATERIALIZED VIEW IF EXISTS ClustersUtilizzatori;
 CREATE MATERIALIZED VIEW ClustersUtilizzatori AS
 select
        key as email,
-       (data.value ->> 'professione')::float AS professione,
-       (data.value ->> 'generi')::float AS generi,
-       (data.value ->> 'prenotazioni')::float AS prenotazioni,
-       (data.value ->> 'eta')::float AS eta,
-       (data.value ->> 'cluster')::numeric AS cluster
-FROM json_each(k_nnClassifier()) AS data;
-
-SELECT *
-FROM ClustersUtilizzatori
-ORDER BY cluster;
+       (data.value ->> 'cluster')::numeric AS cluster,
+       (data.value ->> 'professione')::text AS professione,
+       (data.value ->> 'eta')::numeric AS eta,
+       (data.value ->> 'generi')::numeric AS generi,
+       (data.value ->> 'prenotazioni')::numeric AS prenotazioni
+FROM json_each(k_nnClassifier()) AS data ;

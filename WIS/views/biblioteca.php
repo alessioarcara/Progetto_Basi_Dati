@@ -15,6 +15,7 @@
         $notestoriche = $library['notestoriche'];
         $lat = $library['lat'];
         $long = $library['long'];
+        $numeri = $library['numeri'];
 
         echo "<div class='card-risultato'>
                   <h3 class='titolo-lista-risultati'>$name</h3>
@@ -24,9 +25,16 @@
                             <div class='dettagli-lista-risultati note'>                    
                                 <p><strong>Email</strong>: $email</p>
                                 <p><strong>Sito Web</strong>: <a href='$sitoweb'>$sitoweb</a></p>
-                                <p><strong>Recapito Telefonico</strong>:</p>
-                                <br>
-                                <p><strong>Note storiche</strong>:</p>
+                                <p><strong>Recapito Telefonico</strong>:</p>";
+                                if ($numeri[0]) {
+                                    foreach ($numeri as $numero) {
+                                        echo "<p>$numero</p>";
+                                    }
+                                } else {
+                                    echo "<p>Non disponibile</p>";
+                                }
+                                echo
+                              " <p><strong>Note storiche</strong>:</p>
                                 <p>$notestoriche</p>
                             </div>
                             <div class='dettagli-lista-risultati indirizzo'>

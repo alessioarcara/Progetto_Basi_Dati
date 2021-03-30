@@ -45,11 +45,9 @@ class searchController {
                         ];
                 }
             };
-
             $params = [
                 'libraries' => $libraries
             ];
-
             return Application::$app->router->renderView('biblioteca', $params);
         } else {
 
@@ -66,6 +64,18 @@ class searchController {
 
 
         }
+    }
+
+    private function postilettura($query_parameters){
+
+    }
+
+    private function libricartacei($query_parameters){
+
+    }
+
+    private function ebooks($query_parameters){
+
     }
 
 //        $params = [];

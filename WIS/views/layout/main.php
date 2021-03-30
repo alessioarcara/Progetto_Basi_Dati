@@ -38,7 +38,7 @@
         <a href="/home"><img  id="logo" src="Logo.png" alt="Logo"></a>
     </div>
     <div class="flex-container colorContainerHeader searchBar">
-        <div class="searchBarForm" method="get">
+        <div class="searchBarForm">
             <div class="search-dropdown">
                 <button type="button" class="search-dropdown-button">Tutte le biblioteche <i class="fa fa-caret-down"></i></button>
                 <div class="search-dropdown-content">
@@ -49,7 +49,7 @@
                         echo "<a href='#' class='search-dropdown-content-element'> $nome </a>";
                     }
                     ?>
-                    </div>
+                </div>
             </div>
             <input class="searchLineEdit noBlueLine" type="text" placeholder="Tutte le informazioni...">
             <button class="search-button" type="button"><i class="fa fa-search"></i></button>

@@ -121,18 +121,18 @@
 }
 
 .search-dropdown-content {
-    flex: 1;
+    /*flex: 1;*/
     max-width: 38.5rem;
     display: none;
     text-align: left;
-    width: 50%;
+    width: 100%;
     position: absolute;
     background-color: lightgrey;
     z-index: 1;
 }
 
 .search-dropdown-content a {
-    width: 100%;
+    /*width: 100%;*/
     color: black;
     padding: 12px 16px;
     /*margin: 10px;*/

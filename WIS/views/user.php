@@ -28,9 +28,9 @@
     } 
     else if ($user['ruolo'] === 'volontario') {
       echo
-      '<input type="button" class="user-menu__item btnGenerico noBlueLine marginTop05" id="visualizza-prenotazioni" value="Visualizza tutte le prenotazioni">
-      <input type="button" class="user-menu__item btnGenerico noBlueLine marginTop05" id="inserisci-consegna" value="Inserisci evento consegna">
-      <input type="button" class="user-menu__item btnGenerico noBlueLine marginTop05" id="aggiorna-consegna" value="Aggiorna evento di consegna">';
+      '<a class="user-menu__item btnGenerico noBlueLine noUnderline marginTop05" id="visualizza-prenotazioni" href="#scroll">Visualizza tutte le prenotazioni</a>
+      <a class="user-menu__item btnGenerico noBlueLine noUnderline marginTop05" id="inserisci-consegna" href="#scroll">Inserisci evento consegna</a>
+      <a class="user-menu__item btnGenerico noBlueLine noUnderline marginTop05" id="aggiorna-consegna" id="#scroll">Aggiorna evento di consegna</a>';
     } else {
       echo
       '
@@ -45,7 +45,7 @@
     ?>
   </div>
   
-  <div class='main-box flex-centered flex-column'>
+  <div class='main-box flex-centered flex-column' id="scroll">
   <?php 
 
     function loadTable($id, $datas, $title) {
@@ -129,7 +129,7 @@
               <option value='Restituzione'>Restituzione</option>
             </select>
             <input type='text' name='codice-prenotazione' id='new-codice-prenotazione' placeholder='Codice prenotazione'>
-            <button class='btnGenerico'>Inserisci</button>
+            <input type='submit' class='btnGenerico noBlueLine' value='Inserisci'>
           </form>
         </div>
         ";
@@ -147,7 +147,7 @@
               <option value='Restituzione'>Restituzione</option>
             </select>
             <input type='text' name='codice-prenotazione' id='update-codice-prenotazione' placeholder='Codice prenotazione'>
-            <button>Inserisci</button>
+            <input type='submit' class='btnGenerico noBlueLine' value='Inserisci'>
           </form>
         </div>
         ";

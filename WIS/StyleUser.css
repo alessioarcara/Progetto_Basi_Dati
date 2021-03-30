@@ -1,5 +1,6 @@
 html {
     margin: 0.5rem;
+    scroll-behavior: smooth;
 }
   
 .flex {
@@ -79,7 +80,7 @@ html {
 .main-box__form > * {
     margin: 2.3rem 1rem;
 }
-  
+
 .main-box__form button {
     display: block;
     margin: 0 auto;
@@ -88,6 +89,10 @@ html {
 .viewUser {
     text-align: right;
     border-bottom: 1px solid #000;
+}
+
+.noUnderline {
+    text-decoration: none;
 }
 
                                             /* Settaggio tabelle */

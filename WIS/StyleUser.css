@@ -53,6 +53,8 @@ html {
 .main-box {
     flex: 1;
     padding: 3rem 1rem;
+    border-left: 1px solid #000;
+    margin-left: 1%;
 }
   
 .main-box > * {
@@ -85,6 +87,7 @@ html {
 
 .viewUser {
     text-align: right;
+    border-bottom: 1px solid #000;
 }
 
                                             /* Settaggio tabelle */

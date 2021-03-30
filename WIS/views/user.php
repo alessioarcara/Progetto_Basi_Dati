@@ -11,7 +11,8 @@
     echo 
       "
       <div class='viewUser colorContainerHeader' id='title-and-role'>
-        <b>Area Utente:</b> <i>$nome</i> <b>Ruolo:</b> <i>$ruolo</i>
+        <i class='fa fa-user-circle'></i> <b>Area Utente:</b> <u>$nome</u><br/>
+        <i class='fa fa-address-card'></i> <b>Ruolo:</b> <u>$ruolo</u>
       </div>
       ";
 ?>
@@ -22,24 +23,24 @@
     <?php
     if ($user['ruolo'] === 'utilizzatore') {
       echo 
-      '<input type="button" class="user-menu__item btnGenerico width220 noBlueLine" id="visualizza-prenotazioni-utente" value="Visualizza prenotazioni">
-      <input type="button" class="user-menu__item btnGenerico width220 noBlueLine marginTop05" id="visualizza-consegne" value="Visualizza consegne">';
+      '<input type="button" class="user-menu__item btnGenerico noBlueLine marginTop05" id="visualizza-prenotazioni-utente" value="Visualizza prenotazioni">
+      <input type="button" class="user-menu__item btnGenerico noBlueLine marginTop05" id="visualizza-consegne" value="Visualizza consegne">';
     } 
     else if ($user['ruolo'] === 'volontario') {
       echo
-      '<input type="button" class="user-menu__item btnGenerico width220 noBlueLine" id="visualizza-prenotazioni" value="Visualizza tutte le prenotazioni">
-      <input type="button" class="user-menu__item btnGenerico width220 noBlueLine marginTop05" id="inserisci-consegna" value="Inserisci evento consegna">
-      <input type="button" class="user-menu__item btnGenerico width220 noBlueLine marginTop05" id="aggiorna-consegna" value="Aggiorna evento di consegna">';
+      '<input type="button" class="user-menu__item btnGenerico noBlueLine marginTop05" id="visualizza-prenotazioni" value="Visualizza tutte le prenotazioni">
+      <input type="button" class="user-menu__item btnGenerico noBlueLine marginTop05" id="inserisci-consegna" value="Inserisci evento consegna">
+      <input type="button" class="user-menu__item btnGenerico noBlueLine marginTop05" id="aggiorna-consegna" value="Aggiorna evento di consegna">';
     } else {
       echo
       '
-      <input type="button" class="user-menu__item btnGenerico width220 noBlueLine" id="visualizza-prenotazioni-admin" value="Visualizza prenotazioni">
-      <input type="button" class="user-menu__item btnGenerico width220 noBlueLine marginTop05" id="inserisci-libro" value="Inserisci libro">
-      <input type="button" class="user-menu__item btnGenerico width220 noBlueLine marginTop05" id="aggiorna-libro" value="Aggiorna libro">
-      <input type="button" class="user-menu__item btnGenerico width220 noBlueLine marginTop05" id="rimuovi-libro" value="Rimuovi libro">
-      <input type="button" class="user-menu__item btnGenerico width220 noBlueLine marginTop05" id="invia-messaggio" value="Invia messaggio">
-      <input type="button" class="user-menu__item btnGenerico width220 noBlueLine marginTop05" id="invia-segnalazione" value="Invia segnalazione">
-      <input type="button" class="user-menu__item btnGenerico width220 noBlueLine marginTop05" id="rimuovi-segnalazioni" value="Rimuovi segnalazioni">';
+      <input type="button" class="user-menu__item btnGenerico  noBlueLine marginTop05" id="visualizza-prenotazioni-admin" value="Visualizza prenotazioni">
+      <input type="button" class="user-menu__item btnGenerico noBlueLine marginTop05" id="inserisci-libro" value="Inserisci libro">
+      <input type="button" class="user-menu__item btnGenerico noBlueLine marginTop05" id="aggiorna-libro" value="Aggiorna libro">
+      <input type="button" class="user-menu__item btnGenerico noBlueLine marginTop05" id="rimuovi-libro" value="Rimuovi libro">
+      <input type="button" class="user-menu__item btnGenerico noBlueLine marginTop05" id="invia-messaggio" value="Invia messaggio">
+      <input type="button" class="user-menu__item btnGenerico noBlueLine marginTop05" id="invia-segnalazione" value="Invia segnalazione">
+      <input type="button" class="user-menu__item btnGenerico noBlueLine marginTop05" id="rimuovi-segnalazioni" value="Rimuovi segnalazioni">';
     }
     ?>
   </div>
@@ -119,16 +120,16 @@
       echo 
         "
         <div class='display-none' id='inserisci-consegna-box'>
-          <h1>Inserisci una nuova consegna</h1>
+          <h2>Inserisci una nuova consegna</h2>
           <form class='main-box__form' id='inserisci-consegna-form'>
             <input type='text' name='note' id='new-note' placeholder='Note'>
             <input type='date' name='data' id='new-data'>  
-            <select name='tipo' id='new-tipo'>
-              <option value='Affidamento'>Affidamento</option>
+            <select class='noBlueLine' name='tipo' id='new-tipo'>
+              <option selected value='Affidamento'>Affidamento</option>
               <option value='Restituzione'>Restituzione</option>
             </select>
             <input type='text' name='codice-prenotazione' id='new-codice-prenotazione' placeholder='Codice prenotazione'>
-            <button>Inserisci</button>
+            <button class='btnGenerico'>Inserisci</button>
           </form>
         </div>
         ";

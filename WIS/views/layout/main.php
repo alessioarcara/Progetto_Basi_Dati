@@ -18,9 +18,8 @@
 </head>
 <body>
     <div class="statusBar">
-        <input type="button" class="btnHeader width150 noBlueLine" value="Mappe Ebiblio">
         <div class="dropdown">
-            <input type="button" class="btnHeader width150 dimLeft" value="Accedi">
+            <input type="button" class="btnHeader width150 noBlueLine dimLeft" value="Accedi">
             <div class="dropdown-content">
                 <label class="margin-bottom-5">Utente:</label><br>
                 <input class="margin-bottom-5" type="text" placeholder="Utente"><br>

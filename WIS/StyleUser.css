@@ -13,7 +13,7 @@ html {
 .flex-centered {
     display: flex;
     align-items: center;
-    justify-content: center;
+    /* justify-content: center; */
 }
 .display-none {
     display: none;
@@ -25,17 +25,15 @@ html {
   
 .user-menu {
     /* flex-basis: 25%; */
-    /* border-right: solid #000 1px; */
 }
   
 .user-menu > * {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content:baseline;
 }
   
 .user-menu__item {
-    border-bottom: solid #000 1px;
     /* padding: 1rem 2rem; */
     /* text-transform: uppercase; */
 }
@@ -58,7 +56,7 @@ html {
 }
   
 .main-box > * {
-    width: 100%;
+    width: 75%;
 }
   
 .main-box th {
@@ -83,6 +81,10 @@ html {
 .main-box__form button {
     display: block;
     margin: 0 auto;
+}
+
+.viewUser {
+    text-align: right;
 }
 
                                             /* Settaggio tabelle */

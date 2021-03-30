@@ -12,13 +12,14 @@ if (menu)
   menu.addEventListener('click', e => {
     const id = e.target.id || e.target.parentNode.id;
 
-    document.querySelector('#title-and-role').style.display = 'none';
+    if (!id) return ;
+
+    //document.querySelector('#title-and-role').style.display = 'none';
     Array.from( document.querySelector('.main-box').children ).forEach( child => {
       child.style.display = 'none';
     });
     document.querySelector(`#${id}-box`).style.display = 'block';
   });
-
 if (inserisciConsegna)
   inserisciConsegna.addEventListener('submit', e => {
     e.preventDefault();
@@ -182,4 +183,3 @@ if (rimuoviSegnalazioni)
     })
     .catch(err => console.log(err));
   });
-

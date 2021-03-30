@@ -110,7 +110,8 @@ body {
 }
 
 .btnGenerico:hover, .btnHeader {
-    height: 50px;
+    /* height: 50px; */
+    width: auto;
 
     border-radius: 7px;
     background-color: var(--color-grey);
@@ -128,6 +129,10 @@ body {
 
 .width200, .width200:hover {
     width: 200px;
+}
+
+.width220, .width220:hover {
+    width: 220px;
 }
 
 /* Style per menù a tendina */

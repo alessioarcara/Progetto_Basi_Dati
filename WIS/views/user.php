@@ -4,50 +4,42 @@
 <link rel="stylesheet" href="StyleProva.css"> -->
 <!-- <link rel="stylesheet" href="Style.css"> -->
 
+<?php
+    // costruisco schermata iniziale
+    $nome = $user['nome'];
+    $ruolo = $user['ruolo'];
+    echo 
+      "
+      <div class='viewUser colorContainerHeader' id='title-and-role'>
+        <b>Area Utente:</b> <i>$nome</i> <b>Ruolo:</b> <i>$ruolo</i>
+      </div>
+      ";
+?>
+
 <div class="flex main-container colorContainerHeader">
 
   <div class="flex-column user-menu">
     <?php
     if ($user['ruolo'] === 'utilizzatore') {
       echo 
-      '<input type="button" class="user-menu__item btnGenerico width200 noBlueLine" id="visualizza-prenotazioni-utente" value="Vedi prenotazioni">
-      <input type="button" class="user-menu__item btnGenerico width200 noBlueLine marginTop05" id="visualizza-consegne" value="Vedi consegne">';
+      '<input type="button" class="user-menu__item btnGenerico width220 noBlueLine" id="visualizza-prenotazioni-utente" value="Visualizza prenotazioni">
+      <input type="button" class="user-menu__item btnGenerico width220 noBlueLine marginTop05" id="visualizza-consegne" value="Visualizza consegne">';
     } 
     else if ($user['ruolo'] === 'volontario') {
-      echo 
-      '<div class="user-menu__item" id="visualizza-prenotazioni">
-        <p>Visualizza tutte le prenotazioni</p>
-      </div>
-      <div class="user-menu__item" id="inserisci-consegna">
-        <p>Inserisci evento di consegna</p>
-      </div>
-      <div class="user-menu__item" id="aggiorna-consegna">
-        <p>Aggiorna evento di consegna</p>
-      </div>';
+      echo
+      '<input type="button" class="user-menu__item btnGenerico width220 noBlueLine" id="visualizza-prenotazioni" value="Visualizza tutte le prenotazioni">
+      <input type="button" class="user-menu__item btnGenerico width220 noBlueLine marginTop05" id="inserisci-consegna" value="Inserisci evento consegna">
+      <input type="button" class="user-menu__item btnGenerico width220 noBlueLine marginTop05" id="aggiorna-consegna" value="Aggiorna evento di consegna">';
     } else {
       echo
       '
-      <div class="user-menu__item" id="visualizza-prenotazioni-admin">
-        <p>Visualizza prenotazioni</p>
-      </div>
-      <div class="user-menu__item" id="inserisci-libro">
-        <p>Inserisci libro</p>
-      </div>
-      <div class="user-menu__item" id="aggiorna-libro">
-        <p>Aggiorna libro</p>
-      </div>
-      <div class="user-menu__item" id="rimuovi-libro">
-        <p>Rimuovi libro</p>
-      </div>
-      <div class="user-menu__item" id="invia-messaggio">
-        <p>Invia messaggio</p>
-      </div>
-      <div class="user-menu__item" id="invia-segnalazione">
-        <p>Invia segnalazione</p>
-      </div>
-      <div class="user-menu__item" id="rimuovi-segnalazioni">
-        <p>Rimuovi segnalazioni</p>
-      </div>';
+      <input type="button" class="user-menu__item btnGenerico width220 noBlueLine" id="visualizza-prenotazioni-admin" value="Visualizza prenotazioni">
+      <input type="button" class="user-menu__item btnGenerico width220 noBlueLine marginTop05" id="inserisci-libro" value="Inserisci libro">
+      <input type="button" class="user-menu__item btnGenerico width220 noBlueLine marginTop05" id="aggiorna-libro" value="Aggiorna libro">
+      <input type="button" class="user-menu__item btnGenerico width220 noBlueLine marginTop05" id="rimuovi-libro" value="Rimuovi libro">
+      <input type="button" class="user-menu__item btnGenerico width220 noBlueLine marginTop05" id="invia-messaggio" value="Invia messaggio">
+      <input type="button" class="user-menu__item btnGenerico width220 noBlueLine marginTop05" id="invia-segnalazione" value="Invia segnalazione">
+      <input type="button" class="user-menu__item btnGenerico width220 noBlueLine marginTop05" id="rimuovi-segnalazioni" value="Rimuovi segnalazioni">';
     }
     ?>
   </div>
@@ -83,16 +75,6 @@
         '</table></div>';
     };
 
-    // costruisco schermata iniziale
-    $nome = $user['nome'];
-    $ruolo = $user['ruolo'];
-    echo 
-      "
-      <div id='title-and-role'>
-        <h2>Area Utente di $nome</h2>
-        <h3>Ruolo: $ruolo</h3>
-      </div>
-      ";
     
     if ($user['ruolo'] === 'utilizzatore') {
       // costruisco tabella PRENOTAZIONI
@@ -254,4 +236,4 @@
 
 </div>
 
-<script src="/js/user.js"></script>
+<script src="/views/js/user.js"></script>

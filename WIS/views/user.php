@@ -28,9 +28,9 @@
     } 
     else if ($user['ruolo'] === 'volontario') {
       echo
-      '<a class="user-menu__item btnGenerico noBlueLine noUnderline marginTop05" id="visualizza-prenotazioni" href="#scroll">Visualizza tutte le prenotazioni</a>
-      <a class="user-menu__item btnGenerico noBlueLine noUnderline marginTop05" id="inserisci-consegna" href="#scroll">Inserisci evento consegna</a>
-      <a class="user-menu__item btnGenerico noBlueLine noUnderline marginTop05" id="aggiorna-consegna" id="#scroll">Aggiorna evento di consegna</a>';
+      '<a class="user-menu__item boxMenu noBlueLine noUnderline marginTop05" id="visualizza-prenotazioni" href="#scroll">Visualizza le prenotazioni</a>
+      <a class="user-menu__item boxMenu noBlueLine noUnderline marginTop01" id="inserisci-consegna" href="#scroll">Inserisci evento consegna</a>
+      <a class="user-menu__item boxMenu noBlueLine noUnderline marginTop01" id="aggiorna-consegna" id="#scroll">Aggiorna evento di consegna</a>';
     } else {
       echo
       '

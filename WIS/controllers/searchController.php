@@ -10,64 +10,57 @@ class searchController {
         $query_parameters = explode('&', substr($parsed_url['query'], 2));
 
         return $this -> $category($query_parameters);
+    }
 
-//        Application::$app->response->setStatusCode(404);
-//        return Application::$router->renderContent("404 - Invalid url query!");
+    private function bibliotecheQuery($sql){
+        $results = Application::$pdo->query($sql);
+        $libraries = [];
+        while ($row = $results->fetch(\PDO::FETCH_ASSOC)) {
+            if (isset($libraries[$row['nome']])) {
+                array_push($libraries[$row['nome']]['numeri'], $row['numero']);
+            }
+            else {
+                $libraries[$row['nome']] =
+                    [
+                        'nome' => $row['nome'],
+                        'via' => $row['via'],
+                        'civico' => $row['civico'],
+                        'cap' => $row['cap'],
+                        'citta' => $row['citta'],
+                        'email' => $row['email'],
+                        'sitoweb' => $row['sitoweb'],
+                        'lat' => $row['lat'],
+                        'long' => $row['long'],
+                        'notestoriche' => $row['notestoriche'],
+                        'numeri' => [$row['numero']]
+                    ];
+            }
+        }
+        return $params = ['libraries' => $libraries ];
     }
 
     private function biblioteche($query_parameters){
 
-        if ($query_parameters[0] === "Tuttelebiblioteche") {
-            $sql = 'SELECT *  FROM biblioteca LEFT JOIN recapitotelefonico r on biblioteca.nome = r.nomebiblioteca';
-
-            $results = Application::$pdo->query($sql);
-            $libraries = [];
-            while ($row = $results->fetch(\PDO::FETCH_ASSOC)) {
-                if (isset($libraries[$row['nome']]))
-                {
-                    array_push($libraries[$row['nome']]['numeri'], $row['numero']);
-                }
-                else
-                {
-                    $libraries[$row['nome']] =
-                        [
-                            'nome' => $row['nome'],
-                            'via' => $row['via'],
-                            'civico' => $row['civico'],
-                            'cap' => $row['cap'],
-                            'citta' => $row['citta'],
-                            'email' => $row['email'],
-                            'sitoweb' => $row['sitoweb'],
-                            'lat' => $row['lat'],
-                            'long' => $row['long'],
-                            'notestoriche' => $row['notestoriche'],
-                            'numeri' => [$row['numero']]
-                        ];
-                }
-            };
-            $params = [
-                'libraries' => $libraries
-            ];
-            return Application::$app->router->renderView('biblioteca', $params);
+        if ($query_parameters[0] === "") {
+            $sql = 'SELECT * FROM GetBiblioteche()';
         } else {
-
-            // per ogni & crea una chiave
-            // per ogni = crea un valore della chiave
-            $params = [];
+            $query = '';
             foreach ($query_parameters as $parameter) {
-                [$key, $value] = explode('=', $parameter);
-                $params[$key] = $value;
-                echo '<pre>'; print_r($params); echo '</pre>';
-                };
-
-            $nomebiblioteca = $query_parameters[0];
-
-
+                $query = $query."'$parameter', ";
+            };
+            $sql = "SELECT * FROM GetBiblioteche(".substr($query, 0, -2).")";
         }
+        $params = $this->bibliotecheQuery($sql);
+
+        if (empty($params['libraries'])){
+            Application::$app->response->setStatusCode(404);
+            return Application::$app->router->renderContent("404 - Invalid url query!");
+        }
+            return Application::$app->router->renderView('biblioteca', $params);;
     }
 
     private function postilettura($query_parameters){
-
+        $sql = 'SELECT * FROM PostiLetturaBiblioteca()';
     }
 
     private function libricartacei($query_parameters){
@@ -77,73 +70,4 @@ class searchController {
     private function ebooks($query_parameters){
 
     }
-
-//        $params = [];
-//        foreach ($parameters as $parameter) {
-//            [$key, $value] = explode('=', $parameter);
-//            $params[$key] = $value;
-//        };
-//
-//        //se nella query è specificato il nome della biblioteca
-//        //allora si ottengono le informazioni della biblioteca specifica
-//        if ($params['n']) {
-//            //ottieni il nome biblioteca originale dall'url
-//            $nomeBiblioteca = $params['n'];
-//            $nomeBiblioteca = str_replace('%20', ' ', $nomeBiblioteca);
-//            $nomeBiblioteca = str_replace('%22', '"', $nomeBiblioteca);
-//
-//            //se è presente 'section' nella query significa che vogliamo vedere
-//            //o i posti lettura o i libri della biblioteca specifica
-//            if ($params['section']) {
-//
-//                if ($params['section'] === 'libri') {
-//                    $sql = "SELECT * FROM LibriBiblioteca( ' ".$nomeBiblioteca. " ')";
-//
-//                    $result = Application::$pdo->query($sql);
-//                    $books = [];
-//                    while ($row = $result->fetch(\PDO::FETCH_ASSOC)) {
-//                        $books[] = [
-//                            "codice" => $row['codice'],
-//                            "titolo" => $row['titololibro'],
-//                            "edizione" => $row['edizione'],
-//                            "anno" => $row['anno'],
-//                            "genere" => $row['generelibro']
-//                        ];
-//                    };
-//
-//                    $params = [
-//                        'libraryName' => $nomeBiblioteca,
-//                        'books' => $books
-//                    ];
-//
-//                    return Application::$app->router->renderView('results', $params);
-//
-//                }
-//
-//            }
-//
-//            //se non è presente la 'section' nella query allora
-//            //si restituiscono tutti i valori della specifica biblioteca
-//
-//            $sql = "SELECT * FROM BIBLIOTECA WHERE Nome = '".$nomeBiblioteca."'";
-//
-//            $result = Application::$pdo->query($sql);
-//            $library = [];
-//            while ($row = $result->fetch(\PDO::FETCH_ASSOC)) {
-//                $library = [
-//                    'nome' => $row['nome'],
-//                    'indirizzo' => $row['indirizzo'],
-//                    'email' => $row['email'],
-//                    'sitoweb' => $row['sitoweb'],
-//                    'lat' => $row['lat'],
-//                    'long' => $row['long']
-//                ];
-//            };
-//
-//            $params = [
-//                'library' => $library
-//            ];
-//
-//            return Application::$app->router->renderView('results', $params);
-//        }
 }

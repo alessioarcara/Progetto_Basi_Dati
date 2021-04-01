@@ -1,7 +1,5 @@
 <div class="listarisultati-corpo">
-
     <?php
-
     $counter = 1;
     foreach ($libraries as $library) {
         $name = $library['nome'];
@@ -45,9 +43,7 @@
                         </div>
                   </details>
               </div>";
-
         $counter++;
     }
-
     ?>
 </div>

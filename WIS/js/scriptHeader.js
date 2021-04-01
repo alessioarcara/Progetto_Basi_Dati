@@ -35,22 +35,19 @@ $(document).ready(function(){
     $('#chk-biblioteche').click();
 
     $('.search-dropdown-content a').click(function (){
+        $(this).addClass('selected');
         $('.search-dropdown-button').text($(this).text());
     });
 
     /* GET request Ricerca */
     $('.search-button').click(function(){
-        if ($('.search-dropdown-button').length) {
-            parameter_search = $('.search-dropdown-button').text().replace(/\s+/g, '');
-        }
-        else if ($('.searchLineEdit').length){
-            if ($('.searchLineEdit').val() === ""){
-                parameter_search = "tutto"
-            } else {
-                parameter_search = $('.searchLineEdit').val().replace(/\s+/g, '')
-            }
-        }
-        url = "./" + chk_btn_changed + "?n=" + parameter_search;
+        url = `./${chk_btn_changed}`
+        if ($('.search-dropdown-button').length)
+            if ($('.search-dropdown-button').text() !== "Tutte le biblioteche")
+                url += "?n=" + $('.search-dropdown-button').text().replace(/\s+/g, '');
+        else if ($('.searchLineEdit').length)
+            if ($('.searchLineEdit').val() !== "")
+                url += "?n=" + $('.searchLineEdit').val().replace(/\s+/g, '')
         window.location.assign(url);
     });
 

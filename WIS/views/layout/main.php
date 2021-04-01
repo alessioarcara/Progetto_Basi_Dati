@@ -40,7 +40,7 @@
     <div class="flex-container colorContainerHeader searchBar">
         <div class="searchBarForm">
             <div class="search-dropdown">
-                <button type="button" class="search-dropdown-button">Tutte le biblioteche <i class="fa fa-caret-down"></i></button>
+                <button type="button" class="search-dropdown-button">Tutte le biblioteche<i class="fa fa-caret-down"></i></button>
                 <div class="search-dropdown-content">
                     <a href='#' class="search-dropdown-content-element">Tutte le biblioteche</a>
                     <?php

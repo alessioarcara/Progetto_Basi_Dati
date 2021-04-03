@@ -30,4 +30,5 @@ BEGIN
 END $$
 LANGUAGE 'plpgsql';
 
+SELECT * FROM postolettura JOIN registrazione ON postolettura.numero = registrazione.numeropostolettura
 SELECT * FROM getbiblioteche('Biblioteca Universitaria di Bologna')

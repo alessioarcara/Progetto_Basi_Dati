@@ -3,7 +3,6 @@
     $counter = 1;
     foreach ($libraries as $library) {
         $name = $library['nome'];
-        // $slug = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $name)));
         $via = $library['via'];
         $civico = $library['civico'];
         $cap = $library['cap'];
@@ -19,8 +18,8 @@
                   <h3 class='titolo-lista-risultati'>$name</h3>
                   <details>
                   <summary class='noBlueLine'>Informazioni</summary>
-                        <div class='dettagli-lista-risultati'>
-                            <div class='dettagli-lista-risultati note'>                    
+                        <div class='dettagli-lista-biblioteche'>
+                            <div class='dettagli-lista-biblioteche note'>                    
                                 <p><strong>Email</strong>: $email</p>
                                 <p><strong>Sito Web</strong>: <a href='$sitoweb'>$sitoweb</a></p>
                                 <p><strong>Recapito Telefonico</strong>:</p>";
@@ -35,7 +34,7 @@
                               " <p><strong>Note storiche</strong>:</p>
                                 <p>$notestoriche</p>
                             </div>
-                            <div class='dettagli-lista-risultati indirizzo'>
+                            <div class='dettagli-lista-biblioteche indirizzo'>
                                 <p><strong>Indirizzo</strong></p>
                                 <p>$via, $civico, $citta, $cap</p>
                                 <div id='mapid$counter' class='map'>$lat@$long</div>         

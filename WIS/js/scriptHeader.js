@@ -82,6 +82,27 @@ $(document).ready(function(){
         }, 100);
     });
 
+    /* ricerca posti lettura */
+
+    /* Posti lettura clickable div */
+    $(".card-posto").click(function(){
+        $('.card-posto').removeClass('selected');
+        $(this).addClass('selected');
+    });
+
+    $('.registrazione-datepicker').datepicker({
+        minDate: "+1"
+    });
+    $('.registrazione-timepicker').timepicker({
+        timeFormat: 'H:mm',
+        interval: 60,
+        minTime: '9:00',
+        maxTime: '18:00',
+        startTime: '9:00',
+        dynamic: false,
+        dropdown: true,
+        scrollbar: false
+    });
 });
 
 

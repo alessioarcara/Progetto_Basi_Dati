@@ -14,18 +14,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>EBIBLIO</title>
 </head>
 <body>
     <div class="statusBar">
         <div class="dropdown">
-            <input type="button" class="btnHeader width150 noBlueLine dimLeft" value="Accedi">
+            <input type="button" class="btnHeader width150 dimLeft" value="Accedi">
             <div class="dropdown-content">
-                <label class="margin-bottom-5">Utente:</label><br>
-                <input class="margin-bottom-5" type="text" placeholder="Utente"><br>
-                <label class="margin-bottom-5">Password:</label><br>
-                <input class="margin-bottom-5" type="password" placeholder="password"><br><br>
-                <input class="margin-bottom-5" type="submit" value="E Ora?"><br>
+                <form id="login-form">
+                    <label class="margin-bottom-5">Utente:</label><br>
+                    <input class="margin-bottom-5" type="text" placeholder="Email" id="email"><br>
+                    <label class="margin-bottom-5">Password:</label><br>
+                    <input class="margin-bottom-5" type="password" placeholder="password" id="password"><br><br>
+                    <!-- <input class="margin-bottom-5" type="submit" value="E Ora?"><br> -->
+                    <button>Login</button>
+                </form>
                 <br>
                 <a href="#">Non sei ancora registrato?</a>
             </div>
@@ -64,6 +67,7 @@
     {{content}}
 
     <script type="text/javascript" src="views/js/topHomepage.js"></script>
+    <script src="views/js/login.js"></script>
 
 </body>
 </html>

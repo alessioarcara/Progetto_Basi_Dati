@@ -13,8 +13,11 @@ foreach ($_POST as $key => $value) {
   $request[$key] = filter_input(INPUT_POST, $key, FILTER_SANITIZE_SPECIAL_CHARS);
 };
 $codiceLibro = $request['codice'];
-$emailAdmin = 'utente5@g.com';
-$biblioteca = 'Biblioteca Universitaria di Bologna';
+$emailAdmin = $_COOKIE['email'];
+$sql = "SELECT nomebiblioteca FROM AMMINISTRATORE 
+        WHERE emailamministratore='$emailAdmin'";
+$result = $pdo->query($sql);
+$biblioteca = $result->fetch(\PDO::FETCH_ASSOC)['nomebiblioteca'];
 
 $sql = 
   "SELECT cancellazioneLibroAmministratore(

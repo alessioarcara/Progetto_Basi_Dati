@@ -38,9 +38,13 @@
       return false;
     }
     public function user() {
-      // $email = 'mario.rossi@unibo.it'; //utilizzatore
-      $email = 'anna.azzurri@unibo.it'; //volontario
-      // $email = 'elena.azzurri@unibo.it'; //amministratore
+
+      if (isset($_COOKIE['email'])) {
+        $email = $_COOKIE['email'];
+      }
+      else {
+        return header("Location: /home");
+      };
 
       $user = $this->getUser($email);
       if (!$user) {return header("Location: /home");}

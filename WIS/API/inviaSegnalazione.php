@@ -20,7 +20,7 @@ $codiceSegnalazione = generateRandomString();
 $emailUtilizzatore = $request['email-utente'];
 $testo = $request['testo'];
 $data = date("Y/m/d");
-$emailAdmin = 'utente5@g.com';
+$emailAdmin = $_COOKIE['email'];
 
 $sql = 
   "SELECT inserimentoSegnalazione(

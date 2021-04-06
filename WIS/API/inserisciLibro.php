@@ -21,8 +21,11 @@ $titolo = $request['titolo'];
 $edizione = $request['edizione'];
 $anno = $request['anno'];
 $genere = $request['genere'];
-$emailAdmin = 'utente5@g.com';
-$biblioteca = 'Biblioteca Universitaria di Bologna';
+$emailAdmin = $_COOKIE['email'];
+$sql = "SELECT nomebiblioteca FROM AMMINISTRATORE 
+        WHERE emailamministratore='$emailAdmin'";
+$result = $pdo->query($sql);
+$biblioteca = $result->fetch(\PDO::FETCH_ASSOC)['nomebiblioteca'];
 
 $sql = 
   "SELECT inserimentoLibroAmministratore(

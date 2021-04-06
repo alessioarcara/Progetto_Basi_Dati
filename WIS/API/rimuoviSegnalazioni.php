@@ -13,7 +13,7 @@ foreach ($_POST as $key => $value) {
   $request[$key] = filter_input(INPUT_POST, $key, FILTER_SANITIZE_SPECIAL_CHARS);
 };
 $emailUtilizzatore = $request['email-utente'];
-$emailAdmin = 'utente5@g.com';
+$emailAdmin = $_COOKIE['email'];
 
 $sql = 
   "SELECT rimozioneSegnalazioni(

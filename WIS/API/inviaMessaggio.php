@@ -21,7 +21,7 @@ $emailUtilizzatore = $request['email-utente'];
 $titolo = $request['titolo'];
 $testo = $request['testo'];
 $data = date("Y/m/d");
-$emailAdmin = 'utente5@g.com';
+$emailAdmin = $_COOKIE['email'];
 
 $sql = 
   "SELECT inserimentoMessaggio(

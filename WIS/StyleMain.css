@@ -12,12 +12,14 @@
     --colour-blue: #21a7c2;
     --color-orange: #db6400;
     --colour-white: #f4f9f9;
-    
     --color-grey: #6c757d;
-
     --color-row-topOne: #74c3d3;
     --color-row-topTwo: #dfa473;
     --color-row-tableUser: #93d4ff;
+
+    --color-user: #b5c1d1;
+    --color-menu-user: #93d4ff;
+    --color-table-user: #93c5ff;
 }
 
 html {

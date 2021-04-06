@@ -24,7 +24,7 @@ $data = $request['data'];
 $data = str_replace('-', '/', $data);
 $tipo = $request['tipo'];
 $codicePrenotazione = $request['prenotazione'];
-$emailVolontario = 'marco.viola@unibo.it';
+$emailVolontario = $_COOKIE['email'];
 
 $sql = 
   "SELECT inserimentoConsegna(

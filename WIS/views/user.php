@@ -10,21 +10,21 @@
     $ruolo = $user['ruolo'];
     echo 
       "
-      <div class='viewUser colorContainerHeader' id='title-and-role'>
+      <div class='viewUser card-user set-card-user color-user' id='title-and-role'>
         <i class='fa fa-user-circle'></i> <b>Area Utente:</b> <u>$nome</u><br/>
         <i class='fa fa-address-card'></i> <b>Ruolo:</b> <u>$ruolo</u>
       </div>
       ";
 ?>
 
-<div class="flex main-container colorContainerHeader">
+<div class="flex main-container colorContainerHeader marginTop01">
 
-  <div class="flex-column user-menu">
+  <div class="flex-column user-menu card set-card color-menu">
     <?php
     if ($user['ruolo'] === 'utilizzatore') {
       echo 
-      '<input type="button" class="user-menu__item btnGenerico noBlueLine marginTop05" id="visualizza-prenotazioni-utente" value="Visualizza prenotazioni">
-      <input type="button" class="user-menu__item btnGenerico noBlueLine marginTop05" id="visualizza-consegne" value="Visualizza consegne">';
+      '<a class="user-menu__item boxMenu noBlueLine noUnderline marginTop05" id="visualizza-prenotazioni-utente" href="#scroll">Visualizza prenotazioni</a>
+      <a class="user-menu__item boxMenu noBlueLine noUnderline marginTop05" id="visualizza-consegne" href="#scroll">Visualizza consegne</a>';
     } 
     else if ($user['ruolo'] === 'volontario') {
       echo
@@ -34,18 +34,18 @@
     } else {
       echo
       '
-      <input type="button" class="user-menu__item btnGenerico  noBlueLine marginTop05" id="visualizza-prenotazioni-admin" value="Visualizza prenotazioni">
-      <input type="button" class="user-menu__item btnGenerico noBlueLine marginTop05" id="inserisci-libro" value="Inserisci libro">
-      <input type="button" class="user-menu__item btnGenerico noBlueLine marginTop05" id="aggiorna-libro" value="Aggiorna libro">
-      <input type="button" class="user-menu__item btnGenerico noBlueLine marginTop05" id="rimuovi-libro" value="Rimuovi libro">
-      <input type="button" class="user-menu__item btnGenerico noBlueLine marginTop05" id="invia-messaggio" value="Invia messaggio">
-      <input type="button" class="user-menu__item btnGenerico noBlueLine marginTop05" id="invia-segnalazione" value="Invia segnalazione">
-      <input type="button" class="user-menu__item btnGenerico noBlueLine marginTop05" id="rimuovi-segnalazioni" value="Rimuovi segnalazioni">';
+      <a class="user-menu__item boxMenu noBlueLine noUnderline marginTop05" id="visualizza-prenotazioni-admin" href="#scroll">Visualizza prenotazioni</a>
+      <a class="user-menu__item boxMenu noBlueLine noUnderline marginTop05" id="inserisci-libro" href="#scroll">Inserisci libro</a>
+      <a class="user-menu__item boxMenu noBlueLine noUnderline marginTop05" id="aggiorna-libro" href="#scroll">Aggiorna libro</a>
+      <a class="user-menu__item boxMenu noBlueLine noUnderline marginTop05" id="rimuovi-libro" href="#scroll">Rimuovi libro</a>
+      <a class="user-menu__item boxMenu noBlueLine noUnderline marginTop05" id="invia-messaggio" href="#scroll">Invia messaggio</a>
+      <a class="user-menu__item boxMenu noBlueLine noUnderline marginTop05" id="invia-segnalazione" href="#scroll">Invia segnalazione</a>
+      <a class="user-menu__item boxMenu noBlueLine noUnderline marginTop05" id="rimuovi-segnalazioni" href="#scroll">Rimuovi segnalazione</a>';
     }
     ?>
   </div>
   
-  <div class='main-box flex-centered flex-column' id="scroll">
+  <div class='main-box flex-centered flex-column card set-card color-table-menu' id="scroll">
   <?php 
 
     function loadTable($id, $datas, $title) {

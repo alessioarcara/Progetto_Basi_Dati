@@ -42,26 +42,50 @@ class Router {
     return call_user_func($callback, $this->request);
   }
 
-//  private function getUser() {
-//    $emailutente = isset( $_COOKIE['user'] ) ? $_COOKIE['user'] : '';
-//    if ($emailutente) {
-//      $emailutente = str_replace('%40', '@', $emailutente);
-//      $sql = "SELECT * FROM UTENTE WHERE emailutente = '".$emailutente."'";
-//      $result = Application::$pdo->query($sql);
-//      $user = $result->fetch(\PDO::FETCH_ASSOC);
-//
-//      return $user;
-//    }
-//
-//    return NULL;
-//  }
+  private function getUser() {
+
+    $email = isset($_COOKIE['email']) ? $_COOKIE['email'] : false;
+    if (!$email) {
+      return false;
+    }
+
+    $sql = "SELECT * FROM UTENTE WHERE emailutente = '".$email."'";
+    $result = Application::$pdo->query($sql);
+    $user = $result->fetch(\PDO::FETCH_ASSOC);
+    if (!$user) {return false;}
+
+    $sql = "SELECT * FROM UTILIZZATORE WHERE emailutilizzatore = '".$email."'";
+    $result = Application::$pdo->query($sql);
+    $userRole = $result->fetch(\PDO::FETCH_ASSOC);
+    if ($userRole) {
+      $userRole['ruolo'] = 'utilizzatore';
+      return array_merge( $user, $userRole);
+    }
+
+    $sql = "SELECT * FROM VOLONTARIO WHERE emailvolontario = '".$email."'";
+    $result = Application::$pdo->query($sql);
+    $userRole = $result->fetch(\PDO::FETCH_ASSOC);
+    if ($userRole) {
+      $userRole['ruolo'] = 'volontario';
+      return array_merge( $user, $userRole);
+    }
+
+    $sql = "SELECT * FROM AMMINISTRATORE WHERE emailamministratore = '".$email."'";
+    $result = Application::$pdo->query($sql);
+    $userRole = $result->fetch(\PDO::FETCH_ASSOC);
+    if ($userRole) {
+      $userRole['ruolo'] = 'amministratore';
+      return array_merge( $user, $userRole);
+    }
+
+    return false;
+  }
   public function renderView($view, $params = []) {
     //load viewcontent and render it
-//    $user = $this->getUser();
-//    if ($user) {
-//      //array_push($params, array('user' => $user));
-//      $params['user'] = $user;
-//    }
+    $user = $this->getUser();
+    if ($user) {
+      $params['user'] = $user;
+    }
 
     $viewContent = $this->renderOnlyView($view, $params);
     return $this->renderContent($viewContent, $params);

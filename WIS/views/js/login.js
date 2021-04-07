@@ -16,7 +16,7 @@ if (login)
     })
     .then( res => {
       if (res.ok) {
-        alert('Log in effettuato con successo!');
+        // alert('Log in effettuato con successo!');
 
         document.cookie = 'email=' + email;
         

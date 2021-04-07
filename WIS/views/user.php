@@ -1,51 +1,57 @@
 <link rel="stylesheet" href="StyleUser.css">
 
-<!-- <link rel="stylesheet" href="views/css/userView.css">
-<link rel="stylesheet" href="StyleProva.css"> -->
-<!-- <link rel="stylesheet" href="Style.css"> -->
-
 <?php
     // costruisco schermata iniziale
     $nome = $user['nome'];
     $ruolo = $user['ruolo'];
     echo 
       "
-      <div class='viewUser card-user set-card-user color-user' id='title-and-role'>
-        <i class='fa fa-user-circle'></i> <b>Area Utente:</b> <u>$nome</u><br/>
-        <i class='fa fa-address-card'></i> <b>Ruolo:</b> <u>$ruolo</u>
+      <div class='flex-row box-head' id='title-and-role'>
+      <div>
+        <i class='margin-top fa fa-user-circle'></i> <b>Area Utente:</b> <u>$nome</u><br>
+        <i class='margin-top fa fa-address-card'></i> <b>Ruolo:</b> <u>$ruolo</u>
+      </div>
+
+      <button class='btn-logout'><i class='fas fa-sign-out-alt'></i> Logout</button>
       </div>
       ";
 ?>
 
-<div class="flex main-container colorContainerHeader marginTop01">
+<div class="flex main-container marginTop01">
 
-  <div class="flex-column user-menu card set-card color-menu">
-    <?php
-    if ($user['ruolo'] === 'utilizzatore') {
-      echo 
-      '<a class="user-menu__item boxMenu noBlueLine noUnderline marginTop05" id="visualizza-prenotazioni-utente" href="#scroll">Visualizza prenotazioni</a>
-      <a class="user-menu__item boxMenu noBlueLine noUnderline marginTop05" id="visualizza-consegne" href="#scroll">Visualizza consegne</a>';
-    } 
-    else if ($user['ruolo'] === 'volontario') {
-      echo
-      '<a class="user-menu__item boxMenu noBlueLine noUnderline marginTop05" id="visualizza-prenotazioni" href="#scroll">Visualizza le prenotazioni</a>
-      <a class="user-menu__item boxMenu noBlueLine noUnderline marginTop01" id="inserisci-consegna" href="#scroll">Inserisci evento consegna</a>
-      <a class="user-menu__item boxMenu noBlueLine noUnderline marginTop01" id="aggiorna-consegna" id="#scroll">Aggiorna evento di consegna</a>';
-    } else {
-      echo
-      '
-      <a class="user-menu__item boxMenu noBlueLine noUnderline marginTop05" id="visualizza-prenotazioni-admin" href="#scroll">Visualizza prenotazioni</a>
-      <a class="user-menu__item boxMenu noBlueLine noUnderline marginTop05" id="inserisci-libro" href="#scroll">Inserisci libro</a>
-      <a class="user-menu__item boxMenu noBlueLine noUnderline marginTop05" id="aggiorna-libro" href="#scroll">Aggiorna libro</a>
-      <a class="user-menu__item boxMenu noBlueLine noUnderline marginTop05" id="rimuovi-libro" href="#scroll">Rimuovi libro</a>
-      <a class="user-menu__item boxMenu noBlueLine noUnderline marginTop05" id="invia-messaggio" href="#scroll">Invia messaggio</a>
-      <a class="user-menu__item boxMenu noBlueLine noUnderline marginTop05" id="invia-segnalazione" href="#scroll">Invia segnalazione</a>
-      <a class="user-menu__item boxMenu noBlueLine noUnderline marginTop05" id="rimuovi-segnalazioni" href="#scroll">Rimuovi segnalazione</a>';
-    }
-    ?>
+  <div class="flex-column user-menu">
+    <div class='dropdown'>
+      <button id="btn-menu" class='new-button'><i class="fas fa-caret-down"></i> Menù</button>
+      <div id='myDropdown' class='dropdown-content'>
+      
+        <?php
+        if ($user['ruolo'] === 'utilizzatore') {
+          echo 
+          '<a class="user-menu__item noUnderline marginTop05" id="visualizza-prenotazioni-utente" href="#scroll">Visualizza prenotazioni</a>
+          <a class="user-menu__item noUnderline marginTop05" id="visualizza-consegne" href="#scroll">Visualizza consegne</a>';
+        } 
+        else if ($user['ruolo'] === 'volontario') {
+          echo
+          '<a class="user-menu__item noUnderline marginTop05" id="visualizza-prenotazioni" href="#scroll">Visualizza le prenotazioni</a>
+          <a class="user-menu__item noUnderline marginTop01" id="inserisci-consegna" href="#scroll">Inserisci evento consegna</a>
+          <a class="user-menu__item noUnderline marginTop01" id="aggiorna-consegna" id="#scroll">Aggiorna evento di consegna</a>';
+        } else {
+          echo
+          '
+          <a class="user-menu__item noUnderline marginTop05" id="visualizza-prenotazioni-admin" href="#scroll">Visualizza prenotazioni</a>
+          <a class="user-menu__item noUnderline marginTop05" id="inserisci-libro" href="#scroll">Inserisci libro</a>
+          <a class="user-menu__item noUnderline marginTop05" id="aggiorna-libro" href="#scroll">Aggiorna libro</a>
+          <a class="user-menu__item noUnderline marginTop05" id="rimuovi-libro" href="#scroll">Rimuovi libro</a>
+          <a class="user-menu__item noUnderline marginTop05" id="invia-messaggio" href="#scroll">Invia messaggio</a>
+          <a class="user-menu__item noUnderline marginTop05" id="invia-segnalazione" href="#scroll">Invia segnalazione</a>
+          <a class="user-menu__item noUnderline marginTop05" id="rimuovi-segnalazioni" href="#scroll">Rimuovi segnalazione</a>';
+        }
+        ?>
+      </div>
+    </div>
   </div>
   
-  <div class='main-box flex-centered flex-column card set-card color-table-menu' id="scroll">
+  <div class='main-box flex-centered flex-column card set-card' id="scroll">
   <?php 
 
     function loadTable($id, $datas, $title) {
@@ -238,3 +244,4 @@
 </div>
 
 <script src="/views/js/user.js"></script>
+<script src="/views/js/user-menu.js"></script>

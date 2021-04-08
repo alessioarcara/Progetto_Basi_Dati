@@ -68,6 +68,10 @@ button:focus {
     margin-left: 1rem;
 }
 
+.right {
+    text-align: right;
+}
+
 .dimLeft2 {
     margin-left: 0.2rem;
 }
@@ -203,13 +207,14 @@ button:focus {
 .modal-content {
     background-color: #fefefe;
     margin: 5% auto 15% auto;
+    padding: 3%;
     border: 1px solid #888;
     width: 50% !important; 
 }
 
 /* Set del bottone chiudi sign-in */
 .close {
-    position: absolute;
+    text-align: right;
     right: 25px;
     top: 0;
     color: #000;
@@ -223,9 +228,6 @@ button:focus {
 }
 
 .set-register {
-    height: auto;
-    width: auto;
-
     text-decoration: none; /* Elimino la sottolineatura */
     cursor: pointer; /* Aggiungo un puntatore */
 }

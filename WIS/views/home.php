@@ -7,7 +7,7 @@
 
 <div id="sign-in-form" class="modal">
     <form id="login-form" class="modal-content animate" method="post">
-    <span id="close-sign-in" class="close">&times;</span>
+    <div class="right"><span id="close-sign-in" class="close"><i class="fas fa-times"></i></span></div>
         <div class="container">
             <label for="uname"><b>Username</b></label>
             <input class="dim-text" type="text" placeholder="Inserisci username" name="uname" id="email" required>
@@ -18,13 +18,13 @@
             <button class="btn-login login-color" type="submit"><i class="fas fa-sign-in-alt"></i> Login</button>
         </div>
 
-        <p>Non ti sei ancora registrato? <a id="sign-up" class="set-register">Registrati</a></p>
+        <p>Non ti sei ancora registrato? <a href="#" id="sign-up" class="set-register">Registrati</a></p>
     </form>
 </div>
 
 <div id="sign-up-form" class="modal">
-    <form id="sign-up-form" class="modal-content animate" method="post">
-    <span id="back-sign-in" class="close">&larr;</span>
+    <form id="sign-up-form-form" class="modal-content animate" method="post">
+    <div class="right"><span id="back-sign-in" class="close"><i class="fas fa-arrow-left"></i></span></div>
         <div class="container">
             <label for="usname"><b>Username<sup>*</sup></b></label>
             <input class="dim-text" type="text" placeholder="Inserisci username" name="usname" id="new-email" required>

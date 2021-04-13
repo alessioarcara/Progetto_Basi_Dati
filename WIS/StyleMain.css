@@ -184,6 +184,7 @@ button:focus {
     border: none;
     cursor: pointer;
     width: 100%;
+    font-size: large;
 }
 
 .btn-login:hover {
@@ -209,10 +210,133 @@ button:focus {
     margin: 5% auto 15% auto;
     padding: 3%;
     border: 1px solid #888;
-    width: 50% !important; 
+    width: 70% !important;
 }
 
-/* Set del bottone chiudi sign-in */
+.layout {
+	padding: 3%;
+    margin: 5% auto 15% auto;
+    border: 1px solid #888;
+    background-color: #fefefe;
+    width: 70vw;
+}
+
+.meta-layout {
+    display: grid;
+    align-items: start;
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 1rem;
+}
+
+.left {
+    text-align: left;
+}
+
+.item-user-password {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 4;
+    grid-row-end: 5;
+}
+
+.item-text-utente {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+.item-text-utilizzatore {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 5;
+    grid-row-end: 6;
+}
+
+.item-button-register {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 7;
+    grid-row-end: 8;
+}
+
+/* REGISTRAZIONE RESPONSIVE */
+@media only screen and (min-width: 300px) and (max-width: 667px) {
+    .meta-layout {
+        display: grid;
+        align-items: start;
+        grid-template-columns: repeat(2, 1fr);
+        row-gap: 1rem;
+    }
+
+    .item-text-utente {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row-start: 1;
+        grid-row-end: 2;
+    }
+
+    .item-user-password {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row-start: 5;
+        grid-row-end: 6;
+    }
+
+    .item-text-utilizzatore {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row-start: 6;
+        grid-row-end: 7;
+    }
+
+    .item-button-register {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row-start: 9;
+        grid-row-end: 10;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .meta-layout {
+        display: grid;
+        align-items: start;
+        grid-template-columns: repeat(1, 1fr);
+        row-gap: 1rem;
+    }
+
+    .item-text-utente {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 1;
+        grid-row-end: 2;
+    }
+
+    .item-user-password {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 8;
+        grid-row-end: 9;
+    }
+
+    .item-text-utilizzatore {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 9;
+        grid-row-end: 10;
+    }
+
+    .item-button-register {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 13;
+        grid-row-end: 14;
+    }
+}
+
+
+/* SET DEL BOTTONE CHIUDI SIGN-IN */
 .close {
     text-align: right;
     right: 25px;
@@ -234,7 +358,7 @@ button:focus {
 
 /* Animazione con effetto zoom */
 .animate {
-    animation: animatezoom 0.6s
+    animation: animatezoom 0.6s;
 }
 
 @keyframes animatezoom {

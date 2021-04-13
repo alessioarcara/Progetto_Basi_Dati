@@ -116,12 +116,25 @@
           ];
         };
 
+        $sql = "SELECT * FROM clustersutilizzatori ORDER BY cluster";
+        $results = Application::$pdo->query($sql);
+        $clusters = [];
+        while ($row = $results->fetch(\PDO::FETCH_ASSOC)) {
+          $clusters[] = [
+            'Email' => $row['email'],
+            'Cluster' => $row['cluster'],
+            'Professione' => $row['professione'],
+            'Eta' => $row['eta'],
+            'Generi' => $row['generi'],
+            'Prenotazioni' => $row['prenotazioni']
+          ];
+        };
+
         $params['prenotazioni'] = $prenotazioni;
+        $params['clusters'] = $clusters;
       } 
       
       return Application::$app->router->renderView('user', $params);
     }
-
-
   }
 ?>

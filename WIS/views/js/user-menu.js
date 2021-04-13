@@ -1,7 +1,8 @@
 var btn_menu = document.getElementById("btn-menu");
+var dropdown = document.getElementById("myDropdown");
 
 btn_menu.onclick = function myFunction() {
-    document.getElementById('myDropdown').classList.toggle('show');
+    dropdown.classList.toggle('show');
 }
 
 // Close the dropdown if the user clicks outside of it

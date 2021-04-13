@@ -8,6 +8,13 @@ const inviaMessaggio = document.querySelector('#invia-messaggio-form');
 const inviaSegnalazione = document.querySelector('#invia-segnalazione-form');
 const rimuoviSegnalazioni = document.querySelector('#rimuovi-segnalazioni-form');
 
+var btn_logout = document.getElementById("btn-out");
+
+btn_logout.onclick = function () {
+  document.cookie = "email=;"
+  header ('Location: /home');
+}
+
 if (menu)
   menu.addEventListener('click', e => {
     const id = e.target.id || e.target.parentNode.id;

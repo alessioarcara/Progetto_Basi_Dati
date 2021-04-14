@@ -30,7 +30,7 @@ $(document).ready(function(){
     }
 
     $('#chk-biblioteche, #chk-postilettura').click(function (){ changeSearchBar(false)});
-    $('#chk-libricartacei, #chk-ebooks').click(function (){ changeSearchBar(true)});
+    $('#chk-libri').click(function (){ changeSearchBar(true)});
 
     $('#chk-biblioteche').click();
 
@@ -42,12 +42,23 @@ $(document).ready(function(){
     /* GET request Ricerca */
     $('.search-button').click(function(){
         url = `./${chk_btn_changed}`
-        if ($('.search-dropdown-button').length)
+        if ($('.search-dropdown-button').length) {
             if ($('.search-dropdown-button').text() !== "Tutte le biblioteche")
                 url += "?n=" + $('.search-dropdown-button').text().replace(/\s+/g, '');
-        else if ($('.searchLineEdit').length)
-            if ($('.searchLineEdit').val() !== "")
-                url += "?n=" + $('.searchLineEdit').val().replace(/\s+/g, '')
+        }
+        else if ($('.searchLineEdit').length) {
+            /* filtrering words length <= 3 */
+            /* tokenizer unigram */
+            if ($('.searchLineEdit').val() !== "") {
+                let words = $('.searchLineEdit').val().split(" ");
+                for (let i=0; i<words.length; i++) {
+                    if (words[i].length <= 3){
+                        words.splice(i,1)
+                    }
+                }
+                url += "?n=" + words.join("&");
+            }
+        }
         window.location.assign(url);
     });
 
@@ -150,6 +161,5 @@ $(document).ready(function(){
             });
     };
 });
-
 
 /* Javascript */

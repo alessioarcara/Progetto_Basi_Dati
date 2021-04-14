@@ -21,5 +21,5 @@ BEGIN
 END; $$
 LANGUAGE 'plpgsql';
 
-
-SELECT * FROM PostiLetturaBiblioteca()
+SELECT * FROM PostiLetturaBiblioteca();
+SELECT * FROM PostiLetturaBiblioteca('BibliotecaUniversitariadiBologna')

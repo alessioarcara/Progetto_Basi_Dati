@@ -20,21 +20,9 @@
     <title>Document</title>
 
     <div class="statusBar">
-        <div class="dropdown">
-            <button class="btn btn-dark dimLeft">Accedi</button>
-            <div class="dropdown-content">
-                <label class="margin-bottom-5">Utente: </label><br>
-                <input class="margin-bottom-5" type="text" placeholder="utente"><br>
-                <label class="margin-bottom-5">Password: </label><br>
-                <input class="margin-bottom-5" type="password" placeholder="password"><br><br>
-                <input class="margin-bottom-5" type="submit" value="E Ora?"><br>
-                <br>
-                <a href="#">Non sei ancora registrato?</a>
-            </div>
-        </div>
     </div>
     <div class="flex-container colorContainerHeader logo">
-        <a href="/home"><img  id="logo" src="Logo.png" alt="Logo"></a>
+        <a href="/home"><img  id="logo" src="./images/logo.svg" alt="Logo"></a>
     </div>
     <div class="flex-container colorContainerHeader searchBar">
         <div class="searchBarForm">
@@ -55,20 +43,16 @@
         </div>
     </div>
     <div class="flex-container colorContainerSearch chk-buttons">
-        <div class="chk-buttons-row_1">
-            <button type="button" id='chk-biblioteche' class='chk-btn'><i class="fa fa-archive"></i> Biblioteche</button>
-            <button type="button" id='chk-postilettura' class='chk-btn'><i class="fa fa-user-o"></i> Posti Lettura</button>
-        </div>
-        <div class="chk-buttons-row_2">
-            <button type="button" id='chk-libricartacei' class='chk-btn'><i class="fa fa-book"></i> Libri Cartacei</button>
-            <button type="button" id='chk-ebooks' class='chk-btn'><i class="fa fa-file-pdf-o"></i> Ebooks</button>
-        </div>
+        <button type="button" id='chk-biblioteche' class='chk-btn'><i class="fa fa-archive"></i> Biblioteche</button>
+        <button type="button" id='chk-postilettura' class='chk-btn'><i class="fa fa-user-o"></i> Posti Lettura</button>
+        <button type="button" id='chk-libri' class='chk-btn'><i class="fa fa-book"></i> Libri</button>
     </div>
 </head>
 <body>
 
 
 {{content}}
+
 
 <script src="https://kit.fontawesome.com/45d9bf0dbf.js" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"

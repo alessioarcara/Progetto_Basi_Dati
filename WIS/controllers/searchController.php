@@ -5,7 +5,8 @@ class searchController {
 
     private $queries = [
         'biblioteche' => 'SELECT * FROM GetBiblioteche()',
-        'postilettura' => 'SELECT * FROM PostiLetturaBiblioteca()'
+        'postilettura' => 'SELECT * FROM PostiLetturaBiblioteca()',
+        'libri' => 'SELECT * FROM LibriBiblioteca()'
     ];
 
     public function ricerca(){
@@ -91,11 +92,51 @@ class searchController {
         return $params = ['postilettura' => $postilettura ];
     }
 
-    private function libricartacei($sql){
+    private function libri($sql){
+        $results = Application::$pdo->query($sql);
+        $ebooks = [];
+        $libricartacei = [];
 
-    }
+        while ($row = $results->fetch(\PDO::FETCH_ASSOC)) {
+            if ($row['titolocartaceo']){
+                if (isset($libricartacei[$row['titolocartaceo']])) {
+                    array_push($libricartacei[$row['titolocartaceo']]['nomeautore'], $row['nomeautore']);
+                    array_push($libricartacei[$row['titolocartaceo']]['cognomeautore'], $row['cognomeautore']);
+                }
+                else{
+                    $libricartacei[$row['titolocartaceo']] = [
+                        'codicelibrocartaceo' => $row['codicelibrocartaceo'],
+                        'titolocartaceo' => $row['titolocartaceo'],
+                        'nomeedizionecartaceo' => $row['nomeedizionecartaceo'],
+                        'annopubblicazionecartaceo' => $row['annopubblicazionecartaceo'],
+                        'generecartaceo' => $row['generecartaceo'],
+                        'nomebibliotecacartaceo' => $row['nomebibliotecacartaceo'],
+                        'statoprestito' => $row['statoprestito'],
+                        'statoconservazione' => $row['statoconservazione'],
+                        'numpagine' => $row['numpagine'],
+                        'numscaffale' => $row['numscaffale'],
+                        'nomeautore' => [$row['nomeautore']],
+                        'cognomeautore' => [$row['cognomeautore']]
+                    ];
+                }
+            } else {
+                $ebooks[] = [
+                    'codiceebook' => $row['codiceebook'],
+                    'titoloebook' => $row['titoloebook'],
+                    'nomeedizioneebook' => $row['nomeedizioneebook'],
+                    'annopubblicazioneebook' => $row['annopubblicazioneebook'],
+                    'genereebook' => $row['genereebook'],
+                    'nomebibliotecaebook' => $row['nomebibliotecaebook'],
+                    'pdf' => $row['pdf']
+                ];
+            }
+        }
 
-    private function ebooks($sql){
-
+        return $params = [
+//            'ebooks' => $ebooks,
+            'libricartacei' => $libricartacei
+        ];
     }
 }
+
+

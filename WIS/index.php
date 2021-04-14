@@ -23,13 +23,7 @@ try{
   $app->router->get('/home', [viewController::class, 'home']);
   $app->router->get('/biblioteche', [searchController::class, 'ricerca']);
   $app->router->get('/postilettura', [searchController::class, 'ricerca']);
-  $app->router->get('/libricartacei', [searchController::class, 'ricerca']);
-  $app->router->get('/ebooks', [searchController::class, 'ricerca']);
-//  $app->router->get('/user', 'user');
-//  $app->router->post('/login', [authController::class, 'login']);
-//  $app->router->get('/signup', 'signup');
-//  $app->router->post('/signup', [authController::class, 'signup']);
-//  $app->router->get('/biblioteca', [viewController::class, 'biblioteca']);
+  $app->router->get('/libri', [searchController::class, 'ricerca']);
 
   $app->run();
 

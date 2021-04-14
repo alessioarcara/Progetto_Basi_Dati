@@ -132,3 +132,45 @@
 .non-disponibile::after {
     transform: translateX(-50%) rotate(-45deg);
 }
+
+/* ricerca book */
+
+.contenuto-card-risultato {
+    display: flex;
+    flex-direction: row;
+    justify-items: inherit;
+}
+#immagine-libro{
+    display: flex;
+    justify-content: space-between;
+    line-height: normal;
+    width: 14rem;
+}
+
+#immagine-libro img {
+    margin-left: 3.6rem;
+}
+
+.vl {
+    border-left: 4px solid grey;
+    height: 90%;
+    margin-right: 1rem;
+}
+
+#informazioni-libro {
+    text-align: left;
+    line-height: 1.1em;
+    width: 50%;
+}
+
+.circle {
+    width: 15px;
+    height: 15px;
+    background-color: #62bd19;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.red {
+    background-color: orangered;
+}

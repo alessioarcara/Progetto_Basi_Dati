@@ -34,8 +34,15 @@
 }
 
 @media screen and (max-width: 41.2rem){
-    .searchBarForm {
+    .searchBarForm, #chk-biblioteche, #chk-postilettura, #chk-libri {
         width: 19rem;
+        margin: 0.1rem;
+    }
+
+    .chk-buttons {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
     }
 }
 
@@ -82,13 +89,9 @@
     padding: 1rem;
 }
 
-.chk-buttons-row_1, .chk-buttons-row_2 {
-    margin: 0.1rem;
-}
-
 .chk-btn {
     height: 3rem;
-    width: 9rem;
+    width: 12.4rem;
     border-radius: 2px;
     border-color: var(--color-grey);
     border: 1px solid;

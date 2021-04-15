@@ -1,7 +1,7 @@
 <div class="listarisultati-corpo">
 <?php
 
-    $linkname = function($name) { str_replace(' ', '', $name); };
+    $linkname = function($name) { return(str_replace(' ', '', $name)); };
 
     foreach ($libricartacei as $libro) {
         $codicelibrocartaceo = $libro['codicelibrocartaceo'];
@@ -48,7 +48,7 @@
                             <div id='stato-libro'>
                                 <p><strong>Si trova</strong>: 
                                     <a href='/biblioteche?n=";
-                                    echo$linkname($nomebibliotecacartaceo);
+                                    echo $linkname($nomebibliotecacartaceo);
                                     echo"'>$nomebibliotecacartaceo
                                     </a>
                                 </p>

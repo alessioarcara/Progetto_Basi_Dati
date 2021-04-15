@@ -8,7 +8,7 @@
                   <h3 class='titolo-lista-risultati'><a href='/biblioteche?n=$linkname'>$name</a></h3>
                   <details>
                         <summary class='noBlueLine'>Lista posti lettura</summary>
-                        <div id='registrazione-btn'>
+                        <div id='registrazione-form'>
                             <input class='registrazione-datepicker' type='text' placeholder='yy-mm-dd'>
                             <input class='registrazione-timepicker' type='text' placeholder='hh:mm'>
                             <button class='post-search-btn' id='registrazione-btn'>Prenota posto lettura</button>

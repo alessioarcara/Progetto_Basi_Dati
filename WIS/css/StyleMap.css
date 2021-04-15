@@ -58,34 +58,37 @@
     width: 100%;
     padding: 1rem;
 }
-#registrazione-btn {
+#registrazione-form {
     justify-content: space-between;
 }
 
-#registrazione-btn > input, button {
+#registrazione-form > input, button {
     margin-top: 0.5rem;
     padding: 0.2rem;
 }
 
-#registrazione-btn > input {
+#registrazione-form > input {
     width: 25%;
 }
 
-#registrazione-btn > button {
+#registrazione-form > button {
     width: 40%;
 }
 
 .post-search-btn {
-    background-color: #2B547E;
+    background-color: #5281B3;
     border-radius: 2px;
     border: none;
     color: white;
     text-align: center;
-    font-size: 1.3em;
-    opacity: 0.6;
-    transition: 0.3s;
+    font-size: 1.1em;
+    transition: 0.2s;
+}
 
-    pointer-events: none;
+.post-search-btn:hover {
+    background: #FFFFFF;
+    border: 1px solid #E1E1E1;
+    color: #000000;
 }
 
 .registrazione-btn:hover {opacity: 1}
@@ -182,7 +185,7 @@
 }
 
 #prenota-btn, #visualizza-btn{
-    width: 30%;
+    width: 7rem;
     height: 2.2rem;
     margin-bottom: 0.5rem;
 }
@@ -192,6 +195,13 @@
     flex-direction: row;
     width: 40%;
     height: inherit;
+}
+
+#card-ebook > div > div:nth-child(3), #prenota-libro {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    margin-right: 0.5rem;
 }
 
 #nessun-risultato {

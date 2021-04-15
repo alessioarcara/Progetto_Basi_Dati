@@ -111,7 +111,7 @@ $(document).ready(function(){
             date = new Date(date).toISOString().split('T')[0]
             let posto = ($('.card-posto.selected > h5').text()).substring(6, 8).trim();
             let biblioteca = $(this).closest('.card-risultato').children('h3').text();
-            let timepicker = $(this).closest('#registrazione-btn').children(':nth-child(2)');
+            let timepicker = $(this).closest('#registrazione-form').children(':nth-child(2)');
 
             var orario = [];
             //bisogna aggiungere anche la data

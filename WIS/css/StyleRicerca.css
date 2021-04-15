@@ -41,8 +41,27 @@
 
     .chk-buttons {
         flex-direction: column;
+    }
+
+    #card-ebook, #card-ebook > div > div.decorator-riga {
+        width: 100% !important;
+    }
+
+    .chk-buttons, #card-ebook > div > div.decorator-riga {
         align-items: center;
         justify-content: center;
+    }
+
+
+
+    #immagine-libro, #immagine-libro img, .vl {
+        display: none !important;
+    }
+
+    .decorator-riga {
+        margin-left: 1rem;
+        margin-right: 1rem;
+        width: 50% !important;
     }
 }
 

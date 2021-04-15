@@ -3,6 +3,8 @@ require_once('./core/Application.php');
 
 class searchController {
 
+    const NOT_FOUND = "404";
+
     private $queries = [
         'biblioteche' => 'SELECT * FROM GetBiblioteche()',
         'postilettura' => 'SELECT * FROM PostiLetturaBiblioteca()',
@@ -28,10 +30,11 @@ class searchController {
         /* Anche qui, utilizzo $category per richiamare la function a cui passo la query SQL */
         $params = $this->$category($sql);
 
-//        if (empty($params['libraries'])){
-//            Application::$app->response->setStatusCode(404);
-//            return Application::$app->router->renderContent("404 - Invalid url query!");
-//        }
+        if (empty($params)){
+            Application::$app->response->setStatusCode(404);
+            $params = [ 'parolecercate' => $query_parameters];
+            return Application::$app->router->renderView(self::NOT_FOUND, $params);
+        }
 
         /* Allo stesso modo utilizzo %category per richiamare il layout*/
         return Application::$app->router->renderView($category, $params);
@@ -61,7 +64,7 @@ class searchController {
                     ];
             }
         }
-        return $params = ['libraries' => $libraries ];
+        return !empty($libraries) ? $params = ['libraries' => $libraries ] : null;
     }
 
     private function postilettura($sql){
@@ -89,7 +92,7 @@ class searchController {
                     ];
             }
         }
-        return $params = ['postilettura' => $postilettura ];
+        return !empty($postilettura) ? $params = ['postilettura' => $postilettura ] : null;
     }
 
     private function libri($sql){
@@ -120,22 +123,24 @@ class searchController {
                     ];
                 }
             } else {
-                $ebooks[] = [
+                if (isset($ebooks[$row['titoloebook']])) {
+                    array_push($ebooks[$row['titoloebook']]['nomeautore'], $row['nomeautore']);
+                    array_push($ebooks[$row['titoloebook']]['cognomeautore'], $row['cognomeautore']);
+                }
+                $ebooks[$row['titoloebook']] = [
                     'codiceebook' => $row['codiceebook'],
                     'titoloebook' => $row['titoloebook'],
                     'nomeedizioneebook' => $row['nomeedizioneebook'],
                     'annopubblicazioneebook' => $row['annopubblicazioneebook'],
                     'genereebook' => $row['genereebook'],
                     'nomebibliotecaebook' => $row['nomebibliotecaebook'],
-                    'pdf' => $row['pdf']
+                    'pdf' => $row['pdf'],
+                    'nomeautore' => [$row['nomeautore']],
+                    'cognomeautore' => [$row['cognomeautore']]
                 ];
             }
         }
-
-        return $params = [
-//            'ebooks' => $ebooks,
-            'libricartacei' => $libricartacei
-        ];
+        return !empty($libricartacei) ? $params = [ 'libricartacei' => $libricartacei, 'ebooks' => $ebooks ] : null;
     }
 }
 

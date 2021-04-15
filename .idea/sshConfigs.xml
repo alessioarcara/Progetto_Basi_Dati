@@ -2,7 +2,7 @@
 <project version="4">
   <component name="SshConfigs">
     <configs>
-      <sshConfig authType="PASSWORD" host="argonauta.synology.me" id="302b8faf-0a4e-49d2-abac-bf2addea0bd8" port="899" nameFormat="DESCRIPTIVE" username="sviluppatore" />
+      <sshConfig authType="PASSWORD" connectionConfig="{&quot;serverAliveInterval&quot;:300}" host="argonauta.synology.me" id="91f49cf9-8ec9-4456-8af3-dc825176ae2f" port="899" nameFormat="DESCRIPTIVE" username="Diaclo" />
     </configs>
   </component>
 </project>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="unibo@argonauta.synology.me" uuid="6b919a8d-9032-4f90-8cdd-22b9e311acce">
+    <data-source source="LOCAL" name="unibo@argonauta.synology.me" uuid="3ab04147-25ab-416d-bcd9-34213fe5d3c6">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>

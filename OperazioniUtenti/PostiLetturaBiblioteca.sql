@@ -1,15 +1,25 @@
 DROP FUNCTION IF EXISTS PostiLetturaBiblioteca;
-CREATE FUNCTION PostiLetturaBiblioteca (Biblioteca TEXT) 
-RETURNS TABLE(
-  NumPosto SMALLINT,
-  PresaCorr BOOLEAN,
-  PresaEth BOOLEAN
-)
+CREATE FUNCTION PostiLetturaBiblioteca (VARIADIC NomiB TEXT[] DEFAULT NULL)
+    RETURNS TABLE(
+                     NumPosto SMALLINT,
+                     PresaCorr BOOLEAN,
+                     PresaEth BOOLEAN,
+                     NomeBiblioteca VARCHAR
+                 )
 AS $$
 BEGIN
-  RETURN QUERY 
-    SELECT Numero, PresaCorrente, PresaEthernet
-    FROM POSTOLETTURA
-    WHERE NomeBiblioteca=Biblioteca;
+    IF nomiB ISNULL THEN
+        RETURN QUERY
+            SELECT numero, presacorrente, presaethernet, p.nomebiblioteca
+            FROM postolettura p;
+    ELSIF EXISTS(SELECT * FROM postolettura p WHERE REPLACE(p.nomebiblioteca, ' ', '') = ANY (NomiB)) THEN
+        RETURN QUERY
+            SELECT numero, presacorrente, presaethernet, p.nomebiblioteca
+            FROM postolettura p
+            WHERE REPLACE(p.nomebiblioteca, ' ', '') = ANY (NomiB);
+    END IF;
 END; $$
 LANGUAGE 'plpgsql';
+
+SELECT * FROM PostiLetturaBiblioteca();
+SELECT * FROM PostiLetturaBiblioteca('BibliotecaUniversitariadiBologna')

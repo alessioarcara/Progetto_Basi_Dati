@@ -4,6 +4,7 @@ require_once('core/Application.php');
 require_once('core/Router.php');
 require_once('controllers/viewController.php');
 require_once('controllers/searchController.php');
+require_once('controllers/userViewController.php');
 
 //connect to db
 $host='argonauta.synology.me';
@@ -16,6 +17,7 @@ try{
   $conn = new PDO($dsn);
 
   //create application
+  //create application //__DIR__;
   $app = new Application(dirname(__DIR__), $conn);
 
   //build routes
@@ -24,6 +26,7 @@ try{
   $app->router->get('/biblioteche', [searchController::class, 'ricerca']);
   $app->router->get('/postilettura', [searchController::class, 'ricerca']);
   $app->router->get('/libri', [searchController::class, 'ricerca']);
+  $app->router->get('/user', [userViewController::class, 'user']);
 
   $app->run();
 

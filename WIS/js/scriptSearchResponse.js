@@ -1,74 +1,27 @@
-$(document).ready(function(){
-    var chk_btn_changed;
-    /* --  Checkbox buttons -- */
-    $('.chk-btn').on('click', function(){
-        $('.chk-btn').removeClass('selected');
-        $(this).addClass('selected');
-        chk_btn_changed = $(this).text().replace(/\s+/g, '').toLowerCase();
+/* ---------------- */
+/* -- Variabili -- */
+/* -------------- */
+
+var posti;
+
+/* --------------- */
+/* -- Funzioni -- */
+/* ------------- */
+
+/* ricerca Biblioteche */
+$('details').on('click', function (){
+    $('div[id^="map"]').each(function( index ) {
+        map.invalidateSize();
     });
+})
 
-    /* -- Manipolaggio Barra di Ricerca -- */
-    const searchLineEdit =
-        "<input class=\"searchLineEdit noBlueLine\" " +
-        "type=\"text\" " +
-        "placeholder=\"Tutte le informazioni...\">",
+/* ricerca Posti lettura */
+$(".card-posto").click(function(){
+    $('.card-posto').removeClass('selected');
+    $(this).addClass('selected');
+});
 
-        menuBiblioteche = $('.search-dropdown');
-
-    function changeSearchBar(isSearchable) {
-        $('.searchLineEdit').remove();
-        $('.search-dropdown').remove();
-        if (isSearchable) {
-            $('.searchBarForm').prepend(searchLineEdit);
-        }
-        else if (!isSearchable) {
-            $('.searchBarForm').prepend(menuBiblioteche);
-            $('.search-dropdown-content a').click(function (){
-                $('.search-dropdown-button').text($(this).text());
-            });
-        }
-    }
-
-    $('#chk-biblioteche, #chk-postilettura').click(function (){ changeSearchBar(false)});
-    $('#chk-libri').click(function (){ changeSearchBar(true)});
-
-    $('#chk-biblioteche').click();
-
-    $('.search-dropdown-content a').click(function (){
-        $(this).addClass('selected');
-        $('.search-dropdown-button').text($(this).text());
-    });
-
-    /* GET request Ricerca */
-    $('.search-button').click(function(){
-        url = `./${chk_btn_changed}`
-        if ($('.search-dropdown-button').length) {
-            if ($('.search-dropdown-button').text() !== "Tutte le biblioteche")
-                url += "?n=" + $('.search-dropdown-button').text().replace(/\s+/g, '');
-        }
-        else if ($('.searchLineEdit').length) {
-            /* filtrering words length <= 3 */
-            /* tokenizer unigram */
-            if ($('.searchLineEdit').val() !== "") {
-                let words = $('.searchLineEdit').val().split(" ");
-                for (let i=0; i<words.length; i++) {
-                    if (words[i].length <= 3){
-                        words.splice(i,1)
-                    }
-                }
-                url += "?n=" + words.join("&");
-            }
-        }
-        window.location.assign(url);
-    });
-
-
-    /* Ricerca Biblioteche */
-    $('details').on('click', function (){
-        $('div[id^="map"]').each(function( index ) {
-            map.invalidateSize();
-        });
-    })
+$(document).ready(function() {
 
     /* Setting Mappa per ogni div */
     $('div[id^="map"]').each(function( index ) {
@@ -93,14 +46,7 @@ $(document).ready(function(){
         }, 100);
     });
 
-    /* ricerca posti lettura */
-
-    /* Posti lettura clickable div */
-    $(".card-posto").click(function(){
-        $('.card-posto').removeClass('selected');
-        $(this).addClass('selected');
-    });
-
+    /* Setting Datepicker */
     $('.registrazione-datepicker').datepicker({
         changeYear: false,
         changeMonth: false,
@@ -152,14 +98,11 @@ $(document).ready(function(){
     //     // ],
     // });
 
-    var posti;
     if ($('.registrazione-datepicker').length) {
         $.get( "./API/GetRegistrazioni.php", function( data ) {
             posti = JSON.parse(JSON.parse(data).getregistrazioni);
-            }).fail(function () {
-                alert( "error" );
-            });
+        }).fail(function () {
+            alert( "error" );
+        });
     };
 });
-
-/* Javascript */

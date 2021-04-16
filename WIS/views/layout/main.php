@@ -45,7 +45,7 @@
                     ?>
                 </div>
             </div>
-            <input class="searchLineEdit noBlueLine" type="text" placeholder="Tutte le informazioni...">
+            <input class="searchLineEdit noBlueLine" type="text" placeholder="Tutte le informazioni..." style="display: none">
             <button class="search-button" type="button"><i class="fa fa-search"></i></button>
         </div>
     </div>

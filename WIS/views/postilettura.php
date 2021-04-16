@@ -1,4 +1,3 @@
-<link rel="stylesheet" href="css/StyleSearchResponse.css">
 <div class="listarisultati-corpo">
     <?php
     foreach ($postilettura as $biblioteca=>$posti) {

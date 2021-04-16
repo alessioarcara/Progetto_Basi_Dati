@@ -4,6 +4,7 @@
     <!-- Fogli di stile interni -->
     <link rel="stylesheet" href="css/Style.css">
     <link rel="stylesheet" href="css/StyleUser.css">
+    <link rel="stylesheet" href="css/StyleSearchResponse.css">
     <link rel="stylesheet" href="css/StyleSearchBar.css">
 
     <!-- Fogli di stile esterni -->
@@ -130,7 +131,7 @@
         ?>
     </div>
 <!-- Logo -->
-    <div class="flex-container colorContainerHeader logo">
+    <div class="colorContainerHeader logo">
         <a href="/home"><img  id="logo" src="./images/logo.svg" alt="Logo"></a>
     </div>
 <!-- Barra di ricerca -->

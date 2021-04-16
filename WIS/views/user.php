@@ -4,7 +4,7 @@ $nome = $user['nome'];
 $ruolo = $user['ruolo'];
 echo
 "
-      <div class='flex-row box-head'>
+      <div class='flex-row box-head colorContainerHeader'>
         <div class='flex-column user-menu'>
           <div class='dropdown'>
             <button id='btn-menu' class='new-button'>Menù <i class='fas fa-caret-down'></i></button>

@@ -47,7 +47,7 @@
         width: 100% !important;
     }
 
-    .chk-buttons, #card-ebook > div > div.decorator-riga {
+    .chk-buttons {
         align-items: center;
         justify-content: center;
     }

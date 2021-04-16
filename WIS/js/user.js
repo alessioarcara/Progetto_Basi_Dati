@@ -8,13 +8,6 @@ const inviaMessaggio = document.querySelector('#invia-messaggio-form');
 const inviaSegnalazione = document.querySelector('#invia-segnalazione-form');
 const rimuoviSegnalazioni = document.querySelector('#rimuovi-segnalazioni-form');
 
-var btn_logout = document.getElementById("btn-out");
-
-btn_logout.onclick = function () {
-  document.cookie = "email=;"
-  header ('Location: /home');
-}
-
 if (menu)
   menu.addEventListener('click', e => {
     const id = e.target.id || e.target.parentNode.id;
@@ -41,16 +34,16 @@ if (inserisciConsegna)
       method: 'POST',
       body: formData
     })
-    .then( res => {
-      // console.log(res);
-      if (res.ok) alert('Consegna inserita con successo!');
-      else alert('Invalid input');
-    })
-    .catch(err => console.log(err));
+        .then( res => {
+          // console.log(res);
+          if (res.ok) alert('Consegna inserita con successo!');
+          else alert('Invalid input');
+        })
+        .catch(err => console.log(err));
 
   });
 
-if (aggiornaConsegna) 
+if (aggiornaConsegna)
   aggiornaConsegna.addEventListener('submit', e => {
     e.preventDefault();
 
@@ -65,11 +58,11 @@ if (aggiornaConsegna)
       method: 'POST',
       body: formData
     })
-    .then( res => {
-      if (res.ok) alert('Consegna aggiornata con successo!');
-      else alert('Invalid input')
-    })
-    .catch(err => console.log(err));
+        .then( res => {
+          if (res.ok) alert('Consegna aggiornata con successo!');
+          else alert('Invalid input')
+        })
+        .catch(err => console.log(err));
   });
 
 if (inserisciLibro)
@@ -87,11 +80,11 @@ if (inserisciLibro)
       method: 'POST',
       body: formData
     })
-    .then( res => {
-      if (res.ok) alert('Libro inserito con successo!');
-      else alert('Invalid input')
-    })
-    .catch(err => console.log(err));
+        .then( res => {
+          if (res.ok) alert('Libro inserito con successo!');
+          else alert('Invalid input')
+        })
+        .catch(err => console.log(err));
   });
 
 if (aggiornaLibro)
@@ -109,11 +102,11 @@ if (aggiornaLibro)
       method: 'POST',
       body: formData
     })
-    .then( res => {
-      if (res.ok) alert('Libro aggiornato con successo!');
-      else alert('Invalid input')
-    })
-    .catch(err => console.log(err));
+        .then( res => {
+          if (res.ok) alert('Libro aggiornato con successo!');
+          else alert('Invalid input')
+        })
+        .catch(err => console.log(err));
   });
 
 if (eliminaLibro)
@@ -127,11 +120,11 @@ if (eliminaLibro)
       method: 'POST',
       body: formData
     })
-    .then( res => {
-      if (res.ok) alert('Libro eliminato con successo!');
-      else alert('Invalid input')
-    })
-    .catch(err => console.log(err));
+        .then( res => {
+          if (res.ok) alert('Libro eliminato con successo!');
+          else alert('Invalid input')
+        })
+        .catch(err => console.log(err));
   });
 
 if (inviaMessaggio)
@@ -147,11 +140,11 @@ if (inviaMessaggio)
       method: 'POST',
       body: formData
     })
-    .then( res => {
-      if (res.ok) alert('Messaggio inviato con successo!');
-      else alert('Invalid input')
-    })
-    .catch(err => console.log(err));
+        .then( res => {
+          if (res.ok) alert('Messaggio inviato con successo!');
+          else alert('Invalid input')
+        })
+        .catch(err => console.log(err));
   });
 
 if (inviaSegnalazione)
@@ -166,11 +159,11 @@ if (inviaSegnalazione)
       method: 'POST',
       body: formData
     })
-    .then( res => {
-      if (res.ok) alert('Segnalazione inviata con successo!');
-      else alert('Invalid input')
-    })
-    .catch(err => console.log(err));
+        .then( res => {
+          if (res.ok) alert('Segnalazione inviata con successo!');
+          else alert('Invalid input')
+        })
+        .catch(err => console.log(err));
   });
 
 if (rimuoviSegnalazioni)
@@ -184,9 +177,9 @@ if (rimuoviSegnalazioni)
       method: 'POST',
       body: formData
     })
-    .then( res => {
-      if (res.ok) alert('Segnalazioni rimosse con successo!');
-      else alert('Invalid input')
-    })
-    .catch(err => console.log(err));
+        .then( res => {
+          if (res.ok) alert('Segnalazioni rimosse con successo!');
+          else alert('Invalid input')
+        })
+        .catch(err => console.log(err));
   });

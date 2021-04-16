@@ -13,8 +13,8 @@
     --color-orange: #db6400;
     --colour-white: #f4f9f9;
     --color-grey: #6c757d;
-    --color-row-topOne: #74c3d3;
-    --color-row-topTwo: #dfa473;
+    --color-row-topOne: #ccd9df;
+    --color-row-topTwo: #ccd9df;
     --color-row-tableUser: #93d4ff;
 
     --color-user: #b5c1d1;
@@ -28,17 +28,28 @@ html {
     font-size: 125%;
     margin-left: 10rem;
     margin-right: 10rem;
+    background-color: var(--colour-white);
 }
 
 body {
     box-sizing: border-box;
-	text-align: center;
-	padding: 0;
-	margin: 0;
+    text-align: center;
+    padding: 0;
+    margin: 0;
 }
 
 button:focus {
     outline: none !important; /* Elimino il bordo blu quando viene premuto */
+}
+
+.statusBar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 100vw;
+    height: auto;
+    background-color: rgba(75, 119, 141, 0.8);
 }
 
 .flex-container {
@@ -52,16 +63,14 @@ button:focus {
     background-color: var(--colour-white);
 }
 
-.statusBar {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: flex-end;
-    background-color: var(--colour-white);
-    margin-top: 0.3%;
-}
-
 .logo {
-    justify-content: flex-start;
+    width: 60%;
+    height: 50%;
+    margin-top: -5rem;
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    margin-bottom: -7.5rem;
 }
 
 .dimLeft {
@@ -76,18 +85,12 @@ button:focus {
     margin-left: 0.2rem;
 }
 
-#logo {
-    color: black;
-    text-align: left;
-    padding: 0.5rem;
-}
-
 .ricerca {
     display: flex;
     flex-flow: column;
     justify-content: center;
     align-items: center;
-	text-align: center;
+    text-align: center;
     padding: 1.5rem;
 }
 
@@ -95,8 +98,8 @@ button:focus {
     justify-content: flex-start;
 }
 
-.padding05 {
-    padding: 0.5rem;
+.padding-05 {
+    padding: 0.5%;
 }
 
 .margin-top {
@@ -109,16 +112,20 @@ button:focus {
 
 /* CARDS HOMEPAGE */
 .card-home {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.3);
-    transition: 0.4s;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
 }
 
 .card-home:hover {
-    box-shadow: 0 16px 32px 0 rgba(0,0,0,0.4);
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
 .set-card-home {
-    border-radius: 0.5rem;
+    border-radius: 5px;
 }
 
 /* ELEMENTI PER SETTAGGIO BOTTONI */
@@ -156,8 +163,6 @@ button:focus {
     flex-direction: row;
     justify-content: space-between;
     width: 100%;
-    /* Settaggio bordi */
-    border-top: 2px solid var(--color-grey);
 }
 
 .dim-text, .dim-password {
@@ -214,7 +219,7 @@ button:focus {
 }
 
 .layout {
-	padding: 3%;
+    padding: 3%;
     margin: 5% auto 15% auto;
     border: 1px solid #888;
     background-color: #fefefe;
@@ -362,6 +367,6 @@ button:focus {
 }
 
 @keyframes animatezoom {
-    from {transform: scale(0)} 
+    from {transform: scale(0)}
     to {transform: scale(1)}
 }

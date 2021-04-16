@@ -5,7 +5,6 @@
 }
 
 td, th, tr {
-    /* border: 1px solid #dddddd; */
     text-align: left;
     padding: 3px;
 }
@@ -22,7 +21,6 @@ td, th, tr {
     display: flex;
     flex-flow: column;
     justify-content: flex-start;
-    background-color: var(--colour-blue);
     padding: 2rem;
 }
 
@@ -30,6 +28,5 @@ td, th, tr {
     display: flex;
     flex-flow: column;
     justify-content: flex-start;
-    background-color: var(--color-orange);
     padding: 2rem;
 }

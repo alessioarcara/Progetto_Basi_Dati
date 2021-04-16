@@ -3,8 +3,8 @@
 <head>
     <!-- Fogli di stile interni -->
     <link rel="stylesheet" href="css/Style.css">
+    <link rel="stylesheet" href="css/StyleUser.css">
     <link rel="stylesheet" href="css/StyleSearchBar.css">
-    <link rel="stylesheet" href="css/StyleSearchResponse.css">
 
     <!-- Fogli di stile esterni -->
     <!-- FontAwesome -->
@@ -16,18 +16,16 @@
     <!-- jQuery ui, timepicker -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css">
     <link rel="stylesheet" href="css/jquery.timepicker.css">
-
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"rel="nofollow" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
-
-<!--    <link rel="stylesheet" href="StyleMain.css">-->
 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EBIBLIO</title>
 
+<!-- Navbar -->
     <div class="statusBar">
         <?php
         /* Gestione header-bar iniziale per ogni user */
@@ -131,9 +129,11 @@
         }
         ?>
     </div>
+<!-- Logo -->
     <div class="flex-container colorContainerHeader logo">
         <a href="/home"><img  id="logo" src="./images/logo.svg" alt="Logo"></a>
     </div>
+<!-- Barra di ricerca -->
     <div class="flex-container colorContainerHeader searchBar">
         <div class="searchBarForm">
             <div class="search-dropdown">
@@ -152,10 +152,12 @@
             <button class="search-button" type="button"><i class="fa fa-search"></i></button>
         </div>
     </div>
+<!-- Bottoni per la Ricerca -->
     <div class="flex-container colorContainerSearch chk-buttons">
         <button type="button" id='chk-biblioteche' class='chk-btn'><i class="fa fa-archive"></i> Biblioteche</button>
         <button type="button" id='chk-postilettura' class='chk-btn'><i class="fa fa-user-o"></i> Posti Lettura</button>
         <button type="button" id='chk-libri' class='chk-btn'><i class="fa fa-book"></i> Libri</button>
+    </div>
 </head>
 <body>
 
@@ -167,9 +169,9 @@
 <!-- FontAwesome -->
 <script src="https://kit.fontawesome.com/45d9bf0dbf.js" crossorigin="anonymous"></script>
 <!-- Mappa leaflet -->
-<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-        crossorigin=""></script>
+<script   src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+          integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+          crossorigin=""></script>
 <!-- jQuery core, ui, timepicker -->
 <script   src="https://code.jquery.com/jquery-3.6.0.js"
           integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
@@ -181,8 +183,10 @@
 <!-- Script interni -->
 <script src="js/scriptSearchBar.js"></script>
 <script src="js/scriptSearchResponse.js"></script>
-<script type="text/javascript" src="views/js/topHomepage.js"></script>
-<script src="views/js/login.js"></script>
-<script src="views/js/sign-in-up.js"></script>
+<script src="js/login.js"></script>
+<script src="js/topHomepage.js"></script>
+<script src="js/sign-in-up.js"></script>
+<script src="js/pannello.js"></script>
+
 </body>
 </html>

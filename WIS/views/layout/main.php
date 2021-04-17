@@ -34,7 +34,20 @@
             $nome = $user['nome'];
             $ruolo = $user['ruolo'];
             echo
-            "
+            "       
+            <headbar class='headbar'>
+                <div class='headbar__icons'>
+                    <a href='/user' class='flex-centered headbar__user'>
+                        <i class='headbar__user-icon fa fa-user-circle'></i> <p>$nome</p>
+                    </a>
+                    <a href='/user' class='flex-centered headbar__role'>
+                        <i class='headbar__role-icon fa fa-address-card'></i> <p>$ruolo</p>
+                    </a>
+                </div>
+                <a class='headbar__logout' id='btn-out'> Logout <i class='fas fa-sign-out-alt'></i> </a>
+            </headbar>
+            
+                    <!--
                     <div class='flex-row padding-05'>
                         <div>
                             <i class='margin-top fa fa-user-circle'></i> <b>Area Utente:</b> <u>$nome</u><br>
@@ -43,14 +56,26 @@
                         <button class='new-button' id='pannello'>Pannello</a></button>
                         <button class='btn-logout' id='btn-out'><i class='fas fa-sign-out-alt'></i> Logout</button>
                     </div>
+                    -->
                 ";
         } else {
             echo
-            "
+            "   
+            <headbar class='headbar'>
+                <div class='headbar__icons'>
+                    <a class='flex-centered headbar__user' id='btn-login'>
+                        <i class='headbar__user-icon fa fa-user-circle'></i> <p>Area Utente</p>
+                    </a>
+                </div>
+                <a class='headbar__login' id='btn-login'> Login <i class='fas fa-sign-in-alt'></i> </a>
+            </headbar>
+
+                <!--
                 <div class='flex-row padding-05'>
                     <div><i class='fa fa-user-circle'></i> <b>Area Utente:</b> Ospite</div>
                     <button id='btn-login' class='new-button'><i class='fas fa-sign-in-alt'></i> Sign-in</button>
                 </div>
+                -->
                 <div id='sign-in-form' class='modal'>
                     <form id='login-form' class='modal-content animate' method='post'>
                         <div class='right'><span id='close-sign-in' class='close'><i class='fas fa-times'></i></span></div>
@@ -188,6 +213,7 @@
 <script src="js/topHomepage.js"></script>
 <script src="js/sign-in-up.js"></script>
 <script src="js/pannello.js"></script>
+<script src="js/headbar.js"></script>
 
 </body>
 </html>

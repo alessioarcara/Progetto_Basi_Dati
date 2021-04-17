@@ -437,12 +437,12 @@ body {
     cursor: pointer; /* Aggiungo un puntatore */
 }
 
-/* Animazione con effetto zoom */
-.animate {
-    animation: animatezoom 0.6s;
-}
+/*!* Animazione con effetto zoom *!*/
+/*.animate {*/
+/*    animation: animatezoom 0.6s;*/
+/*}*/
 
-@keyframes animatezoom {
-    from {transform: scale(0)}
-    to {transform: scale(1)}
-}
+/*@keyframes animatezoom {*/
+/*    from {transform: scale(0)}*/
+/*    to {transform: scale(1)}*/
+/*}*/

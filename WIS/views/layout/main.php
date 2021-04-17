@@ -30,7 +30,7 @@
     <div class="statusBar">
         <?php
         /* Gestione header-bar iniziale per ogni user */
-        if ($user) { //Solo se il cookie è presente usiamo questa visualizzazione
+        if (isset($user)) { //Solo se il cookie è presente usiamo questa visualizzazione
             $nome = $user['nome'];
             $ruolo = $user['ruolo'];
             echo

@@ -31,4 +31,4 @@ END $$
 LANGUAGE 'plpgsql';
 
 SELECT * FROM getbiblioteche();
-SELECT * FROM getbiblioteche('BibliotecaUniversitariadiBologna')
+SELECT * FROM getbiblioteche('BibliotecaUniversitariadiBologna', 'asdasd', 'asdas')

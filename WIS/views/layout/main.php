@@ -14,7 +14,10 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
           integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
           crossorigin=""/>
-    <!-- jQuery ui, timepicker -->
+    <!-- jQuery core ui, timepicker -->
+    <script   src="https://code.jquery.com/jquery-3.6.0.js"
+              integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+              crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css">
     <link rel="stylesheet" href="css/jquery.timepicker.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -173,17 +176,14 @@
 <script   src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
           integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
           crossorigin=""></script>
-<!-- jQuery core, ui, timepicker -->
-<script   src="https://code.jquery.com/jquery-3.6.0.js"
-          integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
-          crossorigin="anonymous"></script>
+<!-- jQuery ui, timepicker -->
 <script   src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
           integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
           crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.10.0/jquery.timepicker.min.js"></script>
 <!-- Script interni -->
-<script src="js/scriptSearchBar.js"></script>
-<script src="js/scriptSearchResponse.js"></script>
+<script src="js/SearchBar.js"></script>
+<!--<script src="js/scriptSearchResponse.js"></script>-->
 <script src="js/login.js"></script>
 <script src="js/topHomepage.js"></script>
 <script src="js/sign-in-up.js"></script>

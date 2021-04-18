@@ -1,18 +1,18 @@
 <?php
 include_once('../db_conn/db.php');
 $pdo = db::getInstance();
-$sql = 'SELECT * FROM getregistrazioni()';
+$sql = 'SELECT * FROM GetStatoLibri();';
 
 try {
     $results = $pdo->query($sql);
-    $registrazioni = $results->fetch(\PDO::FETCH_ASSOC);
+    $statolibri = $results->fetch(\PDO::FETCH_ASSOC);
 
-    if ($registrazioni['getregistrazioni']) {
+    if ($statolibri['getstatolibri']) {
         http_response_code(200);
-        echo json_encode($registrazioni);
+        echo json_encode($statolibri);
     } else {
         http_response_code(404);
-        echo 'nessuna biblioteca trovata';
+        echo 'nessun libro trovato';
     }
 } catch (Exception $e) {
     http_response_code(400);

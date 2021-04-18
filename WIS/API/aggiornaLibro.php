@@ -1,12 +1,6 @@
-<?php 
-
-//connect to db
-$host='argonauta.synology.me';
-$db = 'unibo';
-$username = 'postgres';
-$password = 'postgres';
-$dsn = "pgsql:host=$host; port=5444; dbname=$db; user=$username; password=$password";
-$pdo = new PDO($dsn);
+<?php
+include_once('../db_conn/db.php');
+$pdo = db::getInstance();
 
 $request = [];
 foreach ($_POST as $key => $value) {

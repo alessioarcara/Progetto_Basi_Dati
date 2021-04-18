@@ -9,10 +9,10 @@
                   <details>
                         <summary class='noBlueLine'>Lista posti lettura</summary>";
                         if (isset($user)) echo "
-                        <div id='registrazione-form'>
+                        <div class='registrazione-form'>
                             <input class='registrazione-datepicker' type='text' placeholder='yy-mm-dd'>
                             <input class='registrazione-timepicker' type='text' placeholder='hh:mm'>
-                            <button class='post-search-btn' id='registrazione-btn'>Prenota posto lettura</button>
+                            <button class='registrazione-post post-search-btn has-hover' id='registrazione-btn'>Prenota posto lettura</button>
                         </div> ";
                         echo"
                         <div class='dettagli-lista-posti'>
@@ -34,3 +34,4 @@
     }
     ?>
 </div>
+<script src="js/SearchPostiLettura.js"></script>

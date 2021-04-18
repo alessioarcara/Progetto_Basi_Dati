@@ -64,7 +64,7 @@
                     </div>";
                     if($statoprestito == 'DISPONIBILE' and isset($user)) {
                         echo "<div id='prenota-libro'>
-                                    <button class='post-search-btn' id='prenota-btn'>Prenota</button>
+                                    <button class='prenota-post post-search-btn has-hover' id='prenota-btn'>Prenota</button>
                               </div>";
                     }
                     echo "
@@ -108,7 +108,7 @@
                         </div>";
                         if (isset($user)) echo"
                         <div class='decorator-riga'>
-                            <button class='post-search-btn' id='visualizza-btn'>Visualizza</button>
+                            <button class='visualizza-post post-search-btn has-hover' id='visualizza-btn'>Visualizza</button>
                         </div>";
                         echo "
                     </div>
@@ -116,3 +116,4 @@
     }
 ?>
 </div>
+<script src="js/SearchLibri.js"></script>

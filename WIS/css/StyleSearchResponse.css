@@ -58,20 +58,20 @@
     width: 100%;
     padding: 1rem;
 }
-#registrazione-form {
+.registrazione-form {
     justify-content: space-between;
 }
 
-#registrazione-form > input, button {
+.registrazione-form > input, button {
     margin-top: 0.5rem;
     padding: 0.2rem;
 }
 
-#registrazione-form > input {
+.registrazione-form > input {
     width: 25%;
 }
 
-#registrazione-form > button {
+.registrazione-form > button {
     width: 40%;
 }
 
@@ -85,10 +85,14 @@
     transition: 0.2s;
 }
 
-.post-search-btn:hover {
+.has-hover:hover:hover {
     background: #FFFFFF;
     border: 1px solid #E1E1E1;
     color: #000000;
+}
+
+.post-search-btn:disabled {
+    opacity: 0.6;
 }
 
 .registrazione-btn:hover {opacity: 1}

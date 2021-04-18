@@ -17,7 +17,7 @@ BEGIN
   END IF;
   -- Inserisco prenotazione
   INSERT INTO PRENOTAZIONE (CodicePrenotazione, EmailUtilizzatore, CodiceLibroCartaceo) VALUES (
-    substr(md5(random()::text), 0, 10),
+    substr(md5(random()::text), 0, 11),
     EmailUtente,
     CodiceLibro
   );

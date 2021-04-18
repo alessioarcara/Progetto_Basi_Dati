@@ -7,9 +7,9 @@ CREATE FUNCTION PrenotaPostoLettura (
   OraInizioPrenotazione TIME,
   OraFinePrenotazione TIME
 )
-RETURNS BOOLEAN 
+RETURNS BOOLEAN
 AS $$
-BEGIN 
+BEGIN
   -- Controlla se il posto lettura è libero all'orario specificato
   IF EXISTS (
     SELECT IdRegistrazione
@@ -17,15 +17,15 @@ BEGIN
     WHERE NumeroPosto = REGISTRAZIONE.NumeroPostoLettura AND Biblioteca = REGISTRAZIONE.NomeBiblioteca
     AND DataPrenotazione = REGISTRAZIONE.Data
     AND (
-      (OraInizioPrenotazione BETWEEN REGISTRAZIONE.OraInizio AND REGISTRAZIONE.OraFine )
-      OR (OraFinePrenotazione BETWEEN REGISTRAZIONE.OraInizio AND REGISTRAZIONE.OraFine )
-    )
-  ) 
+            (OraInizioPrenotazione >= REGISTRAZIONE.OraInizio AND OraInizioPrenotazione < REGISTRAZIONE.OraFine)
+            OR (OraFinePrenotazione > REGISTRAZIONE.OraInizio AND OraFinePrenotazione <= REGISTRAZIONE.OraFine)
+        )
+  )
   THEN RETURN FALSE;
   END IF;
   -- Inserisci registrazione posto lettura
   INSERT INTO REGISTRAZIONE VALUES (
-    substr(md5(random()::text), 0, 10),
+    substr(md5(random()::text), 0, 11),
     DataPrenotazione,
     OraInizioPrenotazione,
     OraFinePrenotazione,
@@ -35,9 +35,9 @@ BEGIN
   );
   RETURN TRUE;
 
-  -- EXCEPTION 
+  -- EXCEPTION
   --   WHEN OTHERS THEN
   --     RETURN FALSE;
-  
+
 END; $$
 LANGUAGE 'plpgsql';

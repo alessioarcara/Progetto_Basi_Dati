@@ -5,16 +5,12 @@ require_once('core/Router.php');
 require_once('controllers/viewController.php');
 require_once('controllers/searchController.php');
 require_once('controllers/userViewController.php');
+require_once('db_conn/db.php');
 
 //connect to db
-$host='argonauta.synology.me';
-$db = 'unibo';
-$username = 'postgres';
-$password = 'postgres';
-$dsn = "pgsql:host=$host; port=5444; dbname=$db; user=$username; password=$password";
 try{
   // create a PostgreSQL database connection
-  $conn = new PDO($dsn);
+  $conn = db::getInstance();
 
   //create application
   //create application //__DIR__;

@@ -25,7 +25,6 @@
 //     });
 // }
 
-
 /* POST InserisciPrenotazione */
 if ($('.prenota-post'))
     $('.prenota-post').on('click', function ( ) {

@@ -37,40 +37,39 @@ foreach ($_POST as $key => $value) {
 $nomiAutori = to_pg_array(explode(',', $request['nomiAutori']));
 $cognomiAutori = to_pg_array(explode(',', $request['cognomiAutori']));
 
+
 $titolo = $request['titolo'];
 $edizione = $request['edizione'];
 $anno = $request['anno'];
 $genere = $request['genere'];
 $emailAdmin = $_COOKIE['email'];
-// $sql = "SELECT nomebiblioteca FROM AMMINISTRATORE 
-//         WHERE emailamministratore='$emailAdmin'";
-// $result = $pdo->query($sql);
-// $biblioteca = $result->fetch(\PDO::FETCH_ASSOC)['nomebiblioteca'];
-$stato = strtoupper( $request['stato'] );
-$pagine = $request['pagine'];
-$num_scaffale = $request['num_scaffale'];
+$dimensione = $request['dimensione'];
+
+// In your "php.ini" file, search for the file_uploads directive, and set it to On:
+$target_dir = "../Risorse/Pdf/";
+$target_file = $target_dir . basename("$titolo.pdf");
+move_uploaded_file($_FILES["pdf"]["tmp_name"], $target_file);
+
+$path = "Risorse/Pdf/$titolo.pdf";
 
 $sql = 
-  "SELECT inserimentoLibroCartaceo(
+  "SELECT inserimentoEBook(
     '$emailAdmin',
-    '$titolo',  
+    '$titolo',
     '$edizione',
     '$anno',
     '$genere',
-    'DISPONIBILE',
-    '$stato',
-    '$pagine',
-    '$num_scaffale',
+    '$dimensione',
+    '$path',
     '$nomiAutori',
     '$cognomiAutori'
   )";
-
 
 try {
   $result = $pdo->query($sql);
   $status = $result->fetch(\PDO::FETCH_ASSOC);
   // file_put_contents('php://stderr', print_r($status, TRUE));
-  if ($status['inserimentolibrocartaceo']) {
+  if ($status['inserimentoebook']) {
     http_response_code(200);
   } else {
     throw new Exception('Invalid data');

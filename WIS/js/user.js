@@ -1,12 +1,15 @@
 const menu = document.querySelector('.user-menu');
 const inserisciConsegna = document.querySelector('#inserisci-consegna-form');
 const aggiornaConsegna = document.querySelector('#aggiorna-consegna-form');
-const inserisciLibro = document.querySelector('#inserisci-libro-form');
+const inserisciLibro = document.querySelector('#inserisci-libro-cartaceo-form');
+const inserisciEBook = document.querySelector('#inserisci-ebook-form');
 const aggiornaLibro = document.querySelector('#aggiorna-libro-form');
 const eliminaLibro = document.querySelector('#rimuovi-libro-form');
 const inviaMessaggio = document.querySelector('#invia-messaggio-form');
 const inviaSegnalazione = document.querySelector('#invia-segnalazione-form');
 const rimuoviSegnalazioni = document.querySelector('#rimuovi-segnalazioni-form');
+const nuovoAutoreBtn = document.querySelector('#new-autore-btn');
+const nuovoAutoreEBookBtn = document.querySelector('#ebook-autore-btn');
 
 if (menu)
   menu.addEventListener('click', e => {
@@ -69,12 +72,28 @@ if (inserisciLibro)
   inserisciLibro.addEventListener('submit', e => {
     e.preventDefault();
 
+    const nomiAutoriV = document.querySelectorAll('#new-nome-autore');
+    const cognomiAutoriV = document.querySelectorAll('#new-cognome-autore');
+
+    const nomiAutori = [];
+    const cognomiAutori = [];
+    nomiAutoriV.forEach( (v, i) => {
+      if (nomiAutoriV[i].value && cognomiAutoriV[i].value){
+        nomiAutori.push(nomiAutoriV[i].value);
+        cognomiAutori.push(cognomiAutoriV[i].value);
+      }
+    });
+
     const formData = new FormData();
-    formData.append('codice', document.querySelector('#new-codice-libro').value);
     formData.append('titolo', document.querySelector('#new-titolo').value);
     formData.append('edizione', document.querySelector('#new-edizione').value);
     formData.append('anno', document.querySelector('#new-anno').value);
     formData.append('genere', document.querySelector('#new-genere').value);
+    formData.append('stato', document.querySelector('#new-stato').value);
+    formData.append('pagine', document.querySelector('#new-pagine').value);
+    formData.append('num_scaffale', document.querySelector('#new-num-scaffale').value);
+    formData.append('nomiAutori', nomiAutori);
+    formData.append('cognomiAutori', cognomiAutori);
 
     fetch('/API/inserisciLibro.php', {
       method: 'POST',
@@ -86,6 +105,44 @@ if (inserisciLibro)
         })
         .catch(err => console.log(err));
   });
+
+if (inserisciEBook)
+  inserisciEBook.addEventListener('submit', e => {
+    e.preventDefault();
+
+    const nomiAutoriV = document.querySelectorAll('#ebook-nome-autore');
+    const cognomiAutoriV = document.querySelectorAll('#ebook-cognome-autore');
+
+    const nomiAutori = [];
+    const cognomiAutori = [];
+    nomiAutoriV.forEach( (v, i) => {
+      if (nomiAutoriV[i].value && cognomiAutoriV[i].value){
+        nomiAutori.push(nomiAutoriV[i].value);
+        cognomiAutori.push(cognomiAutoriV[i].value);
+      }
+    });
+
+    const formData = new FormData();
+    formData.append('titolo', document.querySelector('#ebook-titolo').value);
+    formData.append('edizione', document.querySelector('#ebook-edizione').value);
+    formData.append('anno', document.querySelector('#ebook-anno').value);
+    formData.append('genere', document.querySelector('#ebook-genere').value);
+    formData.append('dimensione', document.querySelector('#ebook-pdf').files[0].size);
+    formData.append('pdf', document.querySelector('#ebook-pdf').files[0]);
+    formData.append('nomiAutori', nomiAutori);
+    formData.append('cognomiAutori', cognomiAutori);
+
+    fetch('/API/inserisciEBook.php', {
+      method: 'POST',
+      body: formData
+    })
+        .then( res => {
+          if (res.ok) alert('EBook inserito con successo!');
+          else alert('Invalid input')
+        })
+        .catch(err => console.log(err));
+
+  })
 
 if (aggiornaLibro)
   aggiornaLibro.addEventListener('submit', e => {
@@ -183,3 +240,28 @@ if (rimuoviSegnalazioni)
         })
         .catch(err => console.log(err));
   });
+
+if (nuovoAutoreBtn)
+  nuovoAutoreBtn.addEventListener('click', () => {
+    const boxAutori = document.querySelector('#box-autori');
+    const markup = `
+    <input type='text' name='nome-autore' id='new-nome-autore' placeholder='Nome autore'>  
+    <input type='text' name='cognome-autore' id='new-cognome-autore' placeholder='Cognome autore'> 
+    <a class='btn btn-primary' id='new-autore-btn' style='opacity:0;'>Nuovo autore</a>
+    `;
+    boxAutori.insertAdjacentHTML('beforeend', markup);
+  });
+
+if (nuovoAutoreEBookBtn)
+  nuovoAutoreEBookBtn.addEventListener('click', () => {
+    const boxAutori = document.querySelector('#box-autori-ebook');
+    const markup = `
+    <input type='text' name='nome-autore' id='ebook-nome-autore' placeholder='Nome autore'>  
+    <input type='text' name='cognome-autore' id='ebook-cognome-autore' placeholder='Cognome autore'> 
+    <a class='btn btn-primary' id='ebook-autore-btn' style='opacity:0;'>Nuovo autore</a>
+    `;
+    boxAutori.insertAdjacentHTML('beforeend', markup);
+  });
+
+
+

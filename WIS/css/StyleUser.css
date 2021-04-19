@@ -260,12 +260,19 @@ p {
 .main-box__form {
     display: grid;
     grid-template-columns: auto auto auto;
+    grid-column-gap: 1rem;
     justify-content: center;
 }
-.main-box__form input {
+.main-box__form input,
+.main-box__form select {
+    max-height: 2rem;
+    max-width: 20rem;
+    min-width: 15rem;
     padding: 2px;
     position: relative;
     transition: .2s;
+    margin-left: auto;
+    margin-right: auto;
 }
 .main-box__form input:hover,
 .main-box__form input:focus {
@@ -276,6 +283,21 @@ p {
     grid-column-start: 1;
     grid-column-end: 4;
 }
+.main-box__form #box-autori,
+.main-box__form #box-autori-ebook {
+    grid-column-start: 2;
+    grid-column-end: 4;
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+.main-box__form #box-autori-ebook {
+    grid-column-start: 1;
+}
+.main-box__form #box-autori input,
+.main-box__form #box-autori-ebook input {
+    min-width: 10rem;
+}
+
 
 
 /* .noUnderline {

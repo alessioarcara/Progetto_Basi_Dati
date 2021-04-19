@@ -25,7 +25,8 @@ else if ($user['ruolo'] === 'volontario') {
     echo
     '
                 <a class="user-menu__item" id="visualizza-prenotazioni-admin" href="#scroll">Visualizza prenotazioni</a>
-                <a class="user-menu__item" id="inserisci-libro" href="#scroll">Inserisci libro</a>
+                <a class="user-menu__item" id="inserisci-libro-cartaceo" href="#scroll">Inserisci libro</a>
+                <a class="user-menu__item" id="inserisci-ebook" href="#scroll">Inserisci EBook</a>
                 <a class="user-menu__item" id="aggiorna-libro" href="#scroll">Aggiorna libro</a>
                 <a class="user-menu__item" id="rimuovi-libro" href="#scroll">Rimuovi libro</a>
                 <a class="user-menu__item" id="invia-messaggio" href="#scroll">Invia messaggio</a>
@@ -158,18 +159,52 @@ echo "
             // inserisci libro
             echo
             "
-        <div class='display-none' id='inserisci-libro-box'>
-          <h1>Inserisci libro</h1>
-          <form class='main-box__form' id='inserisci-libro-form'>
-            <input type='text' name='codice-libro' id='new-codice-libro' placeholder='Codice libro'>
+        <div class='display-none' id='inserisci-libro-cartaceo-box'>
+          <h1>Inserisci libro cartaceo</h1>
+          <form class='main-box__form' id='inserisci-libro-cartaceo-form'>
             <input type='text' name='titolo' id='new-titolo' placeholder='Titolo'>
             <input type='text' name='edizione' id='new-edizione' placeholder='Edizione'>  
             <input type='number' name='anno' id='new-anno' placeholder='Anno'>  
-            <input type='text' name='genere' id='new-genere' placeholder='Genere'>  
+            <input type='text' name='genere' id='new-genere' placeholder='Genere'> 
+            <select id='new-stato'>
+              <option value='ottimo'>Ottimo</option>
+              <option value='buono'>Buono</option>
+              <option value='non buono'>Non buono</option>
+              <option value='scadente'>Scadente</option>
+            </select>
+            <input type='number' name='pagine' id='new-pagine' placeholder='Pagine'>  
+            <input type='number' name='num-scaffale' id='new-num-scaffale' placeholder='Numero scaffale'>  
+            <div class='' id='box-autori'>
+              <input type='text' name='nome-autore' id='new-nome-autore' placeholder='Nome autore'>  
+              <input type='text' name='cognome-autore' id='new-cognome-autore' placeholder='Cognome autore'> 
+              <a class='btn btn-primary' id='new-autore-btn'>Nuovo autore</a>
+            </div>
             <button>Inserisci</button>
           </form>
         </div>
         ";
+        // inserisci ebook
+        echo
+        "
+    <div class='display-none' id='inserisci-ebook-box'>
+      <h1>Inserisci EBook</h1>
+      <form class='main-box__form' id='inserisci-ebook-form'>
+        <input type='text' name='titolo' id='ebook-titolo' placeholder='Titolo'>
+        <input type='text' name='edizione' id='ebook-edizione' placeholder='Edizione'>  
+        <input type='number' name='anno' id='ebook-anno' placeholder='Anno'>  
+        <input type='text' name='genere' id='ebook-genere' placeholder='Genere'> 
+        <!--  <input type='number' name='dimensione' id='ebook-dimensione' placeholder='Dimensione'>  
+              <input type='text' name='pdf' id='ebook-pdf' placeholder='Pdf'> -->
+        <input type='file' id='ebook-pdf' name='pdf'>
+        <div class='' id='box-autori-ebook'>
+          <input type='text' name='nome-autore' id='ebook-nome-autore' placeholder='Nome autore'>  
+          <input type='text' name='cognome-autore' id='ebook-cognome-autore' placeholder='Cognome autore'> 
+          <a class='btn btn-primary' id='ebook-autore-btn'>Nuovo autore</a>
+        </div>
+        <button>Inserisci</button>
+      </form>
+    </div>
+    ";
             // aggiorna libro
             echo
             "

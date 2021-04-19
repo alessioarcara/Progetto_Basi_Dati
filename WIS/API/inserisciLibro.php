@@ -1,8 +1,11 @@
-<?php 
+<?php
+include_once('../db_conn/db.php');
+$pdo = db::getInstance();
 
 function generateRandomString($length = 10) {
   return substr(str_shuffle(str_repeat($x='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil($length/strlen($x)) )),1,$length);
 };
+
 // convert PHP array to Postgres array
 function to_pg_array($set) {
   settype($set, 'array'); // can be called with a scalar or array
@@ -20,14 +23,6 @@ function to_pg_array($set) {
   }
   return '{' . implode(",", $result) . '}'; // format
 }
-
-//connect to db
-$host='argonauta.synology.me';
-$db = 'unibo';
-$username = 'postgres';
-$password = 'postgres';
-$dsn = "pgsql:host=$host; port=5444; dbname=$db; user=$username; password=$password";
-$pdo = new PDO($dsn);
 
 $request = [];
 foreach ($_POST as $key => $value) {

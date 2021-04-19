@@ -37,7 +37,20 @@
             $nome = $user['nome'];
             $ruolo = $user['ruolo'];
             echo
-            "
+            "       
+            <headbar class='headbar'>
+                <div class='headbar__icons'>
+                    <a href='/user' class='flex-centered headbar__user'>
+                        <i class='headbar__user-icon fa fa-user-circle'></i> <p>Area Utente</p>
+                    </a>
+                    <a href='/user' class='flex-centered headbar__role'>
+                        <i class='headbar__role-icon fa fa-address-card'></i> <p>$ruolo</p>
+                    </a>
+                </div>
+                <a class='headbar__logout' id='btn-out'> Logout <i class='fas fa-sign-out-alt'></i> </a>
+            </headbar>
+            
+                    <!--
                     <div class='flex-row padding-05'>
                         <div>
                             <i class='margin-top fa fa-user-circle'></i> <b>Area Utente:</b> <u>$nome</u><br>
@@ -46,14 +59,26 @@
                         <button class='new-button' id='pannello'>Pannello</a></button>
                         <button class='btn-logout' id='btn-out'><i class='fas fa-sign-out-alt'></i> Logout</button>
                     </div>
+                    -->
                 ";
         } else {
             echo
-            "
+            "   
+            <headbar class='headbar'>
+                <div class='headbar__icons'>
+                    <a class='flex-centered headbar__user' id='btn-login'>
+                        <i class='headbar__user-icon fa fa-user-circle'></i> <p>Area Utente</p>
+                    </a>
+                </div>
+                <a class='headbar__login' id='btn-login'> Login <i class='fas fa-sign-in-alt'></i> </a>
+            </headbar>
+
+                <!--
                 <div class='flex-row padding-05'>
                     <div><i class='fa fa-user-circle'></i> <b>Area Utente:</b> Ospite</div>
                     <button id='btn-login' class='new-button'><i class='fas fa-sign-in-alt'></i> Sign-in</button>
                 </div>
+                -->
                 <div id='sign-in-form' class='modal'>
                     <form id='login-form' class='modal-content animate' method='post'>
                         <div class='right'><span id='close-sign-in' class='close'><i class='fas fa-times'></i></span></div>
@@ -90,11 +115,11 @@
                                 </div>
                                 <div>
                                     <label for='birth-place'><b>Luogo<sup>*</sup></b></label>
-                                    <input type='text' placeholder='Inserisci data di nascita' name='birth-place' id='new-birth-place' required>
+                                    <input type='text' placeholder='Inserisci luogo di nascita' name='birth-place' id='new-birth-place' required>
                                 </div>
                                 <div>
                                     <label for='telephone-number'><b>Cellulare<sup>*</sup></b></label>
-                                    <input type='number' placeholder='Inserisci cellulare' name='telephone-number' id='new-birth place' required>
+                                    <input type='number' placeholder='Inserisci cellulare' name='telephone-number' id='new-phone' required>
                                 </div>
                                 <div>
                                     <label for='user-email'><b>Email<sup>*</sup></b></label>
@@ -107,18 +132,6 @@
                                 <!-- Dati utilizzatore -->
                                 <div class='item-text-utilizzatore'>
                                     <h3>Dati utilizzatore:</h3>
-                                </div>
-                                <div class='item-user-creation'>
-                                    <label for='user-creation'><b>Creazione account<sup>*</sup></b></label>
-                                    <input type='date' placeholder='Inserisci data di creazione' name='user-creation' id='new-user-creation' required>
-                                </div>
-                                <div class='item-account-state'>
-                                    <label for='account-state'><b>Stato account<sup>*</sup></b></label>
-                                    <select name='account-state' id='new-user-creation'>
-                                        <option selected>--</option>
-                                        <option value='Attivo'>Attivo</option>
-                                        <option value='Sospeso'>Sospeso</option>
-                                    </select>
                                 </div>
                                 <div class='item-user-job'>
                                     <label for='user-job'><b>Professione<sup>*</sup></b></label>
@@ -185,9 +198,11 @@
 <script src="js/SearchBar.js"></script>
 <!--<script src="js/scriptSearchResponse.js"></script>-->
 <script src="js/login.js"></script>
+<script src="js/signup.js"></script>
 <script src="js/topHomepage.js"></script>
 <script src="js/sign-in-up.js"></script>
 <script src="js/pannello.js"></script>
+<script src="js/headbar.js"></script>
 
 </body>
 </html>

@@ -8,7 +8,6 @@ class viewController {
   public function home () {
     // top classifica delle biblioteche con posti lettura meno utilizzati
     $sql = 'SELECT * FROM classificaBibliotecaPostiLettura LIMIT 5';
-
     $results = Application::$pdo->query($sql);
     $classifica = [];
     while ($row = $results->fetch(\PDO::FETCH_ASSOC)) {
@@ -22,7 +21,7 @@ class viewController {
     $sql = 'SELECT * 
             FROM classificaEbookAcceduti JOIN LIBRO ON (codicee = codicelibro) LIMIT 5';
 
-    $results = Application::$pdo -> query($sql);
+    $results = Application::$pdo->query($sql);
     $classificaEbook = [];
     while ($row = $results -> fetch(\PDO::FETCH_ASSOC)) {
       $classificaEbook[] = [

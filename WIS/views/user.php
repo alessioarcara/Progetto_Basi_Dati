@@ -3,45 +3,48 @@
 $nome = $user['nome'];
 $ruolo = $user['ruolo'];
 echo
-"
-      <div class='flex-row box-head colorContainerHeader'>
-        <div class='flex-column user-menu'>
-          <div class='dropdown'>
+"     <!--
+      <div class='flex-column box-head colorContainerHeader'> -->
+        <div class='flex user-menu'>
+            <!--
             <button id='btn-menu' class='new-button'>Menù <i class='fas fa-caret-down'></i></button>
-            <div id='myDropdown' class='dropdown-content'>";
+            <div id='myDropdown' class='dropdown-content'>
+            -->";
 
 if ($user['ruolo'] === 'utilizzatore') {
     echo
-    '<a class="user-menu__item noUnderline marginTop05" id="visualizza-prenotazioni-utente" href="#scroll">Visualizza prenotazioni</a>
-                <a class="user-menu__item noUnderline marginTop05" id="visualizza-consegne" href="#scroll">Visualizza consegne</a>';
+    '<a class="user-menu__item" id="visualizza-prenotazioni-utente" href="#scroll">Visualizza prenotazioni</a>
+                <a class="user-menu__item" id="visualizza-consegne" href="#scroll">Visualizza consegne</a>';
 }
 else if ($user['ruolo'] === 'volontario') {
     echo
-    '<a class="user-menu__item noUnderline marginTop05" id="visualizza-prenotazioni" href="#scroll">Visualizza le prenotazioni</a>
-                <a class="user-menu__item noUnderline marginTop01" id="inserisci-consegna" href="#scroll">Inserisci evento consegna</a>
-                <a class="user-menu__item noUnderline marginTop01" id="aggiorna-consegna" id="#scroll">Aggiorna evento di consegna</a>';
+    '<a class="user-menu__item" id="visualizza-prenotazioni" href="#scroll">Visualizza le prenotazioni</a>
+                <a class="user-menu__item" id="inserisci-consegna" href="#scroll">Inserisci evento consegna</a>
+                <a class="user-menu__item" id="aggiorna-consegna" id="#scroll">Aggiorna evento di consegna</a>';
 } else {
     echo
     '
-                <a class="user-menu__item noUnderline marginTop05" id="visualizza-prenotazioni-admin" href="#scroll">Visualizza prenotazioni</a>
-                <a class="user-menu__item noUnderline marginTop05" id="inserisci-libro" href="#scroll">Inserisci libro</a>
-                <a class="user-menu__item noUnderline marginTop05" id="aggiorna-libro" href="#scroll">Aggiorna libro</a>
-                <a class="user-menu__item noUnderline marginTop05" id="rimuovi-libro" href="#scroll">Rimuovi libro</a>
-                <a class="user-menu__item noUnderline marginTop05" id="invia-messaggio" href="#scroll">Invia messaggio</a>
-                <a class="user-menu__item noUnderline marginTop05" id="invia-segnalazione" href="#scroll">Invia segnalazione</a>
-                <a class="user-menu__item noUnderline marginTop05" id="rimuovi-segnalazioni" href="#scroll">Rimuovi segnalazione</a>
-                <a class="user-menu__item noUnderLine marginTop05" id="visualizza-cluster-utilizzatore" href="#scroll">Visualizza cluster</a>';
+                <a class="user-menu__item" id="visualizza-prenotazioni-admin" href="#scroll">Visualizza prenotazioni</a>
+                <a class="user-menu__item" id="inserisci-libro-cartaceo" href="#scroll">Inserisci libro</a>
+                <a class="user-menu__item" id="inserisci-ebook" href="#scroll">Inserisci EBook</a>
+                <a class="user-menu__item" id="aggiorna-libro" href="#scroll">Aggiorna libro</a>
+                <a class="user-menu__item" id="rimuovi-libro" href="#scroll">Rimuovi libro</a>
+                <a class="user-menu__item" id="invia-messaggio" href="#scroll">Invia messaggio</a>
+                <a class="user-menu__item" id="invia-segnalazione" href="#scroll">Invia segnalazione</a>
+                <a class="user-menu__item" id="rimuovi-segnalazioni" href="#scroll">Rimuovi segnalazione</a>
+                <a class="user-menu__item" id="visualizza-cluster-utilizzatore" href="#scroll">Visualizza cluster</a>';
 }
 
 echo "
-            </div>
-          </div>
-        </div>
+            <!--
+            </div> -->
+        <!--  
+        </div> -->
       </div>
       ";
 ?>
 
-<div class="flex main-container marginTop01">
+<div class="flex main-container">
     <div class='main-box flex-centered flex-column' id="scroll">
         <?php
 
@@ -156,18 +159,52 @@ echo "
             // inserisci libro
             echo
             "
-        <div class='display-none' id='inserisci-libro-box'>
-          <h1>Inserisci libro</h1>
-          <form class='main-box__form' id='inserisci-libro-form'>
-            <input type='text' name='codice-libro' id='new-codice-libro' placeholder='Codice libro'>
-            <input type='text' name='titolo' id='new-titolo' placeholder='titolo'>
-            <input type='text' name='edizione' id='new-edizione' placeholder='edizione'>  
-            <input type='number' name='anno' id='new-anno' placeholder='anno'>  
-            <input type='text' name='genere' id='new-genere' placeholder='genere'>  
+        <div class='display-none' id='inserisci-libro-cartaceo-box'>
+          <h1>Inserisci libro cartaceo</h1>
+          <form class='main-box__form' id='inserisci-libro-cartaceo-form'>
+            <input type='text' name='titolo' id='new-titolo' placeholder='Titolo'>
+            <input type='text' name='edizione' id='new-edizione' placeholder='Edizione'>  
+            <input type='number' name='anno' id='new-anno' placeholder='Anno'>  
+            <input type='text' name='genere' id='new-genere' placeholder='Genere'> 
+            <select id='new-stato'>
+              <option value='ottimo'>Ottimo</option>
+              <option value='buono'>Buono</option>
+              <option value='non buono'>Non buono</option>
+              <option value='scadente'>Scadente</option>
+            </select>
+            <input type='number' name='pagine' id='new-pagine' placeholder='Pagine'>  
+            <input type='number' name='num-scaffale' id='new-num-scaffale' placeholder='Numero scaffale'>  
+            <div class='' id='box-autori'>
+              <input type='text' name='nome-autore' id='new-nome-autore' placeholder='Nome autore'>  
+              <input type='text' name='cognome-autore' id='new-cognome-autore' placeholder='Cognome autore'> 
+              <a class='btn btn-primary' id='new-autore-btn'>Nuovo autore</a>
+            </div>
             <button>Inserisci</button>
           </form>
         </div>
         ";
+        // inserisci ebook
+        echo
+        "
+    <div class='display-none' id='inserisci-ebook-box'>
+      <h1>Inserisci EBook</h1>
+      <form class='main-box__form' id='inserisci-ebook-form'>
+        <input type='text' name='titolo' id='ebook-titolo' placeholder='Titolo'>
+        <input type='text' name='edizione' id='ebook-edizione' placeholder='Edizione'>  
+        <input type='number' name='anno' id='ebook-anno' placeholder='Anno'>  
+        <input type='text' name='genere' id='ebook-genere' placeholder='Genere'> 
+        <!--  <input type='number' name='dimensione' id='ebook-dimensione' placeholder='Dimensione'>  
+              <input type='text' name='pdf' id='ebook-pdf' placeholder='Pdf'> -->
+        <input type='file' id='ebook-pdf' name='pdf'>
+        <div class='' id='box-autori-ebook'>
+          <input type='text' name='nome-autore' id='ebook-nome-autore' placeholder='Nome autore'>  
+          <input type='text' name='cognome-autore' id='ebook-cognome-autore' placeholder='Cognome autore'> 
+          <a class='btn btn-primary' id='ebook-autore-btn'>Nuovo autore</a>
+        </div>
+        <button>Inserisci</button>
+      </form>
+    </div>
+    ";
             // aggiorna libro
             echo
             "

@@ -5,16 +5,17 @@ CREATE FUNCTION inserimentoEbook (
 	NomeEd TEXT, 
 	Pubblicazione SMALLINT, 
 	GenereL TEXT, 
-    CodEbook TEXT,
     Dim FLOAT,
-    Pdf TEXT
+    Pdf TEXT,
+    NomeAutori TEXT[],
+	CognomeAutori TEXT[]
 )
     RETURNS BOOLEAN
     AS $$
     DECLARE flagAmministratore INT;
-    DECLARE flagLibro INT;
-    DECLARE flagEbook INT;
     DECLARE biblioteca TEXT;
+    DECLARE codice TEXT;
+    DECLARE count INT;
 
     BEGIN
         -- Controllo se email inserita è un amministratore
@@ -29,19 +30,18 @@ CREATE FUNCTION inserimentoEbook (
             WHERE (emailamministratore = EmailA);
         END IF;
 
-        -- Controllo che il cartaceo non sia stato inserito
-        SELECT COUNT(*) INTO flagLibro
-        FROM LIBROCARTACEO
-        WHERE (codicelibrocartaceo = CodEbook);
+        -- Creo codice casuale con funzione random
+		SELECT substr(md5(random()::text), 0, 11) INTO codice;
 
-        -- Controllo che ebook non sia presente
-        SELECT COUNT(*) INTO flagEbook
-        FROM EBOOK
-        WHERE (codiceebook = CodEbook);
-
-        IF (flagAmministratore = 1 AND flagLibro = 0 AND flagEbook = 0) THEN
-            INSERT INTO LIBRO VALUES (CodEbook, TitoloL, NomeEd, Pubblicazione, GenereL, biblioteca);
-            INSERT INTO EBOOK (codiceebook, dimensione, pdf) VALUES (CodEbook, Dim, Pdf);
+        IF (flagAmministratore = 1) THEN
+            INSERT INTO LIBRO VALUES (codice, TitoloL, NomeEd, Pubblicazione, GenereL, biblioteca);
+            INSERT INTO EBOOK (codiceebook, dimensione, pdf) VALUES (codice, Dim, Pdf);
+            
+            SELECT cardinality(NomeAutori) INTO count;
+			FOR index in 1..count
+			LOOP
+				PERFORM inserisciAutori (codice, NomeAutori[index], CognomeAutori[index]);
+			END LOOP;
             RETURN TRUE;
         END IF;
 
@@ -49,28 +49,17 @@ CREATE FUNCTION inserimentoEbook (
     END; $$
 LANGUAGE 'plpgsql';
 
--- SELECT inserimentoEbook (
---     'elena.bianchi@unibo.it',
---     'La coscienza di Zeno',
---     'Giunti',
---     '2020',
---     'Romanzo',
---     '0089uIuIiQ',
---     '5.6',
---     'prova.pdf'
--- );
+SELECT inserimentoEbook (
+    'mario.rossi@unibo.it',
+    'La coscienza di Zeno',
+    'Giunti',
+    '2020',
+    'Romanzo',
+    '5.6',
+    'prova.pdf',
+    array['nome1', 'nome2'],
+    array['cogn1', 'cogn2']
+);
 
--- SELECT inserimentoEbook (
---     'elena.bianchi@unibo.it',
---     'La coscienza di Zeno',
---     'Giunti',
---     '2020',
---     'Romanzo',
---     '0000AA2323',
---     '5.6',
---     'prova.pdf'
--- );
-
--- SELECT * FROM LIBRO;
--- SELECT * FROM librocartaceo;
--- SELECT * FROM EBOOK;
+SELECT * FROM LIBRO;
+SELECT * FROM EBOOK;

@@ -17,7 +17,7 @@ CREATE FUNCTION inserisciAutori (
 
 		-- Se non inserito lo inserisco
 		IF (flagAutore = 0) THEN
-			INSERT INTO AUTORE VALUES (substr(md5(random()::text), 0, 10), NomeAutore, CognomeAutore);
+			INSERT INTO AUTORE VALUES (substr(md5(random()::text), 0, 11), NomeAutore, CognomeAutore);
 		END IF;
 
 		SELECT codiceautore INTO codice
@@ -64,7 +64,7 @@ CREATE FUNCTION inserimentoLibroCartaceo (
         END IF;
 
 		-- Creo codice casuale con funzione random
-		SELECT substr(md5(random()::text), 0, 10) INTO codice;
+		SELECT substr(md5(random()::text), 0, 11) INTO codice;
 		
 		IF (flagAmministratore = 1) THEN
 			INSERT INTO LIBRO VALUES (codice, TitoloL, NomeEd, Pubblicazione, GenereL, biblioteca);

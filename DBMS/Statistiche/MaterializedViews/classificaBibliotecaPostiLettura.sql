@@ -8,7 +8,7 @@ WITH BibliotecaPostiLetturaDisponibili AS (
 ), BibliotecaPostiLetturaOccupati AS (
     SELECT count(numeropostolettura) AS NumPostiLetturaOccupati, nome
     FROM registrazione RIGHT JOIN biblioteca ON nome = nomebiblioteca
---         WHERE data = current_date
+    WHERE data = current_date
     GROUP BY nome
 )
 SELECT round( ( (NumPostiLetturaOccupati * 1.) / (NumPostiLetturaDispobili * 1.) * 100 ), 2 ) AS PERCENTUALE_OCCUPAZIONE, BibliotecaPostiLetturaOccupati.nome

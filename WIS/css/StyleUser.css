@@ -49,7 +49,7 @@ p {
     align-items: center;
     justify-content: space-between;
     padding: .7rem .5rem;
-    background-color: var(--color-blue);
+    background-color: rgba(75, 119, 141, 0.8) !important;
     position: fixed;
     top: 0;
     left: 0;

@@ -52,8 +52,6 @@
         justify-content: center;
     }
 
-
-
     #immagine-libro, #immagine-libro img, .vl {
         display: none !important;
     }
@@ -62,6 +60,14 @@
         margin-left: 1rem;
         margin-right: 1rem;
         width: 50% !important;
+    }
+
+    .card-posto {
+        width: 40%;
+    }
+
+    .dettagli-lista-biblioteche {
+        flex-wrap: wrap;
     }
 }
 
@@ -159,6 +165,7 @@
     /*margin: 10px;*/
     text-decoration: none;
     display: block;
+
 }
 
 .search-dropdown-content a:hover {

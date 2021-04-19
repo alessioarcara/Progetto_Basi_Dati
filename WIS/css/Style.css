@@ -74,16 +74,16 @@ body {
     margin-top: 0.5%;
 }
 
-.statusBar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 10;
-    width: 100vw;
-    height: auto;
-    /*height: 2.5rem;*/
-    background-color: rgba(75, 119, 141, 0.8) !important;
-}
+/*.statusBar {*/
+/*    position: fixed;*/
+/*    top: 0;*/
+/*    left: 0;*/
+/*    z-index: 10;*/
+/*    width: 100vw;*/
+/*    height: auto;*/
+/*    !*height: 2.5rem;*!*/
+/*    background-color: rgba(75, 119, 141, 0.8) !important;*/
+/*}*/
 
 .logo img {
     width: 500px;

@@ -27,7 +27,7 @@
         <table id="tableB">
             <tr>
                 <th>Nome libreria</th>
-                <th>Posti Occupati</th>
+                <th>Posti occupati</th>
             </tr>
                 <?php
                     foreach ($classifica as $libreria) {

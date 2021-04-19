@@ -97,11 +97,14 @@ SELECT inserimentoLibroCartaceo (
 	array['Eco', 'Feltrinelli']
 );
 
--- SELECT * FROM LIBRO;
--- SELECT * FROM LIBROCARTACEO;
+SELECT * FROM LIBRO;
+SELECT * FROM LIBROCARTACEO;
 
 -- SELECT Nome, Cognome
 -- FROM AUTORE
 -- WHERE (codiceautore IN (SELECT codiceautore
 -- 					   FROM LISTA
--- 					   WHERE (codicelibro = '9a9d49442')));
+-- 					   WHERE (codicelibro = '3cdf50d6ac')));
+
+SELECT * FROM LIBRO;
+SELECT * FROM LIBROCARTACEO;

@@ -85,7 +85,7 @@
     transition: 0.2s;
 }
 
-.has-hover:hover:hover {
+.has-hover:hover {
     background: #FFFFFF;
     border: 1px solid #E1E1E1;
     color: #000000;
@@ -190,8 +190,12 @@
 
 #prenota-btn, #visualizza-btn{
     width: 7rem;
-    height: 2.2rem;
+    padding: 0.4rem;
     margin-bottom: 0.5rem;
+}
+
+#visualizza-btn {
+    text-decoration: none;
 }
 
 .decorator-riga {

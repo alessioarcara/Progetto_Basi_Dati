@@ -25,7 +25,8 @@ ORDER BY NumAccessiScheda DESC;
 REFRESH MATERIALIZED VIEW classificaEbookAcceduti;
 SELECT * FROM classificaEbookAcceduti;
 
-INSERT INTO VISITA VALUES ('AAA', 'utente1@g.com', 'A000000001');
+INSERT INTO VISITA VALUES ('AAA0011333', 'mario.rossi@unibo.it', 'FG20998ASQ');
+SELECT * FROM EBOOK
 INSERT INTO VISITA VALUES ('BBB', 'utente1@g.com', 'A000000002');
 -- DELETE FROM VISITA
 -- UPDATE EBOOK SET NumAccessiScheda = 0

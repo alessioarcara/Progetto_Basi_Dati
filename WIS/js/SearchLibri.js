@@ -42,8 +42,19 @@ if ($('.prenota-post'))
         $(this).removeClass('has-hover')
     })
 
-$('.visualizza-post').on('click', function ( ) {
-})
+if ($('.visualizza-post'))
+    $('.visualizza-post').on('click', function ( ) {
+        let codice = $(this).parent().parent().data()['code']
+        let path =  $(this).parent().data()['path']
+
+        $.post( "./API/visitaEbook.php", { codice: codice })
+            .done(function() {
+                window.open(`./${path}`)
+            })
+            .fail(function() {
+                alert( "Visualizzazione ebook, ritentare..." );
+            });
+    })
 
 // $(document).ready(function() {
 //     getStatoLibri()

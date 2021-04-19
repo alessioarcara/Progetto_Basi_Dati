@@ -107,7 +107,7 @@
                             </div>
                         </div>";
                         if (isset($user)) echo"
-                        <div class='decorator-riga'>
+                        <div class='decorator-riga' data-path='$pdf'>
                             <button class='visualizza-post post-search-btn has-hover' id='visualizza-btn'>Visualizza</button>
                         </div>";
                         echo "

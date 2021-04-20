@@ -1,5 +1,8 @@
 <?php
 include_once('../db_conn/db.php');
+include('Log.php');
+$log = new Log(); //Creazione oggetto per i log in MongoDB
+
 $pdo = db::getInstance();
 
 function generateRandomString($length = 10) {
@@ -68,20 +71,18 @@ try {
   if ($status['inserimentolibrocartaceo']) {
     
     // Invio dati a MongoDB
-    $conn = new MongoDB\Driver\Manager("mongodb://localhost:27017");
-    $bulk = new MongoDB\Driver\BulkWrite;
-    $bulk -> insert([
-      'user' => $_COOKIE['email'],
-      'operation' => 'Inserimento libro cartaceo!',
-      'date' => new MongoDB\BSON\UTCDateTime()
-    ]);
-    $conn -> executeBulkWrite('EBIBLIO.Log', $bulk);
+    $log -> writeLog($_COOKIE['email'], 'Inserimento libro effettuato!');
+    
     http_response_code(200);
 
   } else {
     throw new Exception('Invalid data');
   }
 } catch (Exception $e) {
+
+  // Invio dati a MongoDB
+  $log -> writeLog($_COOKIE['email'], 'Inserimento libro fallito!');
+
   http_response_code(400);
   file_put_contents('php://stderr', print_r($e, TRUE));
   echo 'Er: '.$e->getMessage();

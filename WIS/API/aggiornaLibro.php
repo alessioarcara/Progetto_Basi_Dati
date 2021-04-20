@@ -1,6 +1,7 @@
 <?php
 include_once('../db_conn/db.php');
 include('Log.php');
+$log = new Log(); //Creazione oggetto per i log in MongoDB
 
 $pdo = db::getInstance();
 
@@ -37,8 +38,7 @@ try {
   if ($status['aggiornamentolibroamministratore']) {
 
     // Invio dati a MongoDB
-    $log = new Log();
-    $log -> writeLog($_COOKIE['email'], 'Aggiornamento libro!');
+    $log -> writeLog($_COOKIE['email'], 'Aggiornamento libro effettuato!');
 
     http_response_code(200);
   } else {
@@ -47,7 +47,6 @@ try {
 } catch (Exception $e) {
 
   // Invio dati a MongoDB
-  $log = new Log();
   $log -> writeLog($_COOKIE['email'], 'Aggiornamento libro fallito!');
 
   http_response_code(400);

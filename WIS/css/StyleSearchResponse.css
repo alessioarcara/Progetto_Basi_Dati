@@ -50,9 +50,6 @@
 .map{
     width: 100%;
     height: 180px;
-}
-
-map {
     z-index: 1;
 }
 

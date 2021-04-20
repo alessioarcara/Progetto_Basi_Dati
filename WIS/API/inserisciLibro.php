@@ -64,9 +64,20 @@ $sql =
 try {
   $result = $pdo->query($sql);
   $status = $result->fetch(\PDO::FETCH_ASSOC);
-  // file_put_contents('php://stderr', print_r($status, TRUE));
+
   if ($status['inserimentolibrocartaceo']) {
+    
+    // Invio dati a MongoDB
+    $conn = new MongoDB\Driver\Manager("mongodb://localhost:27017");
+    $bulk = new MongoDB\Driver\BulkWrite;
+    $bulk -> insert([
+      'user' => $_COOKIE['email'],
+      'operation' => 'Inserimento libro cartaceo!',
+      'date' => new MongoDB\BSON\UTCDateTime()
+    ]);
+    $conn -> executeBulkWrite('EBIBLIO.Log', $bulk);
     http_response_code(200);
+
   } else {
     throw new Exception('Invalid data');
   }

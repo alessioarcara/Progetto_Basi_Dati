@@ -11,7 +11,7 @@ foreach ($_POST as $key => $value) {
 }
 
 $email = $request['email'];
-$password = $request['password'];
+$password = md5($request['password']);
 
 $sql = 
   "SELECT Authentication(

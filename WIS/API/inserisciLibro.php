@@ -71,7 +71,7 @@ try {
   if ($status['inserimentolibrocartaceo']) {
     
     // Invio dati a MongoDB
-    $log -> writeLog($_COOKIE['email'], 'Inserimento libro effettuato!');
+    $log -> writeLog($_COOKIE['email'], 'Inserimento libro cartaceo effettuato!');
     
     http_response_code(200);
 
@@ -81,7 +81,7 @@ try {
 } catch (Exception $e) {
 
   // Invio dati a MongoDB
-  $log -> writeLog($_COOKIE['email'], 'Inserimento libro fallito!');
+  $log -> writeLog($_COOKIE['email'], 'Inserimento libro cartaceo fallito!');
 
   http_response_code(400);
   file_put_contents('php://stderr', print_r($e, TRUE));

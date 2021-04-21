@@ -17,7 +17,6 @@ if (menu)
 
     if (!id) return ;
 
-    //document.querySelector('#title-and-role').style.display = 'none';
     Array.from( document.querySelector('.main-box').children ).forEach( child => {
       child.style.display = 'none';
     });

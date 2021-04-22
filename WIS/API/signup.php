@@ -1,6 +1,6 @@
 <?php
 include_once('../db_conn/db.php');
-include('Log.php');
+include('../Log/Log.php');
 $log = new Log(); //Creazione oggetto per i log in MongoDB
 
 $pdo = db::getInstance();

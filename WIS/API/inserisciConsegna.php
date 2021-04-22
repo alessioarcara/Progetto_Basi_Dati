@@ -1,7 +1,7 @@
 <?php 
 
 // require_once('./../core/Application.php');
-include('Log.php');
+include('../Log/Log.php');
 $log = new Log(); //Creazione oggetto per i log in MongoDB
 
 function generateRandomString($length = 10) {

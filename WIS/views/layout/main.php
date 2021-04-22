@@ -111,7 +111,7 @@
                                 </div>
                                 <div>
                                     <label for='birth-date'><b>Data<sup>*</sup></b></label>
-                                    <input type='date' placeholder='Inserisci data di nascita' name='birth-date' id='new-birth-date' required>
+                                    <input type='text' placeholder='Inserisci data di nascita' name='birth-date' id='new-birth-date' required>
                                 </div>
                                 <div>
                                     <label for='birth-place'><b>Luogo<sup>*</sup></b></label>
@@ -203,6 +203,7 @@
 <script src="js/sign-in-up.js"></script>
 <script src="js/pannello.js"></script>
 <script src="js/headbar.js"></script>
+<script src="js/panel-date.js"></script>
 
 </body>
 </html>

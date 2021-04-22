@@ -11,4 +11,11 @@ $( function() {
         minDate: "+1",
         maxDate: "+1M"
     });
+
+    $( "#new-birth-date" ).datepicker({
+        changeMonth: true,
+        changeYear: true,
+        scrollYear: true,
+        yearRange: '1900:2021'
+    });
 });

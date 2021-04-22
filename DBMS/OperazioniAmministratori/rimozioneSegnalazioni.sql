@@ -26,6 +26,3 @@ CREATE FUNCTION rimozioneSegnalazioni (EmailA TEXT, EmailU TEXT)
         RETURN FALSE;
     END; $$
 LANGUAGE 'plpgsql';
-
-SELECT rimozioneSegnalazioni ('mario.verdi@unibo.it', 'mario.rossi@unibo.it');
-SELECT * FROM SEGNALAZIONE;

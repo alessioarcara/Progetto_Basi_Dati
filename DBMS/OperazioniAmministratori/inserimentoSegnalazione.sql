@@ -23,7 +23,3 @@ RETURNS BOOLEAN
         RETURN FALSE;
     END; $$
 LANGUAGE 'plpgsql';
-
-SELECT inserimentoSegnalazione ('Segn2', 'bla bla', '2021/08/12', 'mario.gialli@unibo.it', 'mario.rossi@unibo.it');
-
-SELECT * FROM SEGNALAZIONE;

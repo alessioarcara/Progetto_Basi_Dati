@@ -1,3 +1,4 @@
+-- Creazione stored procedure per il refresh delle view materializzate
 DROP PROCEDURE IF EXISTS refreshStatistiche;
 
 CREATE PROCEDURE refreshStatistiche ()

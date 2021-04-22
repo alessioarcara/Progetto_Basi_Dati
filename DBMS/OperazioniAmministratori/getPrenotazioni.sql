@@ -24,9 +24,3 @@ CREATE FUNCTION getPrenotazioni (EmailA TEXT, NomeBiblio TEXT)
         END IF;
     END; $$
 LANGUAGE 'plpgsql';
-
-SELECT getPrenotazioni ('mario.gialli@unibo.it', 'Biblioteca Universitaria di Bologna');
-
-SELECT * FROM LIBROCARTACEO;
-SELECT * FROM PRENOTAZIONE;
-SELECT * FROM AMMINISTRATORE;

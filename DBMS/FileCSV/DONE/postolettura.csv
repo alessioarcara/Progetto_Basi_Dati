@@ -1,10 +1,10 @@
-0,Biblioteca Universitaria di Bologna,TRUE,FALSE
-1,Biblioteca Universitaria di Bologna,TRUE,FALSE
-2,Biblioteca Universitaria di Bologna,TRUE,FALSE
+20,Biblioteca Universitaria di Bologna,TRUE,FALSE
 3,Biblioteca Universitaria di Bologna,TRUE,FALSE
-4,Biblioteca Universitaria di Bologna,TRUE,TRUE
-5,Biblioteca Universitaria di Bologna,TRUE,FALSE
+23,Biblioteca Universitaria di Bologna,TRUE,FALSE
+4,Biblioteca Universitaria di Bologna,TRUE,FALSE
 6,Biblioteca Universitaria di Bologna,TRUE,TRUE
+5,Biblioteca Universitaria di Bologna,TRUE,FALSE
+66,Biblioteca Universitaria di Bologna,TRUE,TRUE
 7,Biblioteca Universitaria di Bologna,TRUE,FALSE
 8,Biblioteca Universitaria di Bologna,TRUE,FALSE
 9,Biblioteca Universitaria di Bologna,TRUE,FALSE
@@ -19,13 +19,13 @@
 18,Biblioteca Universitaria di Bologna,TRUE,TRUE
 19,Biblioteca Universitaria di Bologna,TRUE,FALSE
 1,Biblioteca Giuridica Antonio Cicu. Sezione Centrale,TRUE,TRUE
-2,Biblioteca Giuridica Antonio Cicu. Sezione Centrale,TRUE,FALSE
-3,Biblioteca Giuridica Antonio Cicu. Sezione Centrale,TRUE,TRUE
-4,Biblioteca Giuridica Antonio Cicu. Sezione Centrale,TRUE,FALSE
+22,Biblioteca Giuridica Antonio Cicu. Sezione Centrale,TRUE,FALSE
+34,Biblioteca Giuridica Antonio Cicu. Sezione Centrale,TRUE,TRUE
+41,Biblioteca Giuridica Antonio Cicu. Sezione Centrale,TRUE,FALSE
 5,Biblioteca Giuridica Antonio Cicu. Sezione Centrale,TRUE,TRUE
 6,Biblioteca Giuridica Antonio Cicu. Sezione Centrale,FALSE,TRUE
-7,Biblioteca Giuridica Antonio Cicu. Sezione Centrale,FALSE,TRUE
-8,Biblioteca Giuridica Antonio Cicu. Sezione Centrale,TRUE,TRUE
+72,Biblioteca Giuridica Antonio Cicu. Sezione Centrale,FALSE,TRUE
+83,Biblioteca Giuridica Antonio Cicu. Sezione Centrale,TRUE,TRUE
 9,Biblioteca Giuridica Antonio Cicu. Sezione Centrale,TRUE,TRUE
 10,Biblioteca Giuridica Antonio Cicu. Sezione Centrale,FALSE,TRUE
 11,Biblioteca Giuridica Antonio Cicu. Sezione Centrale,TRUE,TRUE
@@ -33,51 +33,51 @@
 13,Biblioteca Giuridica Antonio Cicu. Sezione Centrale,FALSE,TRUE
 14,Biblioteca Giuridica Antonio Cicu. Sezione Centrale,TRUE,TRUE
 15,Biblioteca Giuridica Antonio Cicu. Sezione Centrale,TRUE,TRUE
-16,Biblioteca Giuridica Antonio Cicu. Sezione Centrale,TRUE,TRUE
-17,Biblioteca Giuridica Antonio Cicu. Sezione Centrale,FALSE,FALSE
+164,Biblioteca Giuridica Antonio Cicu. Sezione Centrale,TRUE,TRUE
+172,Biblioteca Giuridica Antonio Cicu. Sezione Centrale,FALSE,FALSE
 18,Biblioteca Giuridica Antonio Cicu. Sezione Centrale,FALSE,TRUE
-19,Biblioteca Giuridica Antonio Cicu. Sezione Centrale,TRUE,FALSE
-20,Biblioteca Giuridica Antonio Cicu. Sezione Centrale,TRUE,TRUE
+122,Biblioteca Giuridica Antonio Cicu. Sezione Centrale,TRUE,FALSE
+200,Biblioteca Giuridica Antonio Cicu. Sezione Centrale,TRUE,TRUE
 1,Biblioteca di Agraria Gabriele Goidanich,FALSE,TRUE
 2,Biblioteca di Agraria Gabriele Goidanich,TRUE,TRUE
-3,Biblioteca di Agraria Gabriele Goidanich,TRUE,TRUE
+33,Biblioteca di Agraria Gabriele Goidanich,TRUE,TRUE
 4,Biblioteca di Agraria Gabriele Goidanich,FALSE,TRUE
 5,Biblioteca di Agraria Gabriele Goidanich,TRUE,TRUE
 6,Biblioteca di Agraria Gabriele Goidanich,TRUE,TRUE
-7,Biblioteca di Agraria Gabriele Goidanich,FALSE,TRUE
-8,Biblioteca di Agraria Gabriele Goidanich,TRUE,TRUE
+71,Biblioteca di Agraria Gabriele Goidanich,FALSE,TRUE
+84,Biblioteca di Agraria Gabriele Goidanich,TRUE,TRUE
 9,Biblioteca di Agraria Gabriele Goidanich,TRUE,TRUE
 10,Biblioteca di Agraria Gabriele Goidanich,TRUE,TRUE
 11,Biblioteca di Agraria Gabriele Goidanich,TRUE,TRUE
 12,Biblioteca di Agraria Gabriele Goidanich,FALSE,TRUE
 13,Biblioteca di Agraria Gabriele Goidanich,TRUE,TRUE
 14,Biblioteca di Agraria Gabriele Goidanich,TRUE,TRUE
-15,Biblioteca di Agraria Gabriele Goidanich,TRUE,TRUE
+153,Biblioteca di Agraria Gabriele Goidanich,TRUE,TRUE
 16,Biblioteca di Agraria Gabriele Goidanich,TRUE,FALSE
-17,Biblioteca di Agraria Gabriele Goidanich,TRUE,FALSE
+173,Biblioteca di Agraria Gabriele Goidanich,TRUE,FALSE
 18,Biblioteca di Agraria Gabriele Goidanich,TRUE,FALSE
 1,Biblioteca di Chimica. Sezione di Chimica industriale,TRUE,FALSE
 2,Biblioteca di Chimica. Sezione di Chimica industriale,TRUE,FALSE
-3,Biblioteca di Chimica. Sezione di Chimica industriale,TRUE,FALSE
+35,Biblioteca di Chimica. Sezione di Chimica industriale,TRUE,FALSE
 4,Biblioteca di Chimica. Sezione di Chimica industriale,TRUE,FALSE
 5,Biblioteca di Chimica. Sezione di Chimica industriale,TRUE,TRUE
-6,Biblioteca di Chimica. Sezione di Chimica industriale,TRUE,FALSE
+64,Biblioteca di Chimica. Sezione di Chimica industriale,TRUE,FALSE
 7,Biblioteca di Chimica. Sezione di Chimica industriale,TRUE,TRUE
-8,Biblioteca di Chimica. Sezione di Chimica industriale,TRUE,FALSE
+83,Biblioteca di Chimica. Sezione di Chimica industriale,TRUE,FALSE
 9,Biblioteca di Chimica. Sezione di Chimica industriale,TRUE,FALSE
-10,Biblioteca di Chimica. Sezione di Chimica industriale,TRUE,FALSE
+108,Biblioteca di Chimica. Sezione di Chimica industriale,TRUE,FALSE
 1,Biblioteca di Chimica. Sezione Giacomo Ciamician,TRUE,FALSE
 2,Biblioteca di Chimica. Sezione Giacomo Ciamician,TRUE,FALSE
 3,Biblioteca di Chimica. Sezione Giacomo Ciamician,TRUE,FALSE
 4,Biblioteca di Chimica. Sezione Giacomo Ciamician,TRUE,FALSE
 5,Biblioteca di Chimica. Sezione Giacomo Ciamician,TRUE,TRUE
-6,Biblioteca di Chimica. Sezione Giacomo Ciamician,TRUE,FALSE
+62,Biblioteca di Chimica. Sezione Giacomo Ciamician,TRUE,FALSE
 1,Biblioteca di discipline umanistiche,TRUE,FALSE
-2,Biblioteca di discipline umanistiche,TRUE,FALSE
+21,Biblioteca di discipline umanistiche,TRUE,FALSE
 3,Biblioteca di discipline umanistiche,TRUE,FALSE
-4,Biblioteca di discipline umanistiche,TRUE,FALSE
+41,Biblioteca di discipline umanistiche,TRUE,FALSE
 5,Biblioteca di discipline umanistiche,TRUE,TRUE
-6,Biblioteca di discipline umanistiche,TRUE,FALSE
+62,Biblioteca di discipline umanistiche,TRUE,FALSE
 1,Biblioteca di Medicina. Biblioteca Biomedica,TRUE,TRUE
 2,Biblioteca di Medicina. Biblioteca Biomedica,TRUE,FALSE
 3,Biblioteca di Medicina. Biblioteca Biomedica,TRUE,FALSE

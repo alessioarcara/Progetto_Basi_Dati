@@ -48,18 +48,3 @@ CREATE FUNCTION inserimentoEbook (
         RETURN FALSE;
     END; $$
 LANGUAGE 'plpgsql';
-
--- SELECT inserimentoEbook (
---     'mario.rossi@unibo.it',
---     'La coscienza di Zeno',
---     'Giunti',
---     '2020',
---     'Romanzo',
---     '5.6',
---     'prova.pdf',
---     array['nome1', 'nome2'],
---     array['cogn1', 'cogn2']
--- );
-
-SELECT * FROM LIBRO;
-SELECT * FROM EBOOK;

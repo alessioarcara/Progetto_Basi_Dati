@@ -29,6 +29,3 @@ BEGIN
     END IF;
 END $$
 LANGUAGE 'plpgsql';
-
-SELECT * FROM getbiblioteche();
-SELECT * FROM getbiblioteche('BibliotecaUniversitariadiBologna', 'asdasd', 'asdas')

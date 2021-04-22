@@ -22,11 +22,3 @@ RETURNS BOOLEAN
         RETURN FALSE;
     END; $$
 LANGUAGE 'plpgsql';
-
-SELECT cancellazioneLibroAmministratore ('mario.verdi@unibo.it', '0000', 'Biblioteca di Medicina');
-
-SELECT * FROM BIBLIOTECA;
-SELECT * FROM AMMINISTRATORE;
-SELECT * FROM UTENTE;
-SELECT * FROM LIBRO;
---INSERT INTO LIBRO VALUES ('0000', 'Libro1', 'NuovaEdizione', '1999', 'Giallo', 'Biblioteca di Medicina');

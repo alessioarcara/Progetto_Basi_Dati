@@ -23,8 +23,3 @@ CREATE FUNCTION inserimentoMessaggio (IdM TEXT, TitoloM TEXT, TestoM TEXT, DataM
         RETURN FALSE;
     END; $$
 LANGUAGE 'plpgsql';
-
-SELECT inserimentoMessaggio ('MessaggioA', 'Titolo1', 'bla bla bla', '2021/12/12', 'mario.gialli@unibo.it', 'mario.rossi@unibo.it');
-SELECT * FROM AMMINISTRATORE;
-SELECT * FROM UTILIZZATORE;
-SELECT * FROM MESSAGGIO;

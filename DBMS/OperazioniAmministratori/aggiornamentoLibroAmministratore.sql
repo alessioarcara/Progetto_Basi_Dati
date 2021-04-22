@@ -25,10 +25,3 @@ RETURNS BOOLEAN
         RETURN FALSE;
     END; $$
 LANGUAGE 'plpgsql';
-
-SELECT aggiornamentoLibroAmministratore ('mario.gialli@unibo.it', '123AA123BB', 'Prova1', 'Ediz', '1700', 'Horror', 'Biblioteca Universitaria di Bologna');
-
-SELECT * FROM BIBLIOTECA;
-SELECT * FROM AMMINISTRATORE;
-SELECT * FROM UTENTE;
-SELECT * FROM LIBRO;

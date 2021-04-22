@@ -1,5 +1,6 @@
 DROP MATERIALIZED VIEW IF EXISTS classificaBibliotecaPostiLettura;
 
+-- Creazione della view materializzata utilizzando delle Common Table Expressione
 CREATE MATERIALIZED VIEW classificaBibliotecaPostiLettura AS
 WITH BibliotecaPostiLetturaDisponibili AS (
     SELECT count(*) AS NumPostiLetturaDispobili, nomebiblioteca

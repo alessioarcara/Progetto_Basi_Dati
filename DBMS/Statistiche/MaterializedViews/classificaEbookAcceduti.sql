@@ -1,6 +1,7 @@
 DROP TRIGGER IF EXISTS incrementaAccessi ON VISITA;
 DROP FUNCTION IF EXISTS incrementaEbook;
 
+-- Creazione function per utilizzo successivo del trigger
 CREATE OR REPLACE FUNCTION incrementaEbook ()
     RETURNS TRIGGER
     AS $$
@@ -11,22 +12,14 @@ CREATE OR REPLACE FUNCTION incrementaEbook ()
     END; $$
 LANGUAGE 'plpgsql';
 
+-- Creazione trigger
 CREATE TRIGGER incrementaAccessi AFTER INSERT ON VISITA
 FOR EACH ROW EXECUTE PROCEDURE incrementaEbook();
 
-
+-- Creazione view materializzata per classica degli ebook più acceduti
 DROP MATERIALIZED VIEW IF EXISTS classificaEbookAcceduti;
 
 CREATE MATERIALIZED VIEW classificaEbookAcceduti (CodiceE, Accessi) AS
 SELECT CodiceEbook, NumAccessiScheda
 FROM EBOOK
 ORDER BY NumAccessiScheda DESC;
-
-REFRESH MATERIALIZED VIEW classificaEbookAcceduti;
-SELECT * FROM classificaEbookAcceduti;
-
-INSERT INTO VISITA VALUES ('AAA0011333', 'mario.rossi@unibo.it', 'FG20998ASQ');
-SELECT * FROM EBOOK
-INSERT INTO VISITA VALUES ('BBB', 'utente1@g.com', 'A000000002');
--- DELETE FROM VISITA
--- UPDATE EBOOK SET NumAccessiScheda = 0

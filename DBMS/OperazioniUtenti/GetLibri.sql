@@ -83,6 +83,3 @@ BEGIN
     END IF;
 END; $$
 LANGUAGE 'plpgsql';
-
-SELECT * FROM LibriBiblioteca();
-SELECT * FROM LibriBiblioteca('calice', 'delitto', '1984', 'zann')

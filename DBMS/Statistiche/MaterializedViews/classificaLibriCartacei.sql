@@ -1,28 +1,16 @@
+-- Creazione view materializzata per la classifica dei cartacei più prenotati
 DROP MATERIALIZED VIEW IF EXISTS classificaLibriCartacei;
 
+-- In un sistema bibliotecario le prenotazioni vengono gestite sul codice del libro
 CREATE MATERIALIZED VIEW classificaLibriCartacei AS
 SELECT CodiceLibroCartaceo, COUNT(*) AS NumPrenotazioni
 FROM PRENOTAZIONE
 GROUP BY CodiceLibroCartaceo
 ORDER BY NumPrenotazioni DESC;
 
-REFRESH MATERIALIZED VIEW classificaLibriCartacei;
-SELECT * FROM classificaLibriCartacei;
-
--- SELECT * FROM LIBRO;
--- SELECT * FROM LIBROCARTACEO;
--- SELECT * FROM PRENOTAZIONE;
--- SELECT * FROM UTILIZZATORE;
--- SELECT * FROM UTENTE;
-
--- INSERT INTO LIBROCARTACEO VALUES ('A000000001', 'DISPONIBILE', 'OTTIMO', 123, 1);
--- INSERT INTO LIBROCARTACEO VALUES ('A000000002', 'PRENOTATO', 'OTTIMO', 111, 22);
--- INSERT INTO UTILIZZATORE VALUES ('utente1@g.com', 'Studente', '2000/02/02', 'ATTIVO');
--- INSERT INTO UTILIZZATORE VALUES ('utente2@g.com', 'Docente', '2000/02/02', 'ATTIVO');
-
--- INSERT INTO PRENOTAZIONE VALUES ('A123', '2021/06/10', '2021/06/25', 'utente1@g.com', 'A000000001');
--- INSERT INTO PRENOTAZIONE VALUES ('A124', '2021/06/11', '2021/06/26', 'utente2@g.com', 'A000000001');
--- INSERT INTO PRENOTAZIONE VALUES ('A125', '2021/06/10', '2021/06/25', 'utente1@g.com', 'A000000001');
-
--- INSERT INTO PRENOTAZIONE VALUES ('A126', '2021/06/11', '2021/06/26', 'utente2@g.com', 'A000000002');
--- INSERT INTO PRENOTAZIONE VALUES ('A127', '2021/06/10', '2021/06/25', 'utente1@g.com', 'A000000002');
+-- Altra query possibile permette di verificare il tutto in base al titolo del libro
+-- (il titolo non è identificativo univoco)
+-- SELECT Titolo, COUNT(*) AS NumPrenotazioni
+-- FROM PRENOTAZIONE JOIN LIBRO ON (codicelibro = codicelibrocartaceo)
+-- GROUP BY Titolo
+-- ORDER BY NumPrenotazioni DESC;

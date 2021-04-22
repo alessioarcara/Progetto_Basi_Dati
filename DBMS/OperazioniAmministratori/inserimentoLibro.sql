@@ -81,30 +81,3 @@ CREATE FUNCTION inserimentoLibroCartaceo (
 		RETURN FALSE;
 	END; $$
 LANGUAGE 'plpgsql';
-
-
-SELECT inserimentoLibroCartaceo (
-	'elena.bianchi@unibo.it',
-	'Il nome della rosa',
-	'Feltrinelli',
-	'2010',
-	'Romanzo',
-	'DISPONIBILE',
-	'OTTIMO',
-	'120',
-	'11',
-	array['Umberto', 'Francesco'],
-	array['Eco', 'Feltrinelli']
-);
-
-SELECT * FROM LIBRO;
-SELECT * FROM LIBROCARTACEO;
-
--- SELECT Nome, Cognome
--- FROM AUTORE
--- WHERE (codiceautore IN (SELECT codiceautore
--- 					   FROM LISTA
--- 					   WHERE (codicelibro = '3cdf50d6ac')));
-
-SELECT * FROM LIBRO;
-SELECT * FROM LIBROCARTACEO;

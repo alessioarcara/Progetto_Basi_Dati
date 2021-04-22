@@ -72,24 +72,18 @@ class searchController {
         $postilettura = [];
         while ($row = $results->fetch(\PDO::FETCH_ASSOC)) {
             if (isset($postilettura[$row['nomebiblioteca']])) {
-                array_push(
-                    $postilettura[$row['nomebiblioteca']],
-                    $row['numposto'] =
+                    $postilettura[$row['nomebiblioteca']][$row['numposto']] =
                         [
                             'presacorr' => $row['presacorr'],
                             'presaeth' => $row['presaeth']
-                        ]
-                );
+                        ];
             }
             else {
-                $postilettura[$row['nomebiblioteca']] =
-                    [
-                        $row['numposto'] =
+                $postilettura[$row['nomebiblioteca']][$row['numposto']] =
                             [
                                 'presacorr' => $row['presacorr'],
                                 'presaeth' => $row['presaeth']
-                            ]
-                    ];
+                            ];
             }
         }
         return !empty($postilettura) ? $params = ['postilettura' => $postilettura ] : null;

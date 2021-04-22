@@ -123,7 +123,7 @@ echo "
           <h2>Inserisci una nuova consegna</h2>
           <form class='main-box__form' id='inserisci-consegna-form'>
             <input type='text' name='note' id='new-note' placeholder='Note'>
-            <input type='date' name='data' id='new-data'>  
+            <input type='text' name='data' id='new-data' placeholder='dd-mm-yyyy'>  
             <select class='noBlueLine' name='tipo' id='new-tipo'>
               <option selected value='Affidamento'>Affidamento</option>
               <option value='Restituzione'>Restituzione</option>
@@ -141,7 +141,7 @@ echo "
           <form class='main-box__form' id='aggiorna-consegna-form'>
             <input type='text' name='codice-consegna' id='update-codice-consegna' placeholder='Codice consegna'>
             <input type='text' name='note' id='update-note' placeholder='Note'>
-            <input type='date' name='data' id='update-data'>  
+            <input type='text' name='data' id='update-data' placeholder='dd-mm-yyyy'>  
             <select name='tipo' id='update-tipo'>
               <option value='Affidamento'>Affidamento</option>
               <option value='Restituzione'>Restituzione</option>
@@ -274,3 +274,4 @@ echo "
 
 <script src="js/user.js"></script>
 <script src="js/user-menu.js"></script>
+<script src="js/panel-date.js"></script>

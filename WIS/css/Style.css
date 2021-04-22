@@ -39,6 +39,10 @@ body {
 	margin: 0;
 }
 
+button:focus {
+    outline: none !important;
+}
+
 .flex-container {
     display: flex;
     flex-flow: row;

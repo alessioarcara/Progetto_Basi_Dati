@@ -1,3 +1,5 @@
+-- Aggiornamento libro generico se e solo se appartiene
+-- alla biblioteca dell'amministratore
 DROP FUNCTION IF EXISTS aggiornamentoLibroAmministratore;
 
 CREATE FUNCTION aggiornamentoLibroAmministratore (EmailA TEXT, CodiceL TEXT, TitoloL TEXT, Edizione TEXT, Pubblicazione SMALLINT, GenereL TEXT, NomeBiblio TEXT)

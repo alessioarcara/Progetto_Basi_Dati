@@ -1,3 +1,4 @@
+-- Function per rimuovere tutte le segnalazioni settando lo stato ad attivo
 DROP FUNCTION IF EXISTS rimozioneSegnalazioni;
 
 CREATE FUNCTION rimozioneSegnalazioni (EmailA TEXT, EmailU TEXT)

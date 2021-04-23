@@ -1,3 +1,4 @@
+-- Creazione view materializzata per classifica dei volontari
 DROP MATERIALIZED VIEW IF EXISTS classificaVolontari;
 
 CREATE MATERIALIZED VIEW classificaVolontari AS

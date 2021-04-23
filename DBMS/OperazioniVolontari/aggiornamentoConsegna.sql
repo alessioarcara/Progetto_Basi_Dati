@@ -1,3 +1,4 @@
+-- Function per aggiornare la consegna
 DROP FUNCTION IF EXISTS aggiornamentoConsegna;
 
 CREATE FUNCTION aggiornamentoConsegna (Codice TEXT, NoteC TEXT, DataC DATE, TipoC TIPOLOGIA, CodiceP TEXT)
@@ -7,7 +8,7 @@ RETURNS BOOLEAN
     DECLARE controlloConsegna INT;
 
     BEGIN
-        --Verifico che la consegna sia presente
+        --Verifico che la consegna sia presente con un flag
         SELECT COUNT(*) INTO controlloConsegna
         FROM CONSEGNA
         WHERE (CodiceConsegna = Codice);

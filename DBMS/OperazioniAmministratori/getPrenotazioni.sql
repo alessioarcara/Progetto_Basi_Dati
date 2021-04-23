@@ -1,3 +1,5 @@
+-- Visualizzazione delle sole prenotazioni
+-- che fanno riferimento alla biblioteca gestita
 DROP FUNCTION IF EXISTS getPrenotazioni;
 
 CREATE FUNCTION getPrenotazioni (EmailA TEXT, NomeBiblio TEXT)

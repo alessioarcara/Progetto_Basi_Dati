@@ -15,7 +15,7 @@ BEGIN
     AND StatoConservazione <> 'SCADENTE'
   ) THEN RETURN FALSE;
   END IF;
-  -- Inserisco prenotazione
+  -- Inserisco prenotazione con stringa casuale
   INSERT INTO PRENOTAZIONE (CodicePrenotazione, EmailUtilizzatore, CodiceLibroCartaceo) VALUES (
     substr(md5(random()::text), 0, 11),
     EmailUtente,

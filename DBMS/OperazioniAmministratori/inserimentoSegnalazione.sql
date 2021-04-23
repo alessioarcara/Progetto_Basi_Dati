@@ -1,3 +1,4 @@
+-- Inserimento segnalazione per un utilizzatore
 DROP FUNCTION IF EXISTS inserimentoSegnalazione;
 
 CREATE FUNCTION inserimentoSegnalazione (IdS TEXT, TestoS TEXT, DataS DATE, EmailA TEXT, EmailU TEXT)

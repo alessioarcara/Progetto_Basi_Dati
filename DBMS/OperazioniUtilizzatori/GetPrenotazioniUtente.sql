@@ -1,3 +1,5 @@
+-- Creazione function per ritornare le prenotazioni gestite lato PHP con tabelle dinamiche
+-- Restituisce solo la tabella di uno specifico utilizzatore
 DROP FUNCTION IF EXISTS GetPrenotazioniUtente;
 CREATE FUNCTION GetPrenotazioniUtente (EmailUtente TEXT)
 RETURNS TABLE(

@@ -1,3 +1,4 @@
+-- Creazione function per inserire messaggio
 DROP FUNCTION IF EXISTS inserimentoMessaggio;
 
 CREATE FUNCTION inserimentoMessaggio (IdM TEXT, TitoloM TEXT, TestoM TEXT, DataM DATE, EmailA TEXT, EmailU TEXT)

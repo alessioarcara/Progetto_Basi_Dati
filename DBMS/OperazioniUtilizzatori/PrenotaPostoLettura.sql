@@ -10,7 +10,7 @@ CREATE FUNCTION PrenotaPostoLettura (
 RETURNS BOOLEAN
 AS $$
 BEGIN
-  -- Controlla se il posto lettura è libero all'orario specificato
+  -- Controllo se il posto lettura è libero all'orario specificato
   IF EXISTS (
     SELECT IdRegistrazione
     FROM REGISTRAZIONE
@@ -23,7 +23,8 @@ BEGIN
   )
   THEN RETURN FALSE;
   END IF;
-  -- Inserisci registrazione posto lettura
+
+  -- Inserisci registrazione posto lettura se l'if è superato
   INSERT INTO REGISTRAZIONE VALUES (
     substr(md5(random()::text), 0, 11),
     DataPrenotazione,
@@ -34,10 +35,5 @@ BEGIN
     Biblioteca
   );
   RETURN TRUE;
-
-  -- EXCEPTION
-  --   WHEN OTHERS THEN
-  --     RETURN FALSE;
-
 END; $$
 LANGUAGE 'plpgsql';

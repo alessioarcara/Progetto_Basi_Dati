@@ -10,5 +10,3 @@ BEGIN
 END;
 $$
     LANGUAGE plpgsql;
-
-SELECT * FROM GetStatoLibri();

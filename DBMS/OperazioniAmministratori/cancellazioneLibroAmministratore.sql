@@ -1,3 +1,4 @@
+-- Cancellazione di un libro per sfruttare le cascade nello schema delle tabelle
 DROP FUNCTION IF EXISTS cancellazioneLibroAmministratore;
 
 CREATE FUNCTION cancellazioneLibroAmministratore(EmailA TEXT, CodiceL TEXT, NomeBiblio TEXT)

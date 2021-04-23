@@ -6,14 +6,15 @@ CREATE FUNCTION VisitaEbook (
     RETURNS BOOLEAN
 AS $$
 BEGIN
-    -- Controllo se eBook esiste
+    -- Controllo se EBook esiste
     IF NOT EXISTS (
             SELECT codiceebook
             FROM ebook e
             WHERE e.codiceebook = CodiceVisitaEbook
         ) THEN RETURN FALSE;
     END IF;
-    -- Inserisco visita
+    
+    -- Inserisco visita con stringa casuale
     INSERT INTO visita (idvisita, emailutilizzatore, codiceebook) VALUES
     (
     substr(md5(random()::text), 0, 11),

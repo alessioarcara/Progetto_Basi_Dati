@@ -119,7 +119,7 @@ CREATE TABLE UTILIZZATORE (
     EmailUtilizzatore VARCHAR(50) PRIMARY KEY,
     Professione VARCHAR(40) NOT NULL,
     DataCreazioneAccount DATE NOT NULL,
-    StatoAccount STATO,
+    StatoAccount STATO DEFAULT 'ATTIVO',
     FOREIGN KEY (EmailUtilizzatore) REFERENCES UTENTE(EmailUtente) ON DELETE CASCADE
     															   ON UPDATE CASCADE
 );

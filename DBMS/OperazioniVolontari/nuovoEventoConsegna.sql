@@ -18,7 +18,7 @@ RETURNS BOOLEAN
 
     BEGIN
         -- Controllo che vengano rispettate le proprietà
-        IF NOT EXISTS (
+        IF TipoC = 'Affidamento' AND NOT EXISTS (
             SELECT CodicePrenotazione
             FROM PRENOTAZIONE
             WHERE (CodicePrenotazione = CodiceP AND DataAvvio IS NULL AND DataFine IS NULL)

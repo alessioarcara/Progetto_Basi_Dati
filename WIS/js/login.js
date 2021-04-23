@@ -6,7 +6,7 @@ if (login)
 
     const formData = new FormData();
     const email = document.querySelector('#email').value;
-    formData.append('email', email);
+    formData.append('email', email.toLowerCase());
     formData.append('password', document.querySelector('#password').value);
     //console.log(document.querySelector('#email'), document.querySelector('#password'));
 
@@ -18,7 +18,7 @@ if (login)
       if (res.ok) {
         // alert('Log in effettuato con successo!');
 
-        document.cookie = 'email=' + email;
+        document.cookie = 'email=' + email.toLowerCase();
         
         location.assign('/user');
       }

@@ -1,3 +1,4 @@
+-- Creazione function da richiamare nella creazione del trigger
 CREATE OR REPLACE FUNCTION CambioStatoDisponibilePrenotato_funzione()
 RETURNS trigger
     AS $$

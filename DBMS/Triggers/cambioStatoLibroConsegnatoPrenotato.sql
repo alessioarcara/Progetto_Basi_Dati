@@ -1,3 +1,4 @@
+-- Creazione function da richiamare nella creazione del trigger
 CREATE OR REPLACE FUNCTION CambioStatoConsegnatoPrenotato_funzione()
     RETURNS trigger
 AS $$
@@ -11,7 +12,7 @@ BEGIN
         FROM prenotazione JOIN consegna ON prenotazione.codiceprenotazione = consegna.codiceprenotazione
         WHERE consegna.codiceprenotazione = new.codiceprenotazione;
 
-        UPDATE librocartaceo SET statoprestito = 'PRENOTATO' WHERE codicelibrocartaceo = tempCodiceLibro;
+        UPDATE librocartaceo SET statoprestito = 'DISPONIBILE' WHERE codicelibrocartaceo = tempCodiceLibro;
         RETURN NEW;
     ELSE
         RETURN NULL;

@@ -29,21 +29,5 @@ RETURNS BOOLEAN
         INSERT INTO CONSEGNA VALUES (Codice, Note, DataC, TipoC, CodiceP, EmailVol);
         CALL modificaDataPrenotazione (CodiceP, DataC);
         RETURN TRUE;
-
-        -- Altro modo con utilizzo di flag
-        -- SELECT COUNT(*) INTO controllo 
-        -- FROM PRENOTAZIONE 
-        -- WHERE (CodicePrenotazione = CodiceP AND DataAvvio IS NULL AND DataFine IS NULL);
-
-        -- IF (controllo = 0) THEN 
-        --     RETURN FALSE;
-        -- END IF;
-
-        -- IF (controllo = 1) THEN
-        --     INSERT INTO CONSEGNA VALUES (Codice, Note, DataC, TipoC, CodiceP, EmailVol);
-        --     CALL modificaDataPrenotazione (CodiceP, DataC);
-
-        --     RETURN TRUE;
-        -- END IF;
     END; $$
 LANGUAGE 'plpgsql';

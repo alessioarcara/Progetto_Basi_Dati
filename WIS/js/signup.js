@@ -5,12 +5,14 @@ if (signup)
     e.preventDefault();
 
     const formData = new FormData();
+    const email = document.querySelector('#new-user-email').value;
+
     formData.append('nome', document.querySelector('#new-name').value);
     formData.append('cognome', document.querySelector('#new-last-name').value);
     formData.append('datadinascita', document.querySelector('#new-birth-date').value);
     formData.append('luogodinascita', document.querySelector('#new-birth-place').value);
     formData.append('telefono', document.querySelector('#new-phone').value);
-    formData.append('email', document.querySelector('#new-user-email').value);
+    formData.append('email', email.toLowerCase());
     formData.append('password', document.querySelector('#new-user-password').value);
     formData.append('professione', document.querySelector('#new-user-job').value);
 
@@ -21,7 +23,7 @@ if (signup)
         .then( res => {
           if (res.ok) {
             alert('Registrazione avvenuta con successo!');
-            document.cookie = 'email=' + email;
+            document.cookie = 'email=' + email.toLowerCase();
             location.reload();
           }
           else alert('Invalid input')

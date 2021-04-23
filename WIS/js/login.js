@@ -16,10 +16,8 @@ if (login)
     })
     .then( res => {
       if (res.ok) {
-        // alert('Log in effettuato con successo!');
-
         document.cookie = 'email=' + email.toLowerCase();
-        
+    
         location.assign('/user');
       }
       else alert('Email o Password errati');

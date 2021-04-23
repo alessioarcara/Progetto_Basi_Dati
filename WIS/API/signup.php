@@ -10,7 +10,7 @@ foreach ($_POST as $key => $value) {
   $request[$key] = filter_input(INPUT_POST, $key, FILTER_SANITIZE_SPECIAL_CHARS);
 };
 
-$email = strtolower($request['email']);
+$email = $request['email'];
 $password = md5($request['password']);
 $nome = $request['nome'];
 $cognome = $request['cognome'];

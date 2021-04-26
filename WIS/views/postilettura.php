@@ -23,7 +23,7 @@
                 echo "<div class='card-posto'>
                         <h5>Posto $key</h5>";
                         echo $presacorr ? "<p><i class='fas fa-plug disponibile'></i> Presa Corrente</p>" : "<p> <i class='fas fa-plug non-disponibile'></i> Presa Corrente</p>";
-                        echo $presacorr ? "<p><i class='fas fa-ethernet disponibile'></i> Ethernet</p>" : "<p> <i class='fas fa-ethernet non-disponibile'></i> Ethernet</p>";
+                        echo $presaeth ? "<p><i class='fas fa-ethernet disponibile'></i> Ethernet</p>" : "<p> <i class='fas fa-ethernet non-disponibile'></i> Ethernet</p>";
                         echo "
                       </div>";
         }

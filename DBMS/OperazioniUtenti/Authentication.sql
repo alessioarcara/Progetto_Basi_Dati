@@ -1,3 +1,4 @@
+-- Function per l'autenticazione
 DROP FUNCTION IF EXISTS Authentication;
 CREATE FUNCTION Authentication (Email TEXT, Pwd TEXT)
 RETURNS BOOLEAN
@@ -18,4 +19,3 @@ AS $$
     
   END; $$
 LANGUAGE 'plpgsql';
-    

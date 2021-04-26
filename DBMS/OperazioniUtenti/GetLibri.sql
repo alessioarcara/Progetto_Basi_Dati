@@ -1,3 +1,4 @@
+-- Function per libri disponibili
 DROP FUNCTION IF EXISTS LibriBiblioteca;
 CREATE FUNCTION LibriBiblioteca (VARIADIC words TEXT[] DEFAULT NULL)
     RETURNS TABLE(

@@ -1,3 +1,4 @@
+-- Creazione function per i posti lettura nelle biblioteche
 DROP FUNCTION IF EXISTS PostiLetturaBiblioteca;
 CREATE FUNCTION PostiLetturaBiblioteca (VARIADIC NomiB TEXT[] DEFAULT NULL)
     RETURNS TABLE(

@@ -1,3 +1,4 @@
+-- Creazione function per visualizzazione delle biblioteche
 DROP FUNCTION IF EXISTS GetBiblioteche;
 CREATE FUNCTION GetBiblioteche (VARIADIC NomiB TEXT[] DEFAULT NULL)
 RETURNS TABLE (

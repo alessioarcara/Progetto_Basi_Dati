@@ -20,7 +20,7 @@ if (login)
     
         location.assign('/user');
       }
-      else alert('Email o Password errati');
+      else alert('Email o Password errati oppure account SOSPESO!');
     })
     .catch( err => console.log(err));
     

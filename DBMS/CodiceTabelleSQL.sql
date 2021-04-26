@@ -41,6 +41,11 @@ CREATE TABLE POSTOLETTURA (
 															  ON UPDATE CASCADE
 );
 
+-- Creo la sequenza per effettuare inserimenti come AUTO_INCREMENT in MySQL
+CREATE SEQUENCE seriale AS integer START 1 OWNED BY POSTOLETTURA.Numero;
+ALTER TABLE POSTOLETTURA ALTER COLUMN Numero SET DEFAULT nextval('seriale');
+
+
 CREATE TABLE LIBRO (
 	CodiceLibro CHAR(10) PRIMARY KEY,
 	Titolo VARCHAR(30) NOT NULL,
@@ -96,7 +101,7 @@ CREATE TABLE UTENTE (
 
 CREATE TABLE AMMINISTRATORE (
     EmailAmministratore VARCHAR(50) PRIMARY KEY,
-    Qualifica VARCHAR(50) NOT NULL,
+    Qualifica VARCHAR(10) NOT NULL,
     NomeBiblioteca VARCHAR(100) NOT NULL,
     FOREIGN KEY (EmailAmministratore) REFERENCES UTENTE(EmailUtente) ON DELETE CASCADE
     							   									 ON UPDATE CASCADE,

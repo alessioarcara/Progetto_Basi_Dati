@@ -1241,7 +1241,7 @@ segmentare
 età e professione utenti utilizzatori
 numero e genere richieste prestiti libri cartacei
 */
-DROP FUNCTION k_nnClassifier();
+DROP FUNCTION IF EXISTS k_nnClassifier();
 
 CREATE OR REPLACE FUNCTION k_nnClassifier ()
     RETURNS JSON
@@ -1255,21 +1255,17 @@ AS $$
 
     # data extraction from db
 
-    rv = plpy.execute("""
-    WITH richiestelibri AS (
-      SELECT emailutilizzatore, count(distinct (genere)) 
-             AS generi, count(*) AS prenotazioni
-      FROM prenotazione
-      JOIN libro ON codicelibrocartaceo = codicelibro
-      GROUP BY emailutilizzatore
-      )
-    SELECT utilizzatore.emailutilizzatore, professione, 
-           datadinascita, generi, prenotazioni
-    FROM utilizzatore
-              JOIN utente ON emailutente = utilizzatore.emailutilizzatore
-              JOIN richiestelibri ON 
-                utilizzatore.emailutilizzatore = richiestelibri.emailutilizzatore
-    """)
+    rv = plpy.execute("""WITH richiestelibri AS (
+                         SELECT emailutilizzatore, count(distinct (genere)) AS generi, count(*) AS prenotazioni
+                         FROM prenotazione
+                         JOIN libro ON codicelibrocartaceo = codicelibro
+                         GROUP BY emailutilizzatore
+                         )
+                        SELECT utilizzatore.emailutilizzatore, professione, datadinascita, generi, prenotazioni
+                        FROM utilizzatore
+                                 JOIN utente ON emailutente = utilizzatore.emailutilizzatore
+                                 JOIN richiestelibri ON utilizzatore.emailutilizzatore = richiestelibri.emailutilizzatore
+                      """)
 
     # cursor to dictionary to dataFrame
 
@@ -1279,24 +1275,18 @@ AS $$
                                                               r['generi'],
                                                               r['prenotazioni'])})
 
-    df = pd.DataFrame.from_dict(dict_utilizzatore, 
-                                orient='index', 
-                                columns=['professione',
-                                          'datadinascita',
-                                          'generi',
-                                          'prenotazioni'])
+    df = pd.DataFrame.from_dict(dict_utilizzatore, orient='index', columns=['professione',
+                                                                            'datadinascita',
+                                                                            'generi',
+                                                                            'prenotazioni'])
 
     # normalize data
     normalize = lambda v: v / np.linalg.norm(v)
 
     # preprocessing data
-    df['professione_feat'] = 
-      normalize(df['professione'].astype('category').cat.codes)
-    df['generi_feat'], 
-    df['prenotazioni_feat'] = 
-      normalize(df['generi']), normalize(df['prenotazioni'])
-    df['eta'] = 
-      (pd.to_datetime('today').year -  pd.to_datetime(df.datadinascita).dt.year)
+    df['professione_feat'] = normalize(df['professione'].astype('category').cat.codes)
+    df['generi_feat'], df['prenotazioni_feat'] = normalize(df['generi']), normalize(df['prenotazioni'])
+    df['eta'] = (pd.to_datetime('today').year -  pd.to_datetime(df.datadinascita).dt.year)
     df['eta_feat'] = normalize(df['eta'].copy())
     df = df.drop('datadinascita', 1)
 
@@ -1308,8 +1298,7 @@ AS $$
 
     # return table
     df["cluster"] = kmeans.labels_
-    df = 
-      df.drop(['professione_feat', 'eta_feat', 'generi_feat', 'prenotazioni_feat'], 1)
+    df = df.drop(['professione_feat', 'eta_feat', 'generi_feat', 'prenotazioni_feat'], 1)
     return df.T.to_json()
 $$ LANGUAGE plpython3u;
 

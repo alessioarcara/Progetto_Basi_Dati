@@ -3,7 +3,7 @@ segmentare
 età e professione utenti utilizzatori
 numero e genere richieste prestiti libri cartacei
 */
-DROP FUNCTION k_nnClassifier();
+DROP FUNCTION IF EXISTS k_nnClassifier();
 
 CREATE OR REPLACE FUNCTION k_nnClassifier ()
     RETURNS JSON

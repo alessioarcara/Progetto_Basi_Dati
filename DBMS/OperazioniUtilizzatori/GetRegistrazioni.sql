@@ -11,5 +11,3 @@ AS $$
     END;
 $$
 LANGUAGE plpgsql;
-
-SELECT * FROM GetRegistrazioni()

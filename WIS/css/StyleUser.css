@@ -209,7 +209,7 @@ p {
 
 .main-container {
     padding: 1rem 2rem;
-    background-color: #fff;
+    background-color: var(--colour-white);
     margin-bottom: 5rem;
     min-height: 12rem;
 }
